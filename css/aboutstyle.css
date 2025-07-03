@@ -1,19 +1,3 @@
-/*** Spinner Start ***/
-#spinner {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.05s ease-out, visibility 0s linear 0.05s;
-  z-index: 99999;
-}
-
-#spinner.show {
-  transition: opacity 0.05s ease-out, visibility 0s linear 0s;
-  visibility: visible;
-  opacity: 1;
-}
-/*** Spinner End ***/
-
-/* Modified Syles  */
 :root {
   --primary: #2c3e50;
   --primary-dark: #1a252f;
@@ -44,12 +28,10 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-  --navy: #1e2a4a;
-  --yellow: #ffd700;
-  --blue: #4a90e2;
-  --light-blue: #e8f4fd;
-  --white: #ffffff;
-  --light-gray: #f8f9fa;
+  /* New Lighter Color Variables for improved visuals */
+  --primary-light: #5d82a3;
+  --secondary-light: #f1dd81;
+  --accent-light: #8cd6f8;
 }
 
 * {
@@ -185,32 +167,31 @@ body {
 
 /* Re-designed Contact Button */
 .contact-btn-nav {
-  background: var(--gradient-1); /* Use primary gradient */
+  background: var(--gradient-1);
   color: white !important;
   padding: 0.75rem 1.5rem !important;
   border-radius: 50px;
   font-weight: 600;
-  margin-left: 1rem; /* Space from last nav item */
+  margin-left: 1rem;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
-  text-decoration: none; /* Ensure no underline */
-  display: flex; /* Use flex to align icon and text */
+  text-decoration: none;
+  display: flex;
   align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
-  white-space: nowrap; /* Prevent text wrapping */
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .contact-btn-nav:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: var(--shadow-xl);
-  color: white !important; /* Ensure color remains white */
+  color: white !important;
 }
 
 .contact-btn-nav i {
-  color: white; /* Icon color */
+  color: white;
 }
 
-/* Hide the old contact details and previous button */
 .navbar-contact-info,
 .contact-btn {
   display: none !important;
@@ -231,113 +212,66 @@ body {
   transform: scale(0.9);
 }
 
-/* Hero Section */
-.hero {
-  min-height: 100vh;
+/* Hero Section for Subpages (retains its unique feel) */
+.subpage-hero {
+  min-height: 50vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: url("https://images.unsplash.com/photo-1517841961448-b4b0e7d0f9a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+  background: url("https://images.unsplash.com/photo-1542744173-8e43e2646b14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
     no-repeat center center;
   background-size: cover;
-  padding-top: 100px; /* Adjust for fixed navbar height */
+  background-position: center 30%;
+  padding-top: 100px;
+  text-align: center;
 }
 
-.hero::after {
+.subpage-hero::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: linear-gradient(
+  background: linear-gradient(
     to right,
-    rgba(26, 37, 47, 0.9),
-    rgba(52, 152, 219, 0.7)
-  ); */
+    rgba(44, 62, 80, 0.85),
+    rgba(52, 152, 219, 0.6)
+  );
   z-index: 1;
 }
 
-.hero-content {
+.subpage-hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
-.hero h1 {
+.subpage-hero h1 {
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 800;
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.hero .highlight {
-  background: linear-gradient(45deg, #d4af37, #f1c40f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 3rem;
-  max-width: 600px;
-  line-height: 1.8;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn-hero-primary {
-  background: linear-gradient(45deg, #d4af37, #f1c40f);
-  border: none;
-  color: var(--primary-dark);
-  font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
+.breadcrumb-nav {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-  position: relative;
-  overflow: hidden;
 }
 
-.btn-hero-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
-  color: var(--primary-dark);
+.breadcrumb-nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
-
-.btn-hero-secondary {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+.breadcrumb-nav a:hover {
+  color: var(--secondary);
 }
-
-.btn-hero-secondary:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-3px) scale(1.05);
-  color: white;
-}
-
-.hero-image-container {
-  position: relative;
-}
-
-.hero-image-container img {
-  border-radius: 2rem;
-  box-shadow: var(--shadow-xl);
+.breadcrumb-nav span {
+  margin: 0 0.5rem;
 }
 
 /* General Section Styling */
@@ -364,94 +298,22 @@ body {
 }
 
 .section-description {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--gray-600);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
 }
 
-/* Value Props */
-.value-section {
-  padding: 8rem 0;
-  background: var(--gray-50);
-  position: relative;
-}
-
-.value-card {
-  background: white;
-  border-radius: 24px;
-  padding: 3rem 2rem;
-  height: 100%;
-  border: 1px solid var(--gray-200);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.value-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-1);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.value-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(30, 42, 74, 0.15);
-  border-color: var(--yellow);
-}
-
-/* .value-card:hover::before {
-  transform: scaleX(1);
-} */
-
-.value-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--blue), var(--yellow));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 2rem;
-  font-size: 2rem;
-  color: var(--white);
-}
-
-.value-card:nth-child(2) .value-icon {
-  background: var(--gradient-2);
-}
-.value-card:nth-child(3) .value-icon {
-  background: var(--gradient-3);
-}
-
-.value-card h3 {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 1rem;
-}
-
-.value-card p {
-  text-align: center;
-  color: var(--gray-600);
-  line-height: 1.7;
-}
-
-/* Company Info Section */
+/* About Us Main Content Section (Aligns with homepage's .company-info-section) */
 .company-info-section {
+  /* Renamed for consistency */
   padding: 8rem 0;
   background: white;
 }
 
 .company-img {
+  /* Re-using existing homepage style */
   border-radius: 24px;
   box-shadow: var(--shadow-xl);
   object-fit: cover;
@@ -492,8 +354,101 @@ body {
   font-size: 0.9rem;
 }
 
-/* Services Section */
+/* Mission, Vision, Values Section (Aligned with homepage's .value-section) */
+.value-section {
+  /* Renamed for consistency */
+  padding: 8rem 0;
+  background: var(--gray-50);
+  position: relative;
+}
+
+.value-card {
+  /* Re-using existing homepage style */
+  background: white;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  height: 100%;
+  border: 1px solid var(--gray-200);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex; /* Added flex for alignment of icon and text */
+  flex-direction: column;
+  align-items: center; /* Center content */
+  text-align: center;
+  box-shadow: var(--shadow-sm); /* Slightly softer initial shadow */
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-1);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+  /* Added animation on hover */
+  animation: glow-border 1s infinite alternate;
+}
+
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+.value-icon {
+  /* Re-using existing homepage style */
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease; /* Added for smoother hover */
+}
+
+/* Specific gradient for each value card icon */
+.value-card:nth-child(1) .value-icon {
+  background: var(--gradient-1);
+}
+.value-card:nth-child(2) .value-icon {
+  background: var(--gradient-2);
+}
+.value-card:nth-child(3) .value-icon {
+  background: var(--gradient-3);
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.1); /* Zoom effect on icon hover */
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* Insurance Types Section (Aligned with homepage's .services-section) */
 .services-section {
+  /* Renamed for consistency */
   padding: 8rem 0;
   background: var(--gray-50);
 }
@@ -517,15 +472,18 @@ body {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
   border-color: var(--accent);
+  /* Added animation on hover */
+  animation: glow-border 1s infinite alternate;
 }
 
 .service-card-alt .service-icon-alt {
+  /* Re-using existing homepage style */
   font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 1.5rem;
   width: 70px;
   height: 70px;
-  border-radius: 18px;
+  border-radius: 18px; /* Square-ish for services */
   background: var(--gray-100);
   display: flex;
   align-items: center;
@@ -536,6 +494,7 @@ body {
 .service-card-alt:hover .service-icon-alt {
   background: var(--accent);
   color: white;
+  transform: translateY(-5px) rotate(5deg); /* Added subtle animation */
 }
 
 .service-card-alt h4 {
@@ -570,79 +529,217 @@ body {
   font-size: 1rem;
 }
 
+/* Why Choose Us Section (Re-purposed to be a .value-section variant) */
+/* Re-using .value-section classes and adapting for 'Why Choose Us' specific icons/colors */
+.why-choose-us-section {
+  padding: 8rem 0;
+  background: var(
+    --gray-100
+  ); /* Slightly different background from value-section */
+}
+.why-choose-us-card {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  height: 100%;
+  border: 1px solid var(--gray-200);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm); /* Softer initial shadow */
+}
+.why-choose-us-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--secondary); /* Using secondary for the top border */
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.why-choose-us-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+  /* Added animation on hover */
+  animation: glow-border 1s infinite alternate;
+}
+
+.why-choose-us-card:hover::before {
+  transform: scaleX(1);
+}
+.why-choose-us-icon-wrapper {
+  /* New wrapper for icons to allow more styling */
+  width: 80px;
+  height: 80px;
+  background: var(--gray-100); /* Default background */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--primary); /* Default icon color */
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+/* Specific icon colors based on the section's overall palette */
+.why-choose-us-card:nth-child(1) .why-choose-us-icon-wrapper {
+  color: var(--success);
+}
+.why-choose-us-card:nth-child(2) .why-choose-us-icon-wrapper {
+  color: var(--accent);
+}
+.why-choose-us-card:nth-child(3) .why-choose-us-icon-wrapper {
+  color: var(--secondary);
+}
+.why-choose-us-card:nth-child(4) .why-choose-us-icon-wrapper {
+  color: var(--primary-dark);
+}
+
+.why-choose-us-card:hover .why-choose-us-icon-wrapper {
+  transform: scale(1.1) rotate(3deg); /* Subtle spin and scale */
+  background: var(--accent-light); /* Lighter accent background on hover */
+}
+.why-choose-us-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.why-choose-us-card p {
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* CTA Section (Aligns with homepage's hero overlay concept) */
+.cta-section {
+  padding: 8rem 0;
+  color: white;
+  text-align: center;
+  background: url("https://images.unsplash.com/photo-1517841961448-b4b0e7d0f9a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center; /* Using homepage hero image */
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 37, 47, 0.9),
+    rgba(52, 152, 219, 0.7)
+  ); /* Homepage hero gradient */
+  z-index: 0;
+}
+.cta-section > * {
+  position: relative;
+  z-index: 1;
+}
+.cta-section h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+.cta-section p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+}
+.cta-section .btn-hero-primary {
+  background: linear-gradient(45deg, #d4af37, #f1c40f);
+  color: var(--primary-dark);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+.cta-section .btn-hero-primary:hover {
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+}
+
 /* FAQ Section */
 .faq-section {
   padding: 8rem 0;
+  background: var(--gray-50); /* Matches homepage */
+}
+.faq-section .accordion-item {
   background: white;
-}
-
-.accordion-button {
-  font-weight: 600;
-  color: var(--primary);
-  font-size: 1.1rem;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: var(--gray-100);
-  color: var(--primary);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
-}
-
-.accordion-item {
-  border-radius: 12px !important;
+  transition: all 0.2s ease;
   border: 1px solid var(--gray-200);
-  overflow: hidden;
-  margin-bottom: 1rem;
+}
+.faq-section .accordion-item:hover {
+  background: var(--gray-100);
+  border-color: var(--primary); /* Primary border on hover */
+  box-shadow: var(--shadow-sm);
 }
 
-.accordion-body {
-  color: var(--gray-600);
+/* New Animation: Glow Border */
+@keyframes glow-border {
+  0% {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--gray-200);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px var(--secondary-light); /* Lighter yellow glow */
+    border-color: var(--secondary);
+  }
+  100% {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--gray-200);
+  }
 }
 
-/* Testimonials Section */
-.testimonial-section {
-  padding: 8rem 0;
-  background: var(--gray-50);
+/* Footer - Copying from main site for consistency */
+/* START of the new CSS for social icon hover colors and layout fixes */
+/* Custom adjustments for improved display */
+/* Footer Contact Us section display */
+.footer .col-lg-3.col-md-6 .social-links {
+    display: flex; /* Use flexbox for social links */
+    gap: 10px; /* Space between social icons */
+    margin-top: 1.5rem; /* More space above social icons */
+    justify-content: flex-start; /* Align left */
 }
 
-.testimonial-card {
-  background: white;
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  text-align: center;
-  height: 100%;
+/* Adjust padding for footer paragraphs to reduce squishing */
+.footer .col-lg-3.col-md-6 p {
+    margin-bottom: 0.75rem; /* More space between lines of contact info */
 }
 
-.testimonial-card .quote-icon {
-  font-size: 3rem;
-  color: var(--accent);
-  opacity: 0.2;
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+/* Make sure the clickable links within footer contact info wrap properly */
+.footer .col-lg-3.col-md-6 p a {
+    display: inline; /* Allow text to wrap naturally */
+    padding: 0; /* Remove extra padding from 'display: block' in general footer a */
+    margin: 0; /* Remove extra margin */
+    word-break: break-word; /* Break long words if necessary */
 }
 
-.testimonial-card p {
-  font-size: 1.1rem;
-  color: var(--gray-700);
-  font-style: italic;
+/* Footer specific social icon hover colors */
+.footer .social-links a.facebook:hover {
+    background-color: #3b5998; /* Facebook Blue */
 }
-
-.testimonial-card .client-name {
-  font-weight: 700;
-  color: var(--primary);
-  margin-top: 2rem;
-  margin-bottom: 0.25rem;
+.footer .social-links a.twitter:hover {
+    background-color: #00acee; /* Twitter Blue */
 }
-
-.testimonial-card .client-type {
-  color: var(--gray-500);
-  font-weight: 500;
+.footer .social-links a.instagram:hover {
+    background-color: #C13584; /* Instagram Pink/Purple */
 }
-
-/* Footer */
+.footer .social-links a.linkedin:hover {
+    background-color: #0077B5; /* LinkedIn Blue */
+}
+/* END of the new CSS */
 .footer {
   background: var(--gray-900);
   color: var(--gray-400);
@@ -706,29 +803,28 @@ body {
 
 /* WhatsApp Button */
 .whatsapp-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  background: #25d366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  text-decoration: none;
-  animation: bounce 2s infinite;
+        position: fixed;
+        bottom: 2rem; /* Both on the same bottom line */
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        z-index: 1000;
+        text-decoration: none;
+        cursor: pointer;
 }
 
 .whatsapp-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
-  color: white;
+        transform: scale(1.1);
+        color: white;
+        text-decoration: none;
 }
 
 /* Animations */
@@ -763,6 +859,22 @@ body {
   }
 }
 
+/* New glow animation for cards */
+@keyframes glow-border {
+  0% {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--gray-200);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px var(--secondary-light); /* Light yellow glow */
+    border-color: var(--secondary);
+  }
+  100% {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--gray-200);
+  }
+}
+
 /* Mobile View Improvements */
 @media (max-width: 991px) {
   .navbar {
@@ -779,10 +891,6 @@ body {
     margin-right: 0;
     margin-bottom: 1rem;
   }
-  .navbar-contact-info {
-    /* Hiding this for mobile */
-    display: none !important;
-  }
   .navbar-collapse {
     background: rgba(255, 255, 255, 0.98);
     border-radius: 12px;
@@ -792,7 +900,7 @@ body {
     width: 100%;
   }
   .navbar-nav {
-    width: 100%; /* Take full width to center links */
+    width: 100%;
   }
   .navbar-nav .nav-item {
     text-align: center;
@@ -801,16 +909,28 @@ body {
     margin: 0.5rem 0;
   }
   .contact-btn-nav {
-    /* Show the contact button on mobile */
     display: flex !important;
     width: fit-content;
-    margin: 1rem auto 0 auto; /* Center it */
+    margin: 1rem auto 0 auto;
   }
-}
-@media (min-width: 992px) {
-  .contact-btn-nav {
-    /* Show on desktop */
-    display: flex !important;
+  .subpage-hero {
+    min-height: 40vh;
+    padding-top: 80px;
+  }
+  .company-info-section .row {
+    /* Applied to company-info-section for consistency */
+    flex-direction: column-reverse; /* Reverse order for mobile: text then image */
+  }
+  .company-img {
+    margin-bottom: 2rem;
+  }
+  .cta-section::before {
+    background: rgba(
+      26,
+      37,
+      47,
+      0.8
+    ); /* Slightly less opaque on mobile for better image visibility */
   }
 }
 @media (max-width: 768px) {
@@ -821,7 +941,8 @@ body {
   .company-info-section,
   .services-section,
   .faq-section,
-  .testimonial-section {
+  .testimonial-section,
+  .cta-section {
     padding: 5rem 0;
   }
   .testimonial-card {
@@ -974,6 +1095,7 @@ body {
     height: 50px;
     font-size: 20px;
   }
+
   .chat-bot-btn {
     bottom: 1rem;
     left: 15px;

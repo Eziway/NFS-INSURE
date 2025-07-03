@@ -40,56 +40,76 @@
         </div>
         <!-- Spinner End -->
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light"> 
-                    <a href="#" class="navbar-brand p-0">
-                        <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="Logo"> 
-                        <span style="
-                        display: flex;
-                        padding-left: 170px;
-                        font-size: small;
-                        margin-top: -5px;">consultant</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-0 mx-lg-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Services</a>
-                            <a href="blog.html" class="nav-item nav-link active">Blog</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <span class="dropdown-toggle">More</span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="feature.html" class="dropdown-item">Our Features</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                    </div>
-                    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-                            <i class="fa fa-phone-alt fa-2x"></i>
-                            <div class="position-absolute" style="top: 7px; right: 12px;">
-                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                            </div>
-                        </a>
-                        <div class="d-flex flex-column ms-3">
-                            <span>info@nfs.insure</span>
-                            <a href="tel:+27 10 055 7272"><span class="text-dark">+27 10 055 7272</span></a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+<!-- Navigation - Updated structure with logo, nav links, and distinct contact button -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
+            alt="NFS Insure Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- mx-auto to center nav links -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMore"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+                <li>
+                  <a class="dropdown-item" href="feature.html">Our Features</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="testimonial.html"
+                    >Testimonial</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="FAQ.html">FAQs</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Re-introduced and improved Contact Button -->
+          <a href="contact.html" class="contact-btn-nav">
+            <i class="fas fa-phone-alt"></i> Contact Us
+          </a>
         </div>
-        <!-- Navbar & Hero End -->
+      </div>
+    </nav>
+        <!-- Navigation End -->
 
         <!-- Modal Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,197 +245,127 @@
         <!-- Blog End -->
 
 
-        <!-- Footer Start -->
-        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.02s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-9">
-                        <div class="mb-5">
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-6 col-xl-5">
-                                    <div>
-                                        <a href="index.html" class="p-0">
-                                            <img style="height: 50px;margin-bottom: 10px;"
-                                                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png" alt="Logo">
-                                        </a>
-                                        <p class="text-white">NFS Insure Consultant (Pty) Ltd is an Authorised Financial Services Provider (FSP No. 53910)</p>
-                                        <div class="col-md-6 col-lg-6 col-xl-6">
-                                            <div class="footer-item">
-                                        <a href="docs/PAIA MANUAL WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> PAIA Manual</a>
-                                        <a href="docs/Conflict of Interest Management Policy Website.pdf"><i class="fas fa-angle-right me-2"></i> Conflict of Interest</a>
-                                        <a href="docs/Complaints Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Complaints</a>
-                                        <a href="docs/TCF Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> TCF</a>
-                                        <a href="docs/PRIVACY NOTICE WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Privacy Notice</a>
-                                    </div>
-                                </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="footer-item">
-                                        <h4 class="text-white mb-4">Useful Links</h4>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Features</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                        
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="footer-item">
-                                        <h4 class="mb-4 text-white">Instagram</h4>
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-1.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                                class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-2.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-3.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-4.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-5.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-6.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-5" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                            <div class="row g-0">
-                                <div class="col-12">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-map-marker-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Address</h4>
-                                                    <p class="mb-0">Eagle Canyon Office Park,
-                                                        Corner Christiaan De Wet Street
-                                                        and Dolfyn Street,
-                                                        Randpark Ridge,
-                                                        2154
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-envelope fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Mail Us</h4>
-                                                    <p class="mb-0">info@nfs.insure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fa fa-phone-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Telephone</h4>
-                                                    <p class="mb-0">+27 10 055 7272</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-xl-3">
-                        <div class="footer-item">
-                            <h4 class="text-white mb-4">Our Promise</h4>
-                            <p class="text-white mb-3">Protecting your tomorrow, today.</p>
-                            <div class="d-flex flex-shrink-0">
-                                <div class="footer-btn">
-                                    <a href="#" class="btn btn-lg-square rounded-circle position-relative wow tada"
-                                        data-wow-delay=".9s">
-                                        <i class="fa fa-phone-alt fa-2x"></i>
-                                        <div class="position-absolute" style="top: 2px; right: 12px;">
-                                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column ms-3 flex-shrink-0">
-                                    <span class="text-light">info@nfs.insure</span>
-                                    <a href="tel:+27 10 055 7272"><span class="text-light">+27 10 055 7272</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="p-0">
+              <img
+                style="height: 50px; margin-bottom: 10px"
+                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png"
+                alt="Logo"
+              />
+            </a>
+            <p>
+              Your trusted partner in building a secure financial future. We
+              provide comprehensive insurance solutions with integrity and
+              transparency.
+            </p>
+            <p class="mb-0"><strong>FSP No. 53910</strong></p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Useful Links</h5>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="FAQ.html">FAQ's</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Legal</h5>
+            <a href="docs/PAIA MANUAL WEBSITE.pdf">PAIA Manual</a>
+            <a href="docs/Conflict of Interest Management Policy Website.pdf"
+              >Conflict of Interest</a
+            >
+            <a href="docs/Complaints Policy WEBSITE.pdf">Complaints</a>
+            <a href="docs/TCF Policy WEBSITE.pdf">TCF</a>
+            <a href="docs/PRIVACY NOTICE WEBSITE.pdf">Privacy Notice</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>Eagle Canyon Office
+              Park, Cnr Christiaan De Wet & Dolfyn St, Randpark Ridge, 2154
+            </p>
+            <p><i class="fas fa-phone me-2"></i>+27 10 055 7272</p>
+            <p><i class="fas fa-envelope me-2"></i>info@nfs.insure</p>
+            <div class="social-links mt-3">
+                 <a href="https://www.instagram.com/nfs_insure/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://web.facebook.com/profile.php?id=61566917234605"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://www.linkedin.com/company/nfsinsure/about/"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
+          </div>
         </div>
-        <!-- Footer End -->
-        
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-end mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>NFS Insure Consultant 2025 </a>| All right reserved |</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-start text-body">
-                        Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom text-white" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="year"></span> NFS Insure Consultant | All Rights
+            Reserved. | <a href="#">Privacy Policy</a>
+          </p>
         </div>
-        <!-- Copyright End -->
+      </div>
+    </footer>
 
+    <!-- Floating Action Buttons -->
+    <!-- AI Chat Bot Button -->
+    <button
+      type="button"
+      class="chat-bot-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#chatModal"
+      title="Chat with our AI Assistant"
+    >
+      <i class="fas fa-robot"></i>
+    </button>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/27100557272"
+      target="_blank"
+      class="whatsapp-btn"
+      title="Contact us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Chat Bot Modal -->
+    <div
+      class="modal fade chat-modal"
+      id="chatModal"
+      tabindex="-1"
+      aria-labelledby="chatModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chatModalLabel">
+              <i class="fas fa-robot me-2"></i>
+              NFS AI Assistant
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              src="https://app.fastbots.ai/embed/cmcc08fgk0005oelx09k84oei"
+              title="NFS Insurance AI Assistant"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
 
         
         <!-- JavaScript Libraries -->

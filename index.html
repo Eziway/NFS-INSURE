@@ -1,1047 +1,1260 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NFS - Insurance</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
     <link rel="stylesheet" href="lib/animate/animate.min.css" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      /* Replicated variables from your existing CSS for consistency */
+      :root {
+        --primary: #2c3e50;
+        --primary-dark: #1a252f;
+        --secondary: #d4af37;
+        --accent: #3498db;
+        --success: #27ae60;
+        --danger: #e74c3c;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-1: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        --gradient-2: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+        --gradient-3: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        --gradient-4: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --primary-light: #5d82a3;
+        --secondary-light: #f1dd81;
+        --accent-light: #8cd6f8;
+      }
 
-<body>
+      /* Hero Section Background */
+      .hero {
+        background-image: url('img/WhatsApp Image 2025-06-29 at 17.44.17_101b3d5f.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Creates the parallax effect */
+        padding: 280px 0 180px 0; /* Adjusted padding to move text down */
+        position: relative;
+      }
 
+      .hero .hero-content h1,
+      .hero .hero-content p {
+        color: #fff;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Stronger shadow for readability */
+      }
+
+      .hero .hero-content {
+        text-align: left;
+      }
+      
+      /* Smooth Section Styling */
+      .smooth-section {
+        padding: 60px 0;
+        margin: 40px auto;
+        border-radius: 15px;
+        box-shadow: var(--shadow-lg);
+        background-color: var(--light);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .smooth-section:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      /* Base styles for floating buttons */
+      .chat-bot-btn,
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 2rem; /* Both on the same bottom line */
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        z-index: 1000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .chat-bot-btn:hover,
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+        color: white;
+        text-decoration: none;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+        }
+      }
+
+      /* Specific positioning and styles for AI button */
+      .chat-bot-btn {
+        right: 9rem; /* Positioned to the left of WhatsApp */
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 100%
+        ); /* Existing AI bot gradient */
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+      }
+      .chat-bot-btn:hover {
+        box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+      }
+
+      /* Specific positioning and styles for WhatsApp button */
+      .whatsapp-btn {
+        right: 2rem; /* Standard right position */
+        background: linear-gradient(
+          135deg,
+          #25d366 0%,
+          #1da851 100%
+        ); /* WhatsApp green gradient */
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); /* Specific shadow for green */
+      }
+      .whatsapp-btn:hover {
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); /* Specific hover shadow for green */
+      }
+
+      /* Chat Bot Modal Styles */
+      .chat-modal .modal-dialog {
+        max-width: 350px;
+        margin: 1.75rem auto;
+      }
+
+      .chat-modal .modal-content {
+        border-radius: 15px;
+        border: none;
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+      }
+
+      .chat-modal .modal-header {
+        background: var(--gradient-1);
+        color: white;
+        border-bottom: none;
+        padding: 1rem 1.5rem;
+      }
+
+      .chat-modal .modal-header .btn-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0.8;
+      }
+
+      .chat-modal .modal-header .btn-close:hover {
+        opacity: 1;
+      }
+
+      .chat-modal .modal-body {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        overflow: hidden;
+        background-color: var(--gray-50);
+      }
+
+      #chat-messages {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-message-bubble {
+        max-width: 85%;
+        padding: 10px 15px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        font-size: 0.9rem;
+        animation: fadeInMessage 0.3s ease-out;
+      }
+
+      @keyframes fadeInMessage {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .user-message {
+        align-self: flex-end;
+        background-color: var(--accent);
+        color: white;
+        border-bottom-right-radius: 2px;
+      }
+
+      .bot-message {
+        align-self: flex-start;
+        background-color: var(--light);
+        color: var(--gray-800);
+        border-bottom-left-radius: 2px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .chat-modal-footer {
+        padding: 15px;
+        border-top: 1px solid var(--gray-200);
+        background-color: white;
+      }
+
+      .chat-modal-footer .input-group .form-control {
+        border-radius: 20px;
+        border: 1px solid var(--gray-300);
+        box-shadow: none;
+        transition: all 0.2s ease;
+      }
+      .chat-modal-footer .input-group .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+      }
+
+      .chat-modal-footer .input-group .btn {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background: var(--gradient-1);
+        color: white;
+        border: none;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
+      }
+      .chat-modal-footer .input-group .btn:hover {
+        background: var(--primary-dark);
+        box-shadow: var(--shadow);
+      }
+
+      .modal-title {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* WhatsApp Chat Modal Styling */
+      .whatsapp-chat-modal .modal-dialog {
+        max-width: 350px; /* Same width as bot chat for consistency */
+        margin: 1.75rem auto;
+      }
+      .whatsapp-chat-modal .modal-content {
+        border-radius: 15px;
+        box-shadow: var(--shadow-xl);
+        border: none;
+        overflow: hidden;
+      }
+      .whatsapp-chat-modal .modal-header {
+        background: #25d366; /* WhatsApp Green */
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom: none;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .whatsapp-chat-modal .modal-header h5 {
+        font-weight: 600;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        flex-grow: 1;
+      }
+      .whatsapp-chat-modal .modal-header .btn-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0.8;
+      }
+      .whatsapp-chat-modal .modal-header .btn-close:hover {
+        opacity: 1;
+      }
+      .whatsapp-chat-modal .modal-body {
+        padding: 1.5rem;
+        color: var(--gray-700);
+        line-height: 1.7;
+        background: var(--gray-50); /* Consistent background */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 250px; /* Ensure enough space for content */
+      }
+      .whatsapp-chat-modal .modal-body .chat-bubble {
+        background: white;
+        border-radius: 15px;
+        padding: 1rem 1.25rem;
+        box-shadow: var(--shadow-sm);
+        max-width: 90%;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        position: relative;
+        animation: fadeInMessage 0.3s ease-out;
+      }
+      .whatsapp-chat-modal .modal-body .chat-bubble::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%) rotate(45deg);
+        width: 15px;
+        height: 15px;
+        background: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: -1;
+        border-bottom-right-radius: 5px;
+      }
+      .whatsapp-chat-modal .modal-body p {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .whatsapp-chat-modal .modal-body .chat-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 1rem auto;
+        box-shadow: var(--shadow-sm);
+      }
+      .whatsapp-chat-modal .modal-body .chat-message {
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--gray-800);
+        font-weight: 500;
+      }
+      .whatsapp-chat-modal .modal-footer {
+        border-top: 1px solid var(--gray-200);
+        padding: 1.5rem;
+        background: white;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        justify-content: center;
+      }
+      .whatsapp-chat-modal .modal-footer .btn-whatsapp {
+        background: #25d366; /* WhatsApp Green */
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .whatsapp-chat-modal .modal-footer .btn-whatsapp:hover {
+        background: #1da851; /* Darker green on hover */
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .whatsapp-chat-modal .modal-footer .btn-whatsapp:active {
+        transform: translateY(0);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Animations */
+      @keyframes bounce {
+        0%,
+        20%,
+        53%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40%,
+        43% {
+          transform: translateY(-10px);
+        }
+        70% {
+          transform: translateY(-5px);
+        }
+        90% {
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Responsive adjustments for buttons */
+      @media (max-width: 768px) {
+        .chat-modal .modal-dialog,
+        .whatsapp-chat-modal .modal-dialog {
+          margin: 0.5rem;
+          max-width: calc(100% - 1rem);
+        }
+
+        .chat-modal .modal-body {
+          height: 400px;
+        }
+        .whatsapp-chat-modal .modal-body {
+          min-height: 200px;
+        }
+
+        .chat-bot-btn {
+          right: 5.5rem;
+          bottom: 1rem;
+        }
+
+        .whatsapp-btn {
+          right: 1rem;
+          bottom: 1rem;
+        }
+      }
+
+      /* Footer specific social icon hover colors */
+      .footer .social-links a.facebook:hover {
+          background-color: #3b5998; /* Facebook Blue */
+      }
+      .footer .social-links a.twitter:hover {
+          background-color: #00acee; /* Twitter Blue */
+      }
+      .footer .social-links a.instagram:hover {
+          background-color: #C13584; /* Instagram Pink/Purple */
+      }
+      .footer .social-links a.linkedin:hover {
+          background-color: #0077B5; /* LinkedIn Blue */
+      }
+
+      /* Custom adjustments for improved display */
+      /* Ensure proper spacing for navbar items */
+      .navbar-nav .nav-item {
+        margin-right: 0.5rem; /* Add some space between nav items */
+      }
+      .navbar-nav .nav-item:last-child {
+        margin-right: 0;
+      }
+
+      /* Ensure Contact Us button alignment */
+      .navbar-collapse {
+        display: flex;
+        justify-content: space-between; /* Distribute items horizontally */
+        align-items: center; /* Vertically align items */
+        width: 100%; /* Ensure it takes full width */
+      }
+      @media (max-width: 991.98px) { /* For smaller screens, stack them */
+        .navbar-collapse {
+          flex-direction: column;
+          align-items: center;
+        }
+        .navbar-nav {
+          margin-bottom: 1rem; /* Space below nav links before button */
+        }
+        .contact-btn-nav {
+          margin-left: 0;
+          margin-top: 1rem; /* Space above button */
+        }
+      }
+
+
+      /* Footer Contact Us section display */
+      .footer .col-lg-3.col-md-6 .social-links {
+          display: flex; /* Use flexbox for social links */
+          gap: 10px; /* Space between social icons */
+          margin-top: 1.5rem; /* More space above social icons */
+          justify-content: flex-start; /* Align left */
+      }
+
+      /* Adjust padding for footer paragraphs to reduce squishing */
+      .footer .col-lg-3.col-md-6 p {
+          margin-bottom: 0.75rem; /* More space between lines of contact info */
+      }
+
+      /* Make sure the clickable links within footer contact info wrap properly */
+      .footer .col-lg-3.col-md-6 p a {
+          display: inline; /* Allow text to wrap naturally */
+          padding: 0; /* Remove extra padding from 'display: block' in general footer a */
+          margin: 0; /* Remove extra margin */
+          word-break: break-word; /* Break long words if necessary */
+      }
+    </style>
+  </head>
+
+  <body>
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
     <!-- Spinner End -->
 
-    <!-- Navbar & Hero Start -->
-    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a href="#" class="navbar-brand p-0">
-                    <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="Logo">
-                    <span style="
-                        display: flex;
-                        padding-left: 170px;
-                        font-size: small;
-                        margin-top: -5px;">consultant</span>
+    <!-- Navigation - Updated structure with logo, nav links, and distinct contact button -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
+            alt="NFS Insure Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- mx-auto to center nav links -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMore"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+                <li>
+                  <a class="dropdown-item" href="feature.html">Our Features</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="testimonial.html"
+                    >Testimonial</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="FAQ.html">FAQs</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <!-- Re-introduced and improved Contact Button -->
+          <a href="contact.html" class="contact-btn-nav">
+            <i class="fas fa-phone-alt"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 col-md-12">
+            <div class="hero-content">
+              <h1>
+                Insurance That
+                <span class="highlight">Makes you happy</span>
+              </h1>
+              <p>
+                We’re more than just a Financial Services Provider, we’re your
+                partner in protecting your tomorrow today. Dedicated to
+                providing exceptional service and and support every step of the
+                way.
+              </p>
+              <div class="hero-buttons">
+                <a href="#services" class="btn btn-hero-primary">
+                  <i class="fas fa-shield-alt me-2"></i>Get Protected Today
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-0 mx-lg-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <!-- <a href="blog.html" class="nav-item nav-link">Blog</a> -->
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                <span class="dropdown-toggle">More</span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="feature.html" class="dropdown-item">Our Features</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                </div>
-                <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                    <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada"
-                        data-wow-delay=".9s">
-                        <i class="fa fa-phone-alt fa-2x"></i>
-                        <div class="position-absolute" style="top: 7px; right: 12px;">
-                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                        </div>
-                    </a>
-                    <div class="d-flex flex-column ms-3">
-                        <span>info@nfs.insure</span>
-                        <a href="tel:+27 10 055 7272"><span class="text-dark">+27 10 055 7272</span></a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar & Hero End -->
-
-    <!-- Modal Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center bg-primary">
-                    <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control p-3" placeholder="keywords"
-                            aria-describedby="search-icon-1">
-                        <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i
-                                class="fa fa-search"></i></span>
-                    </div>
-                </div>
+                <a href="#about" class="btn btn-hero-secondary">
+                  <i class="fas fa-play me-2"></i>Learn More
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <!-- Modal Search End -->
+      </div>
+    </section>
 
-    <!-- Carousel Start -->
-    <div class="header-carousel owl-carousel">
-        <div class="header-carousel-item bg-primary">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-7 animated fadeInLeft">
-                            <div class="text-sm-center text-md-start">
-                                <h1 class="display-1 text-white mb-4">Insurance that makes you happy</h1>
-                                <p class="mb-5 fs-5">We’re more than just a Financial Services Provider, we’re your partner in protecting your
-                                    tomorrow today. Dedicated to providing exceptional service and support every step of the way.
-                                </p>
-                                <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                    <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
-                                            class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                    <a class="btn btn-dark rounded-pill px-4 px-md-5 ms-2" onclick="openWA()">
-                                        <span class="d-flex align-items-center">
-                                            Get a Quote
-                                            <img src="img/WhatsApp-Logo.svg" alt="WhatsApp"
-                                                style="height: 44px; width: 50px;">
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Value Proposition Section -->
+    <section class="value-section smooth-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Features</div>
+          <h2 class="section-title">Building a Brighter Tomorrow</h2>
+          <p class="section-description">
+            At NFS Insure Consultant, we believe that insurance is more than
+            just a policy - it's a promise of protection and security for a
+            better future. Our mission is to provide you with peace of mind,
+            knowing that you're covered in times of uncertainty.
+            <br />
+            <br />
+            We're dedicated to being there for you when it matters most,
+            offering personalized support and expert guidance to help you
+            navigate life's challenges. Whether you're looking to safeguard your
+            loved ones, protect your assets, or simply ensure a secure tomorrow,
+            we're here to assist you every step of the way.
+            <br />
+            <br />
+            Trust NFS Insure Consultant to help you build a brighter future. Get
+            in touch with us today to discover how our insurance solutions can
+            provide you with the protection and reassurance you deserve.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa fa-dollar-sign fa"></i>
+              </div>
+              <h3>Your Financial Freedom</h3>
+              <p>
+                Ready to take control of your finances? We're dedicated to
+                helping you achieve financial freedom through comprehensive and
+                personalized insurance solutions.
+              </p>
             </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
+          </div>
 
-    <!-- Feature Start -->
-    <div class="container-fluid feature bg-light py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Features</h4>
-                <h1 class="display-4 mb-4">Building a Brighter Tomorrow with NFS Insure Consultant</h1>
-                <p class="mb-0">At NFS Insure Consultant, we believe that insurance is more than just a policy - it's a promise of
-                    protection and security for a better future. Our mission is to provide you with peace of mind,
-                    knowing that you're covered in times of uncertainty.</p>
-                <br>
-                <p class="mb-0"></p>We're dedicated to being there for you when it matters most, offering personalized
-                support and expert guidance to help you navigate life's challenges. Whether you're looking to safeguard
-                your loved ones, protect your assets, or simply ensure a secure tomorrow, we're here to assist you every
-                step of the way.</p>
-                <br>
-                <p class="mb-0"></p>Trust NFS Insure Consultant to help you build a brighter future. Get in touch with us today to
-                discover how our insurance solutions can provide you with the protection and reassurance you deserve.
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon"><i class="fas fa-users"></i></div>
+              <h3>Expert Team</h3>
+              <p>
+                Passionate about making a difference? Our dynamic team is
+                dedicated to delivering exceptional customer service and expert
+                advice you can trust.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon"><i class="fas fa-headset"></i></div>
+              <h3>24/7 Online Support</h3>
+              <p>
+                We are here for you around the clock. Our dedicated support team
+                is always ready to assist with your questions and provide the
+                help you need, anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="company-info-section smooth-section" id="about">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <!-- Updated company image -->
+            <img
+              src="img/about-1.png"
+              alt="Happy business team"
+              class="img-fluid company-img"
+            />
+          </div>
+          <div class="col-lg-6">
+            <div class="section-subtitle">About Our Company</div>
+            <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem)">
+              Your Trusted Partner in Protection
+            </h2>
+            <p class="text-muted">
+              NFS Insure Consultant (Pty) Ltd is a licensed Financial Services
+              Provider (FSP No. 53910) registered with the Financial Sector
+              Conduct Authority (FSCA) and The Council for Medical Schemes
+              (Accreditation No. ORG53309).
+            </p>
+            <p class="text-muted mb-4">
+              Through strategic partnerships and a commitment to regulatory
+              compliance, we aim to be a trusted advisor in the South African
+              insurance market, driving sustainable growth and value for all
+              stakeholders.
+            </p>
+            <ul class="checkmark-list">
+              <li>We can save you money</li>
+              <li>Wide range of options</li>
+              <li>Highest standards of integrity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section smooth-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Services</div>
+          <h2 class="section-title">Empowering Your Financial Freedom</h2>
+          <p class="section-description">
+            At NFS Insure Consultant, we believe that everyone deserves to
+            achieve their aspirations and secure their future. That's why we're
+            dedicated to providing innovative insurance solutions that protect
+            your tomorrow, today.
+
+            <br />
+            <br />
+            As a licensed financial services provider (FSP: 53910) and
+            registered credit provider (NCRCP12678), you can trust that our
+            expertise and guidance will help you make informed decisions about
+            your financial well-being.
+
+            <br />
+            <br />
+            We're proud to be a B-BBEE Level 1 Contributor, demonstrating our
+            commitment to economic empowerment and social responsibility.
+          </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fa fa-users fa"></i>
+              </div>
+              <h4>Risk Cover</h4>
+              <ul class="service-list-alt">
+                <li>Life Cover</li>
+                <li>Critical Illness Cover</li>
+                <li>Disability Insurance</li>
+                <li>Income Protection</li>
+                <li>Funeral Cover</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fas fa-briefcase-medical"></i>
+              </div>
+              <h4>Medical Aid</h4>
+              <ul class="service-list-alt">
+                <li>Various plan options</li>
+                <li>For Individuals & Corporates</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fa fa-car fa"></i>
+              </div>
+              <h4>Short-Term Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Motor & Household</li>
+                <li>Commercial Insurance</li>
+                <li>Health & Accident Cover</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h4>Savings & Investments</h4>
+              <ul class="service-list-alt">
+                <li>Investment Planning</li>
+                <li>Wealth Management</li>
+                <li>Retirement Savings</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="ffa fa-home fa"></i>
+              </div>
+              <h4>Pension & Annuities</h4>
+              <ul class="service-list-alt">
+                <li>Retirement Planning</li>
+                <li>Annuity Products</li>
+                <li>Pension Preservation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section smooth-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">FAQ</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q1">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#a1"
+                  >
+                    What does NFS Insure Consultant do?
+                  </button>
+                </h2>
+                <div
+                  id="a1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    NFS Insure Consultant is a licensed financial services
+                    provider specializing in comprehensive insurance solutions,
+                    including life insurance, medical aid, short-term insurance,
+                    and investment planning.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q2">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#a2"
+                  >
+                    Is NFS Insure Consultant a licensed provider?
+                  </button>
+                </h2>
+                <div
+                  id="a2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes, we are a fully licensed Financial Services Provider
+                    (FSP No. 53910) registered with the Financial Sector Conduct
+                    Authority (FSCA) and accredited by The Council for Medical
+                    Schemes (ORG53309).
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#a3"
+                  >
+                    How do I get a quote?
+                  </button>
+                </h2>
+                <div
+                  id="a3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Getting a quote is easy! You can contact us directly via our
+                    phone number, email, or by filling out the contact form on
+                    our website. Our expert advisors will get in touch to
+                    provide a personalized quote.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#a4"
+                  >
+                    How do I file a claim?
+                  </button>
+                </h2>
+                <div
+                  id="a4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    To file a claim, please contact our dedicated claims
+                    department. We will guide you through the process and ensure
+                    it is handled efficiently and with care. All necessary forms
+                    and contact details are available from our support team.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section smooth-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Testimonials</div>
+          <h2 class="section-title">What Our Customers Are Saying</h2>
+        </div>
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="testimonial-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>
+                  "I've been with NFS Insure Consultant for years, and I've
+                  never been disappointed. Their medical insurance plans are
+                  comprehensive and affordable. The claims process is seamless,
+                  and their customer support is top-notch."
                 </p>
+                <h5 class="client-name">Nandi P</h5>
+                <div class="client-type">Individual Client</div>
+              </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.04s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-dollar-sign fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">Start Your Financial Freedom Today.</h4>
-                        <p class="mb-4">Ready to take control of your finances and secure your future? At NFS Insure Consultant,
-                            we're dedicated to helping you achieve financial freedom.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.06s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-bullseye fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">Join The Team</h4>
-                        <p class="mb-4">Join our dynamic team at NFS
-                            Insure! If you&#39;re passionate about
-                            insurance and dedicated to
-                            delivering exceptional customer
-                            service, we want to hear from you.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.08s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-headphones fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">24/7 Online Support at NFS Insure Consultant.</h4>
-                        <p class="mb-4">At NFS Insure Consultant, we're committed to providing you with exceptional support whenever you need it.</p>
-                        <span id="read-more" style="display: none;">
-                            <p>Our 24/7 online support portal allows you to:</p>
-                            <ul>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Submit claims and track their status</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Access your policy documents and details.</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Get answers to frequently asked questions.</p>
-                            </ul>
-                        </span>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" onclick="toggleReadMore(this)">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
-
-    <!-- About Start -->
-    <div class="container-fluid bg-light about pb-5">
-        <div class="container pb-5">
-            <div class="row g-5">
-                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.02s">
-                    <div class="about-item-content bg-white rounded p-5 h-100">
-                        <h4 class="text-primary">About Our Company</h4>
-                        <h1 class="display-4 mb-4">High Range of Exploring Protection</h1>
-                        <p>NFS Insure Consultant (Pty) Ltd is a licensed
-                            Financial Services Provider (FSP
-                            No. 53910) registered with the
-                            Financial Sector Conduct Authority
-                            (FSCA) and The Council for
-                            Medical Schemes (Accreditation
-                            No. ORG53309). Our mission is to
-                            deliver comprehensive insurance
-                            solutions that meet the evolving
-                            needs of our clients, integrating
-                            various products and solutions,
-                            while upholding the highest
-                            standards of integrity,
-                            transparency, and customer
-                            service.
-                        </p>
-                        <p>Through strategic partnerships,
-                            innovative technology, and a
-                            commitment to regulatory
-                            compliance, we aim to establish
-                            ourselves as a trusted advisor in
-                            the South African insurance
-                            market, driving sustainable growth
-                            and value creation for all
-                            stakeholders.
-                        </p>
-                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>We can save you money.</p>
-                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Wide range of options</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.02s">
-                    <div class="bg-white rounded p-5 h-100">
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-12">
-                                <div class="rounded bg-light">
-                                    <img src="img/about-1.png" class="img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="counter-item bg-light rounded p-3 h-100">
-                                    <h4 class="mb-0 text-dark">Life Insurance</h4>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="counter-item bg-light rounded p-3 h-100">
-                                    <h4 class="mb-0 text-dark">Health Insurance</h4>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="counter-item bg-light rounded p-3 h-100">
-                                    <h4 class="mb-0 text-dark">Car Insurance</h4>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="counter-item bg-light rounded p-3 h-100">
-                                    <h4 class="mb-0 text-dark">Home Insurance</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Service Start -->
-    <div class="container-fluid service py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Services</h4>
-                <h1 class="display-4 mb-4">Empowering Your Financial Freedom</h1>
-                <p class="mb-0">At NFS Insure Consultant, we believe that
-                    everyone deserves to achieve their
-                    aspirations and secure their future.
-                    That&#39;s why we&#39;re dedicated to
-                    providing innovative insurance
-                    solutions that protect your
-                    tomorrow, today.
-                </p><br>
-                <p class="mb-0">As a licensed financial services
-                    provider (FSP: 53910) and
-                    registered credit provider
-                    (NCRCP12678), you can trust that
-                    our expertise and guidance will
-                    help you make informed decisions
-                    about your financial well-being.
-                </p><br>
-                <p class="mb-0">We're proud to be a B-BBEE Level 1 Contributor, demonstrating our commitment to economic
-                    empowerment and social responsibility.
+            <div class="carousel-item">
+              <div class="testimonial-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>
+                  "As a business owner, it's essential to have a reliable
+                  insurance partner. NFS Insure has been instrumental in helping
+                  me navigate the complex world of insurance. Their tailored
+                  group schemes are innovative and cost-effective."
                 </p>
+                <h5 class="client-name">Sipho M</h5>
+                <div class="client-type">Business Owner</div>
+              </div>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-6 col-xl-2 wow fadeInUp" data-wow-delay="0.02s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="service-icon p-3">
-                                <i class="fa fa-users fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Risk Cover</a>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Life Cover</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Critical Illness Cover
-                                </p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Disability Insurance</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Income Protection</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Funeral Cover</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-2 wow fadeInUp" data-wow-delay="0.04s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="img/blog-4.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="service-icon p-3">
-                                <i class="fa fa-hospital fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Medical Aid</a>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Various plan options of Individuals and Corporates
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-2 wow fadeInUp" data-wow-delay="0.06s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="service-icon p-3">
-                                <i class="fa fa-car fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Short-Term Insurance</a>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Motor &amp; Household Insurance</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Commercial Insurance</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Health and Accident Cover for Individuals and Corporates</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-2 wow fadeInUp" data-wow-delay="0.08s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="service-icon p-3">
-                                <i class="fa fa-home fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Savings and Investments</a>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Savings and Investments
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-2 wow fadeInUp" data-wow-delay="0.08s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="service-icon p-3">
-                                <i class="fa fa-home fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Pension and Annuities</a>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Retirement Planning
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <!-- FAQs Start -->
-    <div class="container-fluid faq-section bg-light py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.02s">
-                    <div class="h-100">
-                        <div class="mb-5">
-                            <h4 class="text-primary">Some Important FAQ's</h4>
-                            <h1 class="display-4 mb-0">Common Frequently Asked Questions</h1>
-                        </div>
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button border-0" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Q: What does NFS Insure Consultant do?
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show active"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body rounded">
-                                        A: NFS Insure Consultant is a licensed financial services provider specializing in insurance solutions, including life insurance, medical insurance, and personal lines.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Q: Is NFS Insure Consultant a licensed insurance provider?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: NFS is not an insurance provider, it provides financial services on behalf of insurers/medical schemes
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        Q: What types of insurance does NFS Insure Consultant offer?
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: we have agreements with various insurers and medical schemes, we find the best solution for our clients
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse4" aria-expanded="false"
-                                        aria-controls="collapse4">
-                                        Q: How do I get a quote from NFS Insure Consultant?
-                                    </button>
-                                </h2>
-                                <div id="collapse4" class="accordion-collapse collapse"
-                                    aria-labelledby="heading4" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: You can request a quote by contacting us through our website, emailing us directly, or calling our office. Reminder that a privacy notice form should be completed along with FNA and ROA.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading5">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse5" aria-expanded="false"
-                                        aria-controls="collapse5">
-                                        Q: Can I purchase insurance policies online?
-                                    </button>
-                                </h2>
-                                <div id="collapse5" class="accordion-collapse collapse"
-                                    aria-labelledby="heading5" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: NFS not an insurance company, NFS acts as the advisor contracted with various insurers/medical schemes
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading6">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse6" aria-expanded="false"
-                                        aria-controls="collapse6">
-                                        Q: How do I file a claim with NFS Insure Consultant?
-                                    </button>
-                                </h2>
-                                <div id="collapse6" class="accordion-collapse collapse"
-                                    aria-labelledby="heading6" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: To file a claim, please contact our office directly, and our claims team will guide you through the process.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading7">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse7" aria-expanded="false"
-                                        aria-controls="collapse7">
-                                        Q: What is the process for canceling or changing my insurance policy?
-                                    </button>
-                                </h2>
-                                <div id="collapse7" class="accordion-collapse collapse"
-                                    aria-labelledby="heading7" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: Please contact our office, and our team will assist you with canceling or making changes to your insurance policy.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading8">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse8" aria-expanded="false"
-                                        aria-controls="collapse8">
-                                        Q: Does NFS Insure Consultant offer any discounts or promotions?
-                                    </button>
-                                </h2>
-                                <div id="collapse8" class="accordion-collapse collapse"
-                                    aria-labelledby="heading8" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: How does this work? Insurers don’t normally offer discounts. When all products fall under one umbrella, then maybe there can be savings.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading9">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse9" aria-expanded="false"
-                                        aria-controls="collapse9">
-                                        Q: How do I access my insurance policy documents?
-                                    </button>
-                                </h2>
-                                <div id="collapse9" class="accordion-collapse collapse"
-                                    aria-labelledby="heading9" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        A: Your policy documents will be emailed to you upon policy issuance. If you need to access your documents again, please contact our office.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.04s">
-                    <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FAQs End -->
-
-    <!-- Blog Start -->
-    <!-- <div class="container-fluid blog py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                <h4 class="text-primary">From Blog</h4>
-                <h1 class="display-4 mb-4">News And Updates</h1>
-                <p class="mb-0">Welcome to the NFS Insure Consultant blog, your premier destination for staying ahead of the curve
-                    in the ever-evolving insurance landscape! Here, we're passionate about empowering you with the
-                    knowledge and insights you need to make informed decisions about your insurance coverage.
-                    From breaking down complex regulatory updates to sharing expert tips on optimizing insurance
-                    processes, our comprehensive guides and in-depth articles cover it all. Whether you're an insurance
-                    professional, a business owner, or simply looking to protect your personal assets, our blog is
-                    dedicated to providing you with the expertise and analysis you need to stay informed and confident.
-                    So, join us on this journey into the world of insurance, and discover how NFS Insure Consultant can help you
-                    navigate the complexities of risk management and protection. Stay informed, stay empowered!
+            <div class="carousel-item">
+              <div class="testimonial-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>
+                  "I was blown away by the exceptional service I received. Their
+                  team went above and beyond to ensure I had the right coverage
+                  for my business. I highly recommend them to anyone looking for
+                  reliable and personalized insurance solutions."
                 </p>
+                <h5 class="client-name">Thabo M</h5>
+                <div class="client-type">Business Owner</div>
+              </div>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.02s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Asanda G</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 16 April 2024</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">What Do These Updates Mean for You?</a>
-                            <p class="mb-3">As a client of NFS Insure Consultant, you can rest assured that we are committed to
-                                complying with all regulatory requirements. However, it's essential to understand how
-                                these updates may impact your financial decisions and insurance policies.
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Data Protection: The POPI
-                                Act emphasizes the importance of data protection. Ensure that you understand how your
-                                personal information is being processed and protected.</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Financial Advice: The FAIS
-                                Amendment Act introduces stricter requirements for financial advisors. When seeking
-                                financial advice, ensure that your advisor is compliant with the new regulations.</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Conduct Standard: The
-                                FSCA's Conduct Standard emphasizes the importance of fair treatment and transparency.
-                                Expect your financial institution to prioritize your needs and provide clear and honest
-                                communication.</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.04s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> NFS Insure Consultant Management
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 06 Jan 2025</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">Empowering Businesses, Enriching Communities: NFS
-                                Insure's Impact on Joy Nannies</a>
-                            <p class="mb-3">At NFS Insure Consultant, we're passionate about empowering businesses to succeed. Our
-                                mission goes beyond providing insurance solutions - we're dedicated to making a positive
-                                impact on the communities we serve.
-                                We're thrilled to share a remarkable success story of how NFS Insure Consultant has helped Joy
-                                Nannies Replace Agencies achieve their goals. Through our comprehensive financial
-                                advisory services and business mentorship programs, we've enabled Joy Nannies to
-                                overcome challenges and establish a thriving business.
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>From Concept to Reality:
-                                Joy Nannies Replace Agencies approached NFS Insure Consultant seeking guidance on navigating the
-                                complexities of starting a new business. Our team of experts provided tailored financial
-                                advice, helping them develop a robust business plan, secure funding, and establish a
-                                solid operational foundation.</p>
-                            <span id="read-more" style="display: none;">
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Empowering Job Creation:
-                                    Today, Joy Nannies Replace Agencies is not only up and running but also creating
-                                    employment opportunities for others. Their success is a testament to the power of
-                                    collaboration, mentorship, and innovative thinking.</p>
-                                <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Protecting Your Tomorrow,
-                                    Today:
-                                    At NFS Insure Consultant, we're proud to have played a role in Joy Nannies' journey. Our commitment
-                                    to empowering businesses and enriching communities is reflected in our motto:
-                                    #ProtectingYourTomorrowToday.
-                                    We look forward to continuing our support for Joy Nannies Replace Agencies and other
-                                    entrepreneurial ventures, helping them build a brighter, more secure future.</p>
-                                </p>
-                            </span>
-                            <a class="btn btn-primary rounded-pill py-2 px-4 text-white" onclick="toggleReadMore(this)">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.06s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> NFS Insure Consultant Stakeholders </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 05 Dec 2024</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">Personalized Insurance</a>
-                            <p class="mb-3">At NFS Insure Consultant, we specialize in crafting personalized insurance solutions to safeguard your future. Our areas of expertise include:</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Tailored Group Schemes: Customized insurance plans for businesses and organizations</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Medical Insurance: Comprehensive medical coverage for individuals and families
-                            </p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Personal Lines: Insurance solutions for personal assets, such as homes, vehicles, and more</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span
+            ><span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span
+            ><span class="visually-hidden">Next</span>
+          </button>
         </div>
-    </div> -->
-    <!-- Blog End -->
+      </div>
+    </section>
 
-    <!-- Team Start
-        <div class="container-fluid team pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Team</h4>
-                    <h1 class="display-4 mb-4">Meet Our Expert Team Members</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.02s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.04s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.06s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.08s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="p-0">
+              <img
+                style="height: 50px; margin-bottom: 10px"
+                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png"
+                alt="Logo"
+              />
+            </a>
+            <p>
+              Your trusted partner in building a secure financial future. We
+              provide comprehensive insurance solutions with integrity and
+              transparency.
+            </p>
+            <p class="mb-0"><strong>FSP No. 53910</strong></p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Useful Links</h5>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="FAQ.html">FAQ's</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Legal</h5>
+            <a href="docs/PAIA MANUAL WEBSITE.pdf">PAIA Manual</a>
+            <a href="docs/Conflict of Interest Management Policy Website.pdf"
+              >Conflict of Interest</a
+            >
+            <a href="docs/Complaints Policy WEBSITE.pdf">Complaints</a>
+            <a href="docs/TCF Policy WEBSITE.pdf">TCF</a>
+            <a href="docs/PRIVACY NOTICE WEBSITE.pdf">Privacy Notice</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>
+              <a
+                href="https://www.google.com/maps/search/Eagle+Canyon+Office+Park,+Cnr+Christiaan+De+Wet+%26+Dolfyn+St,+Randpark+Ridge,+2154"
+                target="_blank"
+                >Eagle Canyon Office Park, Cnr Christiaan De Wet & Dolfyn St,
+                Randpark Ridge, 2154</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+27100557272">+27 10 055 7272</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:info@nfs.insure">info@nfs.insure</a>
+            </p>
+            <div class="social-links mt-3">
+              <a
+                href="https://www.instagram.com/nfs_insure/"
+                target="_blank"
+                class="instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://web.facebook.com/profile.php?id=61566917234605"
+                target="_blank"
+                class="facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/nfsinsure/about/"
+                target="_blank"
+                class="linkedin"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
+          </div>
         </div>
-        Team End -->
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="year"></span> NFS Insure Consultant | All Rights
+            Reserved. | <a href="#">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
-    <!-- Testimonial Start -->
-    <div class="container-fluid testimonial pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                <h4 class="text-primary">Testimonial</h4>
-                <h1 class="display-4 mb-4">What Our Customers Are Saying</h1>
+    <!-- Floating Action Buttons -->
+    <!-- AI Chat Bot Button -->
+    <button
+      type="button"
+      class="chat-bot-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#chatModal"
+      title="Chat with our AI Assistant"
+    >
+      <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <button
+      type="button"
+      class="whatsapp-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#whatsappChatModal"
+      title="Chat with us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </button>
+
+    <!-- Chat Bot Modal -->
+    <div
+      class="modal fade chat-modal"
+      id="chatModal"
+      tabindex="-1"
+      aria-labelledby="chatModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chatModalLabel">
+              <i class="fas fa-comments me-2"></i>
+              NFS AI Assistant
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Chat messages will be displayed here -->
+            <div id="chat-messages"></div>
+            <!-- User input and send button -->
+          </div>
+          <div class="modal-footer chat-modal-footer">
+            <div class="input-group">
+              <input
+                type="text"
+                id="chat-input"
+                class="form-control"
+                placeholder="Type your message..."
+                aria-label="Chat input"
+              />
+              <button class="btn btn-primary" id="send-chat-btn">
+                <i class="fas fa-paper-plane"></i>
+              </button>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.02s">
-                <div class="testimonial-item bg-light rounded">
-                    <div class="row g-0">
-                        <div class="d-flex flex-column my-auto text-start p-4">
-                            <h4 class="text-dark mb-0">Thabo M</h4>
-                            <p class="mb-3">Business Owner</p>
-                            <div class="d-flex text-primary mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="mb-0">"I was blown away by the exceptional service I received from NFS Insure Consultant.
-                                Their team went above and beyond to ensure I had the right coverage for my business. I
-                                highly recommend them to anyone looking for reliable and personalized insurance
-                                solutions."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item bg-light rounded">
-                    <div class="row g-0">
-                        <div class="d-flex flex-column my-auto text-start p-4">
-                            <h4 class="text-dark mb-0">Nandi P</h4>
-                            <p class="mb-3">Individual Client</p>
-                            <div class="d-flex text-primary mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star text-body"></i>
-                            </div>
-                            <p class="mb-0">"I've been with NFS Insure Consultant for years, and I've never been disappointed.
-                                Their medical insurance plans are comprehensive and affordable. The claims process is
-                                seamless, and their customer support is top-notch. I have complete peace of mind knowing
-                                I'm protected by NFS Insure Consultant."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item bg-light rounded">
-                    <div class="row g-0">
-                        <div class="d-flex flex-column my-auto text-start p-4">
-                            <h4 class="text-dark mb-0">Sipho M</h4>
-                            <p class="mb-3">Business Owner</p>
-                            <div class="d-flex text-primary mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star text-body"></i>
-                            </div>
-                            <p class="mb-0">"As a business owner, it's essential to have a reliable insurance partner.
-                                NFS Insure Consultant has been instrumental in helping me navigate the complex world of insurance.
-                                Their tailored group schemes are innovative and cost-effective. I appreciate their
-                                professionalism, expertise, and dedication to customer satisfaction."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Testimonial End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.02s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-xl-9">
-                    <div class="mb-5">
-                        <div class="row g-4">
-                            <div class="col-md-6 col-lg-6 col-xl-5">
-                                <div>
-                                    <a href="index.html" class="p-0">
-                                        <img style="height: 50px;margin-bottom: 10px;"
-                                            src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png" alt="Logo">
-                                    </a>
-                                    <p class="text-white">NFS Insure Consultant (Pty) Ltd is an Authorised Financial Services Provider (FSP No. 53910)</p>
-                                    <div class="col-md-6 col-lg-6 col-xl-6">
-                                        <div class="footer-item">
-                                    <a href="docs/PAIA MANUAL WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> PAIA Manual</a>
-                                    <a href="docs/Conflict of Interest Management Policy Website.pdf"><i class="fas fa-angle-right me-2"></i> Conflict of Interest</a>
-                                    <a href="docs/Complaints Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Complaints</a>
-                                    <a href="docs/TCF Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> TCF</a>
-                                    <a href="docs/PRIVACY NOTICE WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Privacy Notice</a>
-                                </div>
-                            </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                <div class="footer-item">
-                                    <h4 class="text-white mb-4">Useful Links</h4>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Features</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                    
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 col-xl-4">
-                                <div class="footer-item">
-                                    <h4 class="mb-4 text-white">Instagram</h4>
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-1.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-2.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                        class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-3.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                        class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-4.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                        class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-5.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                        class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-6.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="https://www.instagram.com" target="_blank"><i
-                                                        class="fas fa-link text-white"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-5" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                        <div class="row g-0">
-                            <div class="col-12">
-                                <div class="row g-4">
-                                    <div class="col-lg-6 col-xl-4">
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                <i class="fas fa-map-marker-alt fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-white">Address</h4>
-                                                <p class="mb-0">Eagle Canyon Office Park,
-                                                    Corner Christiaan De Wet Street
-                                                    and Dolfyn Street,
-                                                    Randpark Ridge,
-                                                    2154
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-xl-4">
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                <i class="fas fa-envelope fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-white">Mail Us</h4>
-                                                <p class="mb-0">info@nfs.insure</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-xl-4">
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                <i class="fa fa-phone-alt fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-white">Telephone</h4>
-                                                <p class="mb-0">+27 10 055 7272</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3">
-                    <div class="footer-item">
-                        <h4 class="text-white mb-4">Our Promise</h4>
-                        <p class="text-white mb-3">Protecting your tomorrow, today.</p>
-                        <div class="d-flex flex-shrink-0">
-                            <div class="footer-btn">
-                                <a href="#" class="btn btn-lg-square rounded-circle position-relative wow tada"
-                                    data-wow-delay=".9s">
-                                    <i class="fa fa-phone-alt fa-2x"></i>
-                                    <div class="position-absolute" style="top: 2px; right: 12px;">
-                                        <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="d-flex flex-column ms-3 flex-shrink-0">
-                                <span class="text-light">info@nfs.insure</span>
-                                <a href="tel:+27 10 055 7272"><span class="text-light">+27 10 055 7272</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- WhatsApp Chat Modal -->
+    <div
+      class="modal fade whatsapp-chat-modal"
+      id="whatsappChatModal"
+      tabindex="-1"
+      aria-labelledby="whatsappChatModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img
+              src="https://placehold.co/40x40/d4af37/ffffff?text=NFS"
+              alt="NFS Insure Logo"
+              class="rounded-circle"
+              style="height: 40px; width: 40px"
+            />
+            <h5 class="modal-title" id="whatsappChatModalLabel">
+              NFS Insure Support
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="chat-bubble">
+              <p>Hi there! 👋</p>
+              <p>
+                How can we help you today? Click the button below to chat with
+                us on WhatsApp.
+              </p>
             </div>
+            <p class="chat-message">We're here to assist you!</p>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="https://wa.me/27656363032?text=Hello%20NFS%20Insure%2C%20I%27m%20interested%20in%20your%20services."
+              class="btn btn-whatsapp"
+              target="_blank"
+              onclick="closeWhatsappModal()"
+            >
+              <i class="fab fa-whatsapp me-2"></i> Continue to WhatsApp
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Footer End -->
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-6 text-center text-md-end mb-md-0">
-                    <span class="text-body"><a href="#" class="border-bottom text-white"><i
-                                class="fas fa-copyright text-light me-2"></i>NFS Insure Consultant 2025 </a>| All right reserved
-                        |</span>
-                </div>
-                <div class="col-md-6 text-center text-md-start text-body">
-                    Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
-                    Distributed By <a class="border-bottom text-white" href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -1053,36 +1266,275 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
     <script>
-        function openWA() {
-            if (isMobile()) {
-                window.open('https://api.whatsapp.com/send?phone=27656363032&text=Good+day+NFS+Insure')
-            } else {
-                window.open('https://web.whatsapp.com/send?phone=27656363032&text=Good+day+NFS+Insure')
-            }
-        }
+      // Full text content from the PAIA MANUAL WEBSITE.pdf
+      const pdfContent = `
+        PAIA MANUAL - NFS INSURE CONSULTANT (PTY) LTD - FSP NO. 53910
 
-        function isMobile() {
-            let check = false;
-            (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
-            return check;
-        };
+        Version: V1, Publishing Date: 27/03/2025, Last Review Date: 26/11/2024, Next Review Date: 27/03/2026
+        Owner: NFS Insure Consultant (Pty) Ltd
 
-        function toggleReadMore(button) {
-            var readMoreContent = button.parentElement.querySelector('#read-more');
-            if (readMoreContent.style.display === "none" || readMoreContent.style.display === "") {
-                readMoreContent.style.display = "block";
-                button.textContent = "Less";
-            } else {
-                readMoreContent.style.display = "none";
-                button.textContent = "Learn More";
-            }
+        MANUAL STATEMENT: This manual forms part of NFS Insure Consultants' internal business processes and procedures.
+
+        DEFINITIONS:
+        - Data Subject: The person to whom Personal Information relates.
+        - Deputy Information Officer: Delegated person for POPIA duties.
+        - Head: CEO or equivalent of a juristic person.
+        - Information Officer: The head of a private body.
+        - Information Regulator: Regulator established under POPIA.
+        - PAIA: The Promotion of Access to Information Act 2 of 2000.
+        - Personal Information: Information relating to an identifiable, living, natural person, and where applicable, an identifiable, existing juristic person.
+        - POPIA: The Protection of Personal Information Act 4 of 2013.
+        - Private body: A natural person, partnership, or juristic person carrying on a trade, business, or profession.
+        - Requester: Any person making a request for access to a record.
+        - Record: Any recorded information regardless of form or medium.
+
+        MANUAL PURPOSE: To give effect to the constitutional right of access to information held by the State or any other person, fostering transparency and accountability.
+
+        DUTIES OF THE INFORMATION OFFICER:
+        - Publish and communicate the manual.
+        - Facilitate requests for access.
+        - Provide notice and feedback to requesters.
+        - Decide on granting access.
+        - Ensure timely access in the correct format.
+        - Review the manual for accuracy.
+
+        RIGHT OF ACCESS: Access to a record is granted if it's required for the exercise or protection of any right, procedural requirements are met, and access is not refused on any grounds listed in PAIA.
+
+        GROUNDS FOR REFUSAL:
+        - Mandatory protection of a third party's privacy.
+        - Mandatory protection of a third party's commercial information (e.g., trade secrets).
+        - Mandatory protection of confidential information of a third party.
+        - Mandatory protection of the safety of individuals and property.
+        - Records privileged from production in legal proceedings.
+        - Commercial information of the FSP itself.
+        - Research information of a third party or the FSP.
+
+        NOTICE & FEES:
+        - A prescribed fee may be payable. Personal requesters are not charged a request fee.
+        - A request fee of R140.00 is payable by every requester (other than personal requesters).
+        - Other fees for photocopies, electronic copies, etc., are detailed in Annexure F.
+        - The FSP will notify the requester of the decision within 30 days.
+
+        AVAILABILITY OF THE MANUAL: Available on the website, at the head office for inspection, upon request (with a fee), and to the Information Regulator.
+
+        CONTACT DETAILS:
+        - Head of FSP & Information Officer: Ezile Evander Gcasamba
+        - Email: ezile@nfs.insure
+        - Phone: 079 028 4802
+        - Address: 2B Eagle Canyon Office Park, 58 Jan Frederick Avenue, Randpark Ridge, 2169
+        - Deputy Information Officer: Lizel Cumming
+
+        PROCESSING OF PERSONAL INFORMATION (ANNEXURE G):
+        - Purpose: To perform functions and services for customers, service providers, and employees.
+        - Categories of Data Subjects: Customers/Clients, Service Providers, Employees.
+        - Information Processed: Name, address, ID numbers, bank details, qualifications, etc.
+        - Recipients: South African Police Services (for criminal checks), SAQA (for qualifications), Credit Bureaus.
+        - Security Measures: Data Encryption, Anti-virus, and Anti-malware solutions.
+      `;
+
+      // Placeholder for company information to "train" the bot
+      const companyInfo = {
+        name: "NFS Insure Consultant",
+        fspNumber: "53910",
+        accreditationNumber: "ORG53309",
+        address:
+          "Eagle Canyon Office Park, Cnr Christiaan De Wet & Dolfyn St, Randpark Ridge, 2154",
+        phone: "+27 10 055 7272",
+        email: "info@nfs.insure",
+        services: [
+          "Risk Cover (Life Cover, Critical Illness, Disability, Income Protection, Funeral)",
+          "Medical Aid (Various plans for individuals and corporates)",
+          "Short-Term Insurance (Motor & Household, Commercial, Health & Accident)",
+          "Savings & Investments (Personal Savings, Investment Portfolios, Unit Trusts, Education Savings)",
+          "Pension & Annuities (Retirement Planning, Retirement Annuities, Pension Funds, Provident Funds)",
+        ],
+        mission:
+          "To deliver comprehensive insurance solutions that meet the evolving needs of our clients, upholding the highest standards of integrity, transparency, and customer service.",
+        vision:
+          "To be the trusted advisor in the South African insurance market, driving sustainable growth and value creation for all stakeholders through strategic partnerships and innovative technology.",
+        values:
+          "Integrity, Client-Centricity, Innovation, Expertise, Community Engagement.",
+      };
+
+      // Function to add a message to the chat display
+      function addMessage(sender, message) {
+        const chatMessages = document.getElementById('chat-messages');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message-bubble');
+        if (sender === 'user') {
+          messageElement.classList.add('user-message');
+        } else {
+          messageElement.classList.add('bot-message');
         }
+        messageElement.textContent = message;
+        chatMessages.appendChild(messageElement);
+        // Scroll to the bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Initial greeting from the bot
+      document.addEventListener('DOMContentLoaded', () => {
+        addMessage(
+          'bot',
+          `Hello! I'm your NFS AI Assistant. How can I help you today? Feel free to ask me anything about NFS Insure's services, mission, or our PAIA manual.`
+        );
+      });
+
+      // Function to send message to Gemini API
+      async function sendToGemini(userMessage) {
+        // Add user message to chat display
+        addMessage('user', userMessage);
+
+        const chatInput = document.getElementById('chat-input');
+        chatInput.value = ''; // Clear input field
+
+        // Show a "typing" indicator or similar
+        addMessage('bot', 'Typing...');
+        // Ensure the "Typing..." message is the one that was just added.
+        const chatMessages = document.getElementById('chat-messages'); // Re-get reference inside function
+        const botThinkingMessage = chatMessages.lastElementChild;
+
+        try {
+          // Construct a detailed prompt for the Gemini API, now including PDF content
+          const prompt = `You are an AI assistant for NFS Insure Consultant. Your purpose is to provide helpful and accurate information based *only* on the company details and the PAIA Manual content provided below. If a question cannot be answered from this information, kindly state that you don't have enough information and suggest contacting NFS Insure directly via phone or email.
+
+          ---
+          **General Company Information:**
+          Name: ${companyInfo.name}
+          FSP Number: ${companyInfo.fspNumber}
+          Accreditation Number (Medical Schemes): ${companyInfo.accreditationNumber}
+          Physical Address: ${companyInfo.address}
+          Phone Number: ${companyInfo.phone}
+          Email Address: ${companyInfo.email}
+          Services Offered: ${companyInfo.services.join('; ')}
+          Mission: ${companyInfo.mission}
+          Vision: ${companyInfo.vision}
+          Values: ${companyInfo.values}
+          ---
+          **PAIA Manual Content:**
+          ${pdfContent}
+          ---
+
+          Based *only* on the information above, answer the following user's question: "${userMessage}"`;
+
+          let chatHistory = [];
+          chatHistory.push({ role: 'user', parts: [{ text: prompt }] });
+          const payload = { contents: chatHistory };
+
+          // IMPORTANT: The API key is left empty here because the Canvas environment
+          // will automatically provide it. For local testing, you would need to insert your key.
+          const apiKey = "AIzaSyB0Cb8ON01R4E1vL14io3WMveYD7534cgQ"; 
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(
+              `HTTP error! status: ${response.status}, body: ${errorBody}`
+            );
+          }
+
+          const result = await response.json();
+          
+          if (botThinkingMessage && botThinkingMessage.textContent === 'Typing...') {
+            botThinkingMessage.remove();
+          }
+
+          if (
+            result.candidates &&
+            result.candidates.length > 0 &&
+            result.candidates[0].content &&
+            result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0
+          ) {
+            const botResponse = result.candidates[0].content.parts[0].text;
+            addMessage('bot', botResponse);
+          } else {
+            addMessage(
+              'bot',
+              "I apologize, but I couldn't process your request. The AI returned an unexpected response format. Please try again or contact NFS Insure directly."
+            );
+            console.error('Gemini API returned an unexpected structure:', result);
+          }
+        } catch (error) {
+          if (botThinkingMessage && botThinkingMessage.textContent === 'Typing...') {
+            botThinkingMessage.remove();
+          }
+          addMessage(
+            'bot',
+            "I'm having trouble connecting to the AI service at the moment. Please try again later or contact us directly for assistance."
+          );
+          console.error('Error calling Gemini API:', error);
+        }
+      }
+
+      // Event listener for send button
+      document.getElementById('send-chat-btn').addEventListener('click', () => {
+        const chatInput = document.getElementById('chat-input');
+        const userMessage = chatInput.value.trim();
+        if (userMessage) {
+          sendToGemini(userMessage);
+        }
+      });
+
+      // Event listener for Enter key in input field
+      document
+        .getElementById('chat-input')
+        .addEventListener('keypress', (event) => {
+          if (event.key === 'Enter') {
+            const userMessage = event.target.value.trim();
+            if (userMessage) {
+              sendToGemini(userMessage);
+            }
+          }
+        });
+
+      // Function to close the modal after clicking "Continue to WhatsApp"
+      function closeWhatsappModal() {
+        const whatsappModal = bootstrap.Modal.getInstance(
+          document.getElementById('whatsappChatModal')
+        );
+        if (whatsappModal) {
+          whatsappModal.hide();
+        }
+      }
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Update current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Other existing JS functions
+      function toggleReadMore(button) {
+        var readMoreContent = button.parentElement.querySelector('#read-more');
+        if (
+          readMoreContent.style.display === 'none' ||
+          readMoreContent.style.display === ''
+        ) {
+          readMoreContent.style.display = 'block';
+          button.textContent = 'Less';
+        } else {
+          readMoreContent.style.display = 'none';
+          button.textContent = 'Learn More';
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>

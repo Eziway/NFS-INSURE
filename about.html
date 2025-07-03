@@ -1,719 +1,814 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NFS - Insurance</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
-    <head>
-        <meta charset="utf-8">
-        <title>NFS - Insurance</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
+    <!-- Template Stylesheet -->
+    <link href="css/aboutstyle.css" rel="stylesheet" />
+  </head>
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+  <body>
+    <!-- Navigation - Updated structure with logo, nav links, and distinct contact button -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
+            alt="NFS Insure Logo"
+            class="logo-img"
+          />
+        </a>
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
 
-    <body>
-
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- mx-auto to center nav links -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMore"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+                <li>
+                  <a class="dropdown-item" href="feature.html">Our Features</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="testimonial.html"
+                    >Testimonial</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="FAQ.html">FAQs</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <!-- Re-introduced and improved Contact Button -->
+          <a href="contact.html" class="contact-btn-nav">
+            <i class="fas fa-phone-alt"></i> Contact Us
+          </a>
         </div>
-        <!-- Spinner End -->
+      </div>
+    </nav>
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light"> 
-                    <a href="#" class="navbar-brand p-0">
-                        <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="Logo"> 
-                        <span style="
-                        display: flex;
-                        padding-left: 170px;
-                        font-size: small;
-                        margin-top: -5px;">consultant</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-0 mx-lg-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link active">About</a>
-                            <a href="service.html" class="nav-item nav-link">Services</a>
-                            <!-- <a href="blog.html" class="nav-item nav-link">Blog</a> -->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <span class="dropdown-toggle">More</span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="feature.html" class="dropdown-item">Our Features</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                    </div>
-                    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-                            <i class="fa fa-phone-alt fa-2x"></i>
-                            <div class="position-absolute" style="top: 7px; right: 12px;">
-                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                            </div>
-                        </a>
-                        <div class="d-flex flex-column ms-3">
-                            <span>info@nfs.insure</span>
-                            <a href="tel:+27 10 055 7272"><span class="text-dark">+27 10 055 7272</span></a>
-                        </div>
-                    </div>
-                </nav>
+    <!-- Modal Search Start -->
+    <div
+      class="modal fade"
+      id="searchModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Search by keyword
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex align-items-center bg-primary">
+            <div class="input-group w-75 mx-auto d-flex">
+              <input
+                type="search"
+                class="form-control p-3"
+                placeholder="keywords"
+                aria-describedby="search-icon-1"
+              />
+              <span
+                id="search-icon-1"
+                class="btn bg-light border nput-group-text p-3"
+                ><i class="fa fa-search"></i
+              ></span>
             </div>
+          </div>
         </div>
-        <!-- Navbar & Hero End -->
+      </div>
+    </div>
+    <!-- Modal Search End -->
 
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center bg-primary">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
+    <!-- Subpage Hero Section -->
+    <section class="subpage-hero">
+      <div class="container">
+        <div class="subpage-hero-content">
+          <h1>About Us</h1>
+          <div class="breadcrumb-nav">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="#">Pages</a>
+            <span>/</span>
+            <span>About</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Our Company Main Section (Using .company-info-section from homepage) -->
+    <section class="company-info-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <img
+              src="img/aboutUs-02.png"
+              alt="High Range of Exploring Protection"
+              class="img-fluid company-img"
+            />
+          </div>
+          <div class="col-lg-6">
+            <div class="section-subtitle">About Our Company</div>
+            <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem)">
+              High Range of Exploring Protection
+            </h2>
+            <p class="text-muted">
+              NFS Insure Consultant (Pty) Ltd is a licensed Financial Services
+              Provider (FSP No. 53910) registered with the Financial Sector
+              Conduct Authority (FSCA) and The Council for Medical Schemes
+              (Accreditation No. ORG53309). Our mission is to deliver
+              comprehensive insurance solutions that meet the evolving needs of
+              our clients, integrating various products and solutions, while
+              upholding the highest standards of integrity, transparency, and
+              customer service.
+            </p>
+            <p class="text-muted mb-4">
+              Through strategic partnerships, innovative technology, and a
+              commitment to regulatory compliance, we aim to establish ourselves
+              as a trusted advisor in the South African insurance market,
+              driving sustainable growth and value creation for all
+              stakeholders.
+            </p>
+            <ul class="checkmark-list">
+              <li>We can save you money.</li>
+              <li>Wide range of options</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission, Vision, Values Section (Using .value-section from homepage) -->
+    <section class="value-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Guiding Principles</div>
+          <h2 class="section-title">Our Mission, Vision & Values</h2>
+          <p class="section-description">
+            Our core beliefs drive everything we do, ensuring we provide ethical
+            and client-focused financial services.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+              <h3>Mission</h3>
+              <p>
+                To deliver comprehensive insurance solutions that meet the
+                evolving needs of our clients, upholding the highest standards
+                of integrity, transparency, and customer service.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon"><i class="fas fa-eye"></i></div>
+              <h3>Vision</h3>
+              <p>
+                To be the trusted advisor in the South African insurance market,
+                driving sustainable growth and value creation for all
+                stakeholders through strategic partnerships and innovative
+                technology.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex">
+            <div class="value-card">
+              <div class="value-icon"><i class="fas fa-handshake"></i></div>
+              <h3>Values</h3>
+              <p>
+                Integrity, Client-Centricity, Innovation, Expertise, and
+                Community Engagement form the foundation of our operations and
+                client relationships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Types Section (Using .services-section from homepage) -->
+    <section class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Offerings</div>
+          <h2 class="section-title">Insurance Solutions Tailored for You</h2>
+          <p class="section-description">
+            We provide a diverse range of insurance products to secure every
+            aspect of your life and assets.
+          </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h4>Life Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Protection for your loved ones</li>
+                <li>Financial security in unforeseen events</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fas fa-hospital-user"></i>
+              </div>
+              <h4>Health Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Comprehensive medical coverage</li>
+                <li>Access to quality healthcare</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fas fa-car-crash"></i>
+              </div>
+              <h4>Car Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Coverage for vehicle damages</li>
+                <li>Protection against liability</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt"><i class="fas fa-home"></i></div>
+              <h4>Home Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Safeguard your property</li>
+                <li>Protect against natural disasters & theft</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section (Re-purposed to be a .value-section variant) -->
+    <section class="value-section" style="background: var(--gray-100)">
+      <!-- Using value-section styling with a different background -->
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Strengths</div>
+          <h2 class="section-title">Why Choose NFS Insure Consultant?</h2>
+          <p class="section-description">
+            Discover the distinct advantages of partnering with us for your
+            insurance and financial needs.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6 d-flex">
+            <div class="value-card">
+              <!-- Using value-card class -->
+              <div class="value-icon" style="background: var(--gradient-4)">
+                <!-- Using a new gradient -->
+                <i class="fas fa-money-check-alt"></i>
+              </div>
+              <h3>Save You Money</h3>
+              <p>
+                We analyze your needs to find cost-effective solutions without
+                compromising on coverage.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex">
+            <div class="value-card">
+              <div class="value-icon" style="background: var(--gradient-3)">
+                <!-- Using another gradient -->
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Tailored Options</h3>
+              <p>
+                Access a wide range of customizable plans to fit your unique
+                personal and business requirements.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex">
+            <div class="value-card">
+              <div class="value-icon" style="background: var(--gradient-2)">
+                <!-- Using another gradient -->
+                <i class="fas fa-award"></i>
+              </div>
+              <h3>Unwavering Integrity</h3>
+              <p>
+                We operate with the highest ethical standards, ensuring
+                transparent and honest dealings.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex">
+            <div class="value-card">
+              <div class="value-icon" style="background: var(--gradient-1)">
+                <!-- Using another gradient -->
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Sustainable Growth</h3>
+              <p>
+                Committed to driving long-term value for clients and
+                stakeholders through responsible practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 24/7 Support CTA Section (Re-using homepage hero styles) -->
+    <section class="hero" style="min-height: 40vh; padding: 6rem 0">
+      <!-- Re-using hero class -->
+      <div class="container">
+        <div
+          class="hero-content"
+          style="text-align: center; max-width: 800px; margin: 0 auto"
+        >
+          <h1>
+            24/7 Online Support at
+            <span class="highlight">NFS Insure Consultant</span>.
+          </h1>
+          <p>
+            At NFS Insure Consultant, we're committed to providing you with
+            exceptional support whenever you need it. We're dedicated to being
+            there for you when it matters most, offering personalized support
+            and expert guidance to help you navigate life's challenges. Whether
+            you're looking to safeguard your loved ones, protect your assets, or
+            simply ensure a secure tomorrow, we're here to assist you every step
+            of the way.
+          </p>
+          <a href="#contact" class="btn btn-hero-primary">
+            <i class="fas fa-headset me-2"></i>Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">FAQ</div>
+          <h2 class="section-title">Some Important FAQ's</h2>
+          <p class="section-description">Common Frequently Asked Questions</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ1">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA1"
+                  >
+                    Q: What does NFS Insure Consultant do?
+                  </button>
+                </h2>
+                <div
+                  id="faqA1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: NFS Insure Consultant is a licensed financial services
+                    provider specializing in insurance solutions, including life
+                    insurance, medical insurance, and personal lines.
+                  </div>
                 </div>
-            </div>
-        </div>
-        <!-- Modal Search End -->
-
-
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">About Us</h4>
-                <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active text-primary">About</li>
-                </ol>    
-            </div>
-        </div>
-        <!-- Header End -->
-
-
-        <!-- About Start -->
-        <div class="container-fluid bg-light about py-5">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.02s">
-                        <div class="about-item-content bg-white rounded p-5 h-100">
-                            <h4 class="text-primary">About Our Company</h4>
-                            <h1 class="display-4 mb-4">High Range of Exploring Protection</h1>
-                            <p>NFS Insure Consultant (Pty) Ltd is a licensed
-                                Financial Services Provider (FSP
-                                No. 53910) registered with the
-                                Financial Sector Conduct Authority
-                                (FSCA) and The Council for
-                                Medical Schemes (Accreditation
-                                No. ORG53309). Our mission is to
-                                deliver comprehensive insurance
-                                solutions that meet the evolving
-                                needs of our clients, integrating
-                                various products and solutions,
-                                while upholding the highest
-                                standards of integrity,
-                                transparency, and customer
-                                service.
-                            </p>
-                            <p>Through strategic partnerships,
-                                innovative technology, and a
-                                commitment to regulatory
-                                compliance, we aim to establish
-                                ourselves as a trusted advisor in
-                                the South African insurance
-                                market, driving sustainable growth
-                                and value creation for all
-                                stakeholders.
-                            </p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>We can save you money.</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Wide range of options</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.02s">
-                        <div class="bg-white rounded p-5 h-100">
-                            <div class="row g-4 justify-content-center">
-                                <div class="col-12">
-                                    <div class="rounded bg-light">
-                                        <img src="img/about-1.png" class="img-fluid rounded w-100" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <h4 class="mb-0 text-dark">Life Insurance</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <h4 class="mb-0 text-dark">Health Insurance</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <h4 class="mb-0 text-dark">Car Insurance</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <h4 class="mb-0 text-dark">Home Insurance</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ2">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA2"
+                  >
+                    Q: Is NFS Insure Consultant a licensed insurance provider?
+                  </button>
+                </h2>
+                <div
+                  id="faqA2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: Yes, NFS Insure Consultant (Pty) Ltd is an Authorised
+                    Financial Services Provider (FSP No. 53910) registered with
+                    the Financial Sector Conduct Authority (FSCA).
+                  </div>
                 </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA3"
+                  >
+                    Q: What types of insurance does NFS Insure Consultant offer?
+                  </button>
+                </h2>
+                <div
+                  id="faqA3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: We offer a wide range of insurance products including
+                    Life Insurance, Health Insurance (Medical Aid), Car
+                    Insurance, Home Insurance, and other comprehensive risk
+                    cover and investment solutions.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA4"
+                  >
+                    Q: How do I get a quote from NFS Insure Consultant?
+                  </button>
+                </h2>
+                <div
+                  id="faqA4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: You can easily get a quote by contacting us directly via
+                    phone at +27 10 055 7272, or by emailing us at
+                    info@nfs.insure. Our advisors are ready to assist you.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ5">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA5"
+                  >
+                    Q: Can I purchase insurance policies online?
+                  </button>
+                </h2>
+                <div
+                  id="faqA5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: While we offer personalized consultations, you can
+                    initiate the process and get detailed information about
+                    policies by contacting us through our website or direct
+                    contact channels.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ6">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA6"
+                  >
+                    Q: How do I file a claim with NFS Insure Consultant?
+                  </button>
+                </h2>
+                <div
+                  id="faqA6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: To file a claim, please contact our dedicated claims
+                    department or reach out to your assigned consultant. We will
+                    guide you through the necessary steps.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ7">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA7"
+                  >
+                    Q: What is the process for canceling or changing my
+                    insurance policy?
+                  </button>
+                </h2>
+                <div
+                  id="faqA7"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: To make changes or cancel your policy, please contact
+                    your NFS Insure Consultant advisor directly. They will
+                    provide you with the required information and assist you
+                    with the process.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ8">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA8"
+                  >
+                    Q: Does NFS Insure Consultant offer any discounts or
+                    promotions?
+                  </button>
+                </h2>
+                <div
+                  id="faqA8"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: Our offerings are tailored to individual needs. Please
+                    contact us to discuss potential cost-saving options and find
+                    the most suitable policy for you.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqQ9">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqA9"
+                  >
+                    Q: How do I access my insurance policy documents?
+                  </button>
+                </h2>
+                <div
+                  id="faqA9"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    A: Policy documents are typically sent to you via email or
+                    post after policy activation. For digital access or copies,
+                    please contact our support team.
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- About End -->
+      </div>
+    </section>
 
-
-        <!-- Feature Start -->
-        <div class="container-fluid feature bg-light pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Features</h4>
-                    <h1 class="display-4 mb-4">Building a Brighter Tomorrow with NFS Insure Consultant</h1>
-                    <p class="mb-0">At NFS Insure Consultant, we believe that insurance is more than just a policy - it's a promise of
-                        protection and security for a better future. Our mission is to provide you with peace of mind,
-                        knowing that you're covered in times of uncertainty.</p>
-                    <br>
-                    <p class="mb-0"></p>We're dedicated to being there for you when it matters most, offering personalized
-                    support and expert guidance to help you navigate life's challenges. Whether you're looking to safeguard
-                    your loved ones, protect your assets, or simply ensure a secure tomorrow, we're here to assist you every
-                    step of the way.</p>
-                    <br>
-                    <p class="mb-0"></p>Trust NFS Insure Consultant to help you build a brighter future. Get in touch with us today to
-                    discover how our insurance solutions can provide you with the protection and reassurance you deserve.
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.04s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-dollar-sign fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">Start Your Financial Freedom Today.</h4>
-                            <p class="mb-4">Ready to take control of your finances and secure your future? At NFS Insure Consultant,
-                                we're dedicated to helping you achieve financial freedom.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.06s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-bullseye fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">Join The Team</h4>
-                            <p class="mb-4">Join our dynamic team at NFS
-                                Insure! If you&#39;re passionate about
-                                insurance and dedicated to
-                                delivering exceptional customer
-                                service, we want to hear from you.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.08s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-headphones fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">24/7 Online Support at NFS Insure Consultant.</h4>
-                            <p class="mb-4">At NFS Insure Consultant, we're committed to providing you with exceptional support whenever you need it.</p>
-                            <span id="read-more" style="display: none;">
-                                <p>Our 24/7 online support portal allows you to:</p>
-                                <ul>
-                                    <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Submit claims and track their status</p>
-                                    <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Access your policy documents and details.</p>
-                                    <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Get answers to frequently asked questions.</p>
-                                </ul>
-                            </span>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" onclick="toggleReadMore(this)">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="p-0">
+              <img
+                style="height: 50px; margin-bottom: 10px"
+                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png"
+                alt="Logo"
+              />
+            </a>
+            <p>
+              Your trusted partner in building a secure financial future. We
+              provide comprehensive insurance solutions with integrity and
+              transparency.
+            </p>
+            <p class="mb-0"><strong>FSP No. 53910</strong></p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Useful Links</h5>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="FAQ.html">FAQ's</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Legal</h5>
+            <a href="docs/PAIA MANUAL WEBSITE.pdf">PAIA Manual</a>
+            <a href="docs/Conflict of Interest Management Policy Website.pdf"
+              >Conflict of Interest</a
+            >
+            <a href="docs/Complaints Policy WEBSITE.pdf">Complaints</a>
+            <a href="docs/TCF Policy WEBSITE.pdf">TCF</a>
+            <a href="docs/PRIVACY NOTICE WEBSITE.pdf">Privacy Notice</a>
+          </div>
+          <!-- START of the changed HTML for the footer's Contact Us column -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Contact Us</h5>
+          <p>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            <a
+              href="https://www.google.com/maps/search/Eagle+Canyon+Office+Park,+Cnr+Christiaan+De+Wet+%26+Dolfyn+St,+Randpark+Ridge,+2154"
+              target="_blank"
+              >Eagle Canyon Office Park, Cnr Christiaan De Wet & Dolfyn St, Randpark
+              Ridge, 2154</a
+            >
+          </p>
+          <p>
+            <i class="fas fa-phone me-2"></i>
+            <a href="tel:+27100557272">+27 10 055 7272</a>
+          </p>
+          <p>
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:info@nfs.insure">info@nfs.insure</a>
+          </p>
+          <div class="social-links mt-3">
+            <a
+              href="https://www.instagram.com/nfs_insure/"
+              target="_blank"
+              class="instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/profile.php?id=61566917234605"
+              target="_blank"
+              class="facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/nfsinsure/about/"
+              target="_blank"
+              class="linkedin"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
-        <!-- Feature End -->
-
-        <!-- FAQs Start -->
-        <div class="container-fluid faq-section bg-light pb-5">
-            <div class="container pb-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.02s">
-                        <div class="h-100">
-                            <div class="mb-5">
-                                <h4 class="text-primary">Some Important FAQ's</h4>
-                                <h1 class="display-4 mb-0">Common Frequently Asked Questions</h1>
-                            </div>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button border-0" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Q: What does NFS Insure Consultant do?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show active"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body rounded">
-                                            A: NFS Insure Consultant is a licensed financial services provider specializing in insurance solutions, including life insurance, medical insurance, and personal lines.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Q: Is NFS Insure Consultant a licensed insurance provider?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: NFS is not an insurance provider, it provides financial services on behalf of insurers/medical schemes
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree" aria-expanded="false"
-                                            aria-controls="collapseThree">
-                                            Q: What types of insurance does NFS Insure Consultant offer?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: we have agreements with various insurers and medical schemes, we find the best solution for our clients
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading4">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse4" aria-expanded="false"
-                                            aria-controls="collapse4">
-                                            Q: How do I get a quote from NFS Insure Consultant?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse4" class="accordion-collapse collapse"
-                                        aria-labelledby="heading4" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: You can request a quote by contacting us through our website, emailing us directly, or calling our office. Reminder that a privacy notice form should be completed along with FNA and ROA.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading5">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse5" aria-expanded="false"
-                                            aria-controls="collapse5">
-                                            Q: Can I purchase insurance policies online?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse5" class="accordion-collapse collapse"
-                                        aria-labelledby="heading5" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: NFS not an insurance company, NFS acts as the advisor contracted with various insurers/medical schemes
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading6">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse6" aria-expanded="false"
-                                            aria-controls="collapse6">
-                                            Q: How do I file a claim with NFS Insure Consultant?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse6" class="accordion-collapse collapse"
-                                        aria-labelledby="heading6" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: To file a claim, please contact our office directly, and our claims team will guide you through the process.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading7">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse7" aria-expanded="false"
-                                            aria-controls="collapse7">
-                                            Q: What is the process for canceling or changing my insurance policy?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse7" class="accordion-collapse collapse"
-                                        aria-labelledby="heading7" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: Please contact our office, and our team will assist you with canceling or making changes to your insurance policy.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading8">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse8" aria-expanded="false"
-                                            aria-controls="collapse8">
-                                            Q: Does NFS Insure Consultant offer any discounts or promotions?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse8" class="accordion-collapse collapse"
-                                        aria-labelledby="heading8" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: How does this work? Insurers don’t normally offer discounts. When all products fall under one umbrella, then maybe there can be savings.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading9">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse9" aria-expanded="false"
-                                            aria-controls="collapse9">
-                                            Q: How do I access my insurance policy documents?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse9" class="accordion-collapse collapse"
-                                        aria-labelledby="heading9" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: Your policy documents will be emailed to you upon policy issuance. If you need to access your documents again, please contact our office.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.04s">
-                        <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
-                    </div>
-                </div>
-            </div>
+<!-- END of the changed HTML for the footer's Contact Us column -->
         </div>
-        <!-- FAQs End -->
-
-
-        <!-- Team Start
-        <div class="container-fluid team py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.02s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Team</h4>
-                    <h1 class="display-4 mb-4">Meet Our Expert Team Members</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.02s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.06s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.08s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="year"></span> NFS Insure Consultant | All Rights
+            Reserved. | <a href="#">Privacy Policy</a>
+          </p>
         </div>
-        <!-- Team End
+      </div>
+    </footer>
 
+    <!-- Floating Action Buttons -->
+    <!-- AI Chat Bot Button 
+    <button
+      type="button"
+      class="chat-bot-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#chatModal"
+      title="Chat with our AI Assistant"
+    >
+      <i class="fas fa-robot"></i>
+    </button>-->
 
-        <!-- Footer Start -->
-        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.02s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-9">
-                        <div class="mb-5">
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-6 col-xl-5">
-                                    <div>
-                                        <a href="index.html" class="p-0">
-                                            <img style="height: 50px;margin-bottom: 10px;"
-                                                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png" alt="Logo">
-                                        </a>
-                                        <p class="text-white">NFS Insure Consultant (Pty) Ltd is an Authorised Financial Services Provider (FSP No. 53910)</p>
-                                        <div class="col-md-6 col-lg-6 col-xl-6">
-                                            <div class="footer-item">
-                                        <a href="docs/PAIA MANUAL WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> PAIA Manual</a>
-                                        <a href="docs/Conflict of Interest Management Policy Website.pdf"><i class="fas fa-angle-right me-2"></i> Conflict of Interest</a>
-                                        <a href="docs/Complaints Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Complaints</a>
-                                        <a href="docs/TCF Policy WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> TCF</a>
-                                        <a href="docs/PRIVACY NOTICE WEBSITE.pdf"><i class="fas fa-angle-right me-2"></i> Privacy Notice</a>
-                                    </div>
-                                </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="footer-item">
-                                        <h4 class="text-white mb-4">Useful Links</h4>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Features</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                        
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="footer-item">
-                                        <h4 class="mb-4 text-white">Instagram</h4>
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-1.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                                class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-2.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-3.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-4.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-5.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-6.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="https://www.instagram.com" target="_blank"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-5" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                            <div class="row g-0">
-                                <div class="col-12">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-map-marker-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Address</h4>
-                                                    <p class="mb-0">Eagle Canyon Office Park,
-                                                        Corner Christiaan De Wet Street
-                                                        and Dolfyn Street,
-                                                        Randpark Ridge,
-                                                        2154
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-envelope fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Mail Us</h4>
-                                                    <p class="mb-0">info@nfs.insure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fa fa-phone-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Telephone</h4>
-                                                    <p class="mb-0">+27 10 055 7272</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-xl-3">
-                        <div class="footer-item">
-                            <h4 class="text-white mb-4">Our Promise</h4>
-                            <p class="text-white mb-3">Protecting your tomorrow, today.</p>
-                            <div class="d-flex flex-shrink-0">
-                                <div class="footer-btn">
-                                    <a href="#" class="btn btn-lg-square rounded-circle position-relative wow tada"
-                                        data-wow-delay=".9s">
-                                        <i class="fa fa-phone-alt fa-2x"></i>
-                                        <div class="position-absolute" style="top: 2px; right: 12px;">
-                                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column ms-3 flex-shrink-0">
-                                    <span class="text-light">info@nfs.insure</span>
-                                    <a href="tel:+27 10 055 7272"><span class="text-light">+27 10 055 7272</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/27100557272"
+      target="_blank"
+      class="whatsapp-btn"
+      title="Contact us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Chat Bot Modal 
+    <div
+      class="modal fade chat-modal"
+      id="chatModal"
+      tabindex="-1"
+      aria-labelledby="chatModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chatModalLabel">
+              <i class="fas fa-robot me-2"></i>
+              NFS AI Assistant
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              src="https://app.fastbots.ai/embed/cmcc08fgk0005oelx09k84oei"
+              title="NFS Insurance AI Assistant"
+            ></iframe>
+          </div>
         </div>
-        <!-- Footer End -->
-        
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-end mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>NFS Insure Consultant 2025 </a>| All right reserved |</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-start text-body">
-                        Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom text-white" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
+      </div>-->
+    </div>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
-
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
