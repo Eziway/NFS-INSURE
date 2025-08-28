@@ -78,7 +78,7 @@
 
       /* Hero Section Background */
       .hero {
-        background-image: url('img/WhatsApp Image 2025-06-29 at 17.44.17_101b3d5f.jpg');
+        background-image: url("img/WhatsApp Image 2025-06-29 at 17.44.17_101b3d5f.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed; /* Creates the parallax effect */
@@ -89,13 +89,13 @@
       .hero .hero-content h1,
       .hero .hero-content p {
         color: #fff;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Stronger shadow for readability */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow for readability */
       }
 
       .hero .hero-content {
         text-align: left;
       }
-      
+
       /* Smooth Section Styling */
       .smooth-section {
         padding: 60px 0;
@@ -364,7 +364,7 @@
         animation: fadeInMessage 0.3s ease-out;
       }
       .whatsapp-chat-modal .modal-body .chat-bubble::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         bottom: -8px;
@@ -477,16 +477,16 @@
 
       /* Footer specific social icon hover colors */
       .footer .social-links a.facebook:hover {
-          background-color: #3b5998; /* Facebook Blue */
+        background-color: #3b5998; /* Facebook Blue */
       }
       .footer .social-links a.twitter:hover {
-          background-color: #00acee; /* Twitter Blue */
+        background-color: #00acee; /* Twitter Blue */
       }
       .footer .social-links a.instagram:hover {
-          background-color: #C13584; /* Instagram Pink/Purple */
+        background-color: #c13584; /* Instagram Pink/Purple */
       }
       .footer .social-links a.linkedin:hover {
-          background-color: #0077B5; /* LinkedIn Blue */
+        background-color: #0077b5; /* LinkedIn Blue */
       }
 
       /* Custom adjustments for improved display */
@@ -505,7 +505,8 @@
         align-items: center; /* Vertically align items */
         width: 100%; /* Ensure it takes full width */
       }
-      @media (max-width: 991.98px) { /* For smaller screens, stack them */
+      @media (max-width: 991.98px) {
+        /* For smaller screens, stack them */
         .navbar-collapse {
           flex-direction: column;
           align-items: center;
@@ -519,26 +520,25 @@
         }
       }
 
-
       /* Footer Contact Us section display */
       .footer .col-lg-3.col-md-6 .social-links {
-          display: flex; /* Use flexbox for social links */
-          gap: 10px; /* Space between social icons */
-          margin-top: 1.5rem; /* More space above social icons */
-          justify-content: flex-start; /* Align left */
+        display: flex; /* Use flexbox for social links */
+        gap: 10px; /* Space between social icons */
+        margin-top: 1.5rem; /* More space above social icons */
+        justify-content: flex-start; /* Align left */
       }
 
       /* Adjust padding for footer paragraphs to reduce squishing */
       .footer .col-lg-3.col-md-6 p {
-          margin-bottom: 0.75rem; /* More space between lines of contact info */
+        margin-bottom: 0.75rem; /* More space between lines of contact info */
       }
 
       /* Make sure the clickable links within footer contact info wrap properly */
       .footer .col-lg-3.col-md-6 p a {
-          display: inline; /* Allow text to wrap naturally */
-          padding: 0; /* Remove extra padding from 'display: block' in general footer a */
-          margin: 0; /* Remove extra margin */
-          word-break: break-word; /* Break long words if necessary */
+        display: inline; /* Allow text to wrap naturally */
+        padding: 0; /* Remove extra padding from 'display: block' in general footer a */
+        margin: 0; /* Remove extra margin */
+        word-break: break-word; /* Break long words if necessary */
       }
     </style>
   </head>
@@ -804,6 +804,23 @@
                 <li>Disability Insurance</li>
                 <li>Income Protection</li>
                 <li>Funeral Cover</li>
+              </ul>
+            </div>
+          </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4 d-flex">
+            <div class="service-card-alt">
+              <div class="service-icon-alt">
+                <i class="fa fa-users fa"></i>
+              </div>
+              <h4>NFS Learner Insurance</h4>
+              <ul class="service-list-alt">
+                <li>Funeral Cover</li>
+                <li>Healthcare</li>
+                <li>Benefits</li>
+                <li>Medical</li>
+                <li>Wallet</li>
+                <li>Sport Injuries</li>
               </ul>
             </div>
           </div>
@@ -1362,13 +1379,13 @@
 
       // Function to add a message to the chat display
       function addMessage(sender, message) {
-        const chatMessages = document.getElementById('chat-messages');
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message-bubble');
-        if (sender === 'user') {
-          messageElement.classList.add('user-message');
+        const chatMessages = document.getElementById("chat-messages");
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("chat-message-bubble");
+        if (sender === "user") {
+          messageElement.classList.add("user-message");
         } else {
-          messageElement.classList.add('bot-message');
+          messageElement.classList.add("bot-message");
         }
         messageElement.textContent = message;
         chatMessages.appendChild(messageElement);
@@ -1377,9 +1394,9 @@
       }
 
       // Initial greeting from the bot
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         addMessage(
-          'bot',
+          "bot",
           `Hello! I'm your NFS AI Assistant. How can I help you today? Feel free to ask me anything about NFS Insure's services, mission, or our PAIA manual.`
         );
       });
@@ -1387,15 +1404,15 @@
       // Function to send message to Gemini API
       async function sendToGemini(userMessage) {
         // Add user message to chat display
-        addMessage('user', userMessage);
+        addMessage("user", userMessage);
 
-        const chatInput = document.getElementById('chat-input');
-        chatInput.value = ''; // Clear input field
+        const chatInput = document.getElementById("chat-input");
+        chatInput.value = ""; // Clear input field
 
         // Show a "typing" indicator or similar
-        addMessage('bot', 'Typing...');
+        addMessage("bot", "Typing...");
         // Ensure the "Typing..." message is the one that was just added.
-        const chatMessages = document.getElementById('chat-messages'); // Re-get reference inside function
+        const chatMessages = document.getElementById("chat-messages"); // Re-get reference inside function
         const botThinkingMessage = chatMessages.lastElementChild;
 
         try {
@@ -1406,11 +1423,13 @@
           **General Company Information:**
           Name: ${companyInfo.name}
           FSP Number: ${companyInfo.fspNumber}
-          Accreditation Number (Medical Schemes): ${companyInfo.accreditationNumber}
+          Accreditation Number (Medical Schemes): ${
+            companyInfo.accreditationNumber
+          }
           Physical Address: ${companyInfo.address}
           Phone Number: ${companyInfo.phone}
           Email Address: ${companyInfo.email}
-          Services Offered: ${companyInfo.services.join('; ')}
+          Services Offered: ${companyInfo.services.join("; ")}
           Mission: ${companyInfo.mission}
           Vision: ${companyInfo.vision}
           Values: ${companyInfo.values}
@@ -1422,17 +1441,17 @@
           Based *only* on the information above, answer the following user's question: "${userMessage}"`;
 
           let chatHistory = [];
-          chatHistory.push({ role: 'user', parts: [{ text: prompt }] });
+          chatHistory.push({ role: "user", parts: [{ text: prompt }] });
           const payload = { contents: chatHistory };
 
           // IMPORTANT: The API key is left empty here because the Canvas environment
           // will automatically provide it. For local testing, you would need to insert your key.
-          const apiKey = "AIzaSyB0Cb8ON01R4E1vL14io3WMveYD7534cgQ"; 
+          const apiKey = "AIzaSyB0Cb8ON01R4E1vL14io3WMveYD7534cgQ";
           const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
           const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
           });
 
@@ -1444,8 +1463,11 @@
           }
 
           const result = await response.json();
-          
-          if (botThinkingMessage && botThinkingMessage.textContent === 'Typing...') {
+
+          if (
+            botThinkingMessage &&
+            botThinkingMessage.textContent === "Typing..."
+          ) {
             botThinkingMessage.remove();
           }
 
@@ -1457,29 +1479,35 @@
             result.candidates[0].content.parts.length > 0
           ) {
             const botResponse = result.candidates[0].content.parts[0].text;
-            addMessage('bot', botResponse);
+            addMessage("bot", botResponse);
           } else {
             addMessage(
-              'bot',
+              "bot",
               "I apologize, but I couldn't process your request. The AI returned an unexpected response format. Please try again or contact NFS Insure directly."
             );
-            console.error('Gemini API returned an unexpected structure:', result);
+            console.error(
+              "Gemini API returned an unexpected structure:",
+              result
+            );
           }
         } catch (error) {
-          if (botThinkingMessage && botThinkingMessage.textContent === 'Typing...') {
+          if (
+            botThinkingMessage &&
+            botThinkingMessage.textContent === "Typing..."
+          ) {
             botThinkingMessage.remove();
           }
           addMessage(
-            'bot',
+            "bot",
             "I'm having trouble connecting to the AI service at the moment. Please try again later or contact us directly for assistance."
           );
-          console.error('Error calling Gemini API:', error);
+          console.error("Error calling Gemini API:", error);
         }
       }
 
       // Event listener for send button
-      document.getElementById('send-chat-btn').addEventListener('click', () => {
-        const chatInput = document.getElementById('chat-input');
+      document.getElementById("send-chat-btn").addEventListener("click", () => {
+        const chatInput = document.getElementById("chat-input");
         const userMessage = chatInput.value.trim();
         if (userMessage) {
           sendToGemini(userMessage);
@@ -1488,9 +1516,9 @@
 
       // Event listener for Enter key in input field
       document
-        .getElementById('chat-input')
-        .addEventListener('keypress', (event) => {
-          if (event.key === 'Enter') {
+        .getElementById("chat-input")
+        .addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
             const userMessage = event.target.value.trim();
             if (userMessage) {
               sendToGemini(userMessage);
@@ -1501,7 +1529,7 @@
       // Function to close the modal after clicking "Continue to WhatsApp"
       function closeWhatsappModal() {
         const whatsappModal = bootstrap.Modal.getInstance(
-          document.getElementById('whatsappChatModal')
+          document.getElementById("whatsappChatModal")
         );
         if (whatsappModal) {
           whatsappModal.hide();
@@ -1509,30 +1537,30 @@
       }
 
       // Navbar scroll effect
-      window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
         if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
+          navbar.classList.add("scrolled");
         } else {
-          navbar.classList.remove('scrolled');
+          navbar.classList.remove("scrolled");
         }
       });
 
       // Update current year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       // Other existing JS functions
       function toggleReadMore(button) {
-        var readMoreContent = button.parentElement.querySelector('#read-more');
+        var readMoreContent = button.parentElement.querySelector("#read-more");
         if (
-          readMoreContent.style.display === 'none' ||
-          readMoreContent.style.display === ''
+          readMoreContent.style.display === "none" ||
+          readMoreContent.style.display === ""
         ) {
-          readMoreContent.style.display = 'block';
-          button.textContent = 'Less';
+          readMoreContent.style.display = "block";
+          button.textContent = "Less";
         } else {
-          readMoreContent.style.display = 'none';
-          button.textContent = 'Learn More';
+          readMoreContent.style.display = "none";
+          button.textContent = "Learn More";
         }
       }
     </script>
