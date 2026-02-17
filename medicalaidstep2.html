@@ -506,6 +506,59 @@
         box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
       }
 
+      .scheme-card .choose-cover {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        background: var(--gray-50);
+        border: 2px solid var(--gray-200);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .scheme-card .choose-cover:hover {
+        border-color: var(--accent);
+        background: white;
+      }
+
+      .scheme-card .choose-cover input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+        cursor: pointer;
+      }
+
+      .scheme-card .choose-cover label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray-600);
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .scheme-card .choose-cover.checked {
+        border-color: var(--success);
+        background: #f0fdf4;
+      }
+
+      .scheme-card .choose-cover.checked label {
+        color: var(--success);
+      }
+
+      .scheme-card .choose-cover.disabled-cover {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .scheme-card.chosen {
+        border-color: var(--success);
+        box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15), var(--shadow-lg);
+      }
+
       /* Action Buttons */
       .action-buttons {
         display: flex;
@@ -958,8 +1011,9 @@
       <div class="container">
         <div class="section-header">
           <p class="section-description">
-            Select one cover from each of the four major schemes below, then
-            compare them side-by-side or generate a PDF for your records.
+            Select a plan from each scheme below and click "Preview" to compare
+            them side-by-side. Then tick the checkbox on your preferred cover
+            and click "Generate PDF" to create your quote.
           </p>
         </div>
 
@@ -972,6 +1026,10 @@
               </div>
               <h4>Discovery Health</h4>
               <select id="scheme1"></select>
+              <div class="choose-cover" id="cover1-wrap">
+                <input type="checkbox" id="cover1" name="chosenCover" value="scheme1" />
+                <label for="cover1">Select this cover</label>
+              </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex">
@@ -981,6 +1039,10 @@
               </div>
               <h4>Bonitas</h4>
               <select id="scheme2"></select>
+              <div class="choose-cover" id="cover2-wrap">
+                <input type="checkbox" id="cover2" name="chosenCover" value="scheme2" />
+                <label for="cover2">Select this cover</label>
+              </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex">
@@ -990,6 +1052,10 @@
               </div>
               <h4>Momentum Health</h4>
               <select id="scheme3"></select>
+              <div class="choose-cover" id="cover3-wrap">
+                <input type="checkbox" id="cover3" name="chosenCover" value="scheme3" />
+                <label for="cover3">Select this cover</label>
+              </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex">
@@ -999,6 +1065,10 @@
               </div>
               <h4>GEMS</h4>
               <select id="scheme4"></select>
+              <div class="choose-cover" id="cover4-wrap">
+                <input type="checkbox" id="cover4" name="chosenCover" value="scheme4" />
+                <label for="cover4">Select this cover</label>
+              </div>
             </div>
           </div>
         </div>
@@ -1403,51 +1473,36 @@
           cursorY = doc.lastAutoTable.finalY + 25;
         }
 
-        // Plan Comparison Section
+        // Selected Cover Section
+        var chosen = selected[0];
         doc.setFontSize(11);
         doc.setFont(undefined, "bold");
-        doc.text("Plan Comparison", 40, cursorY);
+        doc.text("Selected Cover: " + chosen.scheme + " \u2014 " + chosen.plan.name, 40, cursorY);
         cursorY += 15;
 
-        var columns = [{ header: "Attribute", dataKey: "attr" }];
-        selected.forEach(function (s, i) {
-          columns.push({
-            header: s.scheme + "\n" + s.plan.name,
-            dataKey: "c" + i,
-          });
-        });
-
-        var attributes = [
-          { attr: "Monthly Premium", key: "premium" },
-          { attr: "Hospital Cover", key: "hospital" },
-          { attr: "Day-to-day Benefits", key: "dayToDay" },
-          { attr: "GP Visits", key: "gpVisits" },
-          { attr: "Chronic Medication", key: "chronic" },
-          { attr: "Network", key: "network" },
+        var planRows = [
+          ["Monthly Premium", chosen.plan.premium || "\u2014"],
+          ["Hospital Cover", chosen.plan.hospital || "\u2014"],
+          ["Day-to-day Benefits", chosen.plan.dayToDay || "\u2014"],
+          ["GP Visits", chosen.plan.gpVisits || "\u2014"],
+          ["Chronic Medication", chosen.plan.chronic || "\u2014"],
+          ["Network", chosen.plan.network || "\u2014"],
         ];
-
-        var rows = attributes.map(function (a) {
-          var row = { attr: a.attr };
-          selected.forEach(function (s, i) {
-            row["c" + i] = s.plan[a.key] || "\u2014";
-          });
-          return row;
-        });
 
         doc.autoTable({
           startY: cursorY,
-          head: [columns.map(function (c) { return c.header; })],
-          body: rows.map(function (r) {
-            return columns.map(function (c) { return r[c.dataKey] || ""; });
-          }),
-          styles: { fontSize: 8, cellPadding: 5 },
+          head: [["Benefit", "Details"]],
+          body: planRows,
+          styles: { fontSize: 9, cellPadding: 5 },
           headStyles: {
             fillColor: [44, 62, 80],
             textColor: 255,
             halign: "left",
-            fontSize: 8,
+            fontSize: 9,
           },
-          columnStyles: { 0: { cellWidth: 90, fontStyle: "bold" } },
+          columnStyles: {
+            0: { cellWidth: 140, fontStyle: "bold" },
+          },
           margin: { left: 40, right: 40 },
           theme: "grid",
         });
@@ -1477,14 +1532,74 @@
         doc.save(filename + ".pdf");
       }
 
+      // "Select this cover" checkbox logic
+      var coverCheckboxes = document.querySelectorAll('input[name="chosenCover"]');
+
+      coverCheckboxes.forEach(function (cb) {
+        cb.addEventListener("change", function () {
+          var wrappers = document.querySelectorAll(".choose-cover");
+          var cards = document.querySelectorAll(".scheme-card");
+
+          if (this.checked) {
+            // Disable all other checkboxes, highlight chosen card
+            coverCheckboxes.forEach(function (other) {
+              var otherWrap = document.getElementById(other.id + "-wrap");
+              var otherCard = other.closest(".scheme-card");
+              if (other !== cb) {
+                other.disabled = true;
+                otherWrap.classList.add("disabled-cover");
+                otherWrap.classList.remove("checked");
+                otherCard.classList.remove("chosen");
+              } else {
+                otherWrap.classList.add("checked");
+                otherCard.classList.add("chosen");
+              }
+            });
+          } else {
+            // Re-enable all checkboxes
+            coverCheckboxes.forEach(function (other) {
+              var otherWrap = document.getElementById(other.id + "-wrap");
+              var otherCard = other.closest(".scheme-card");
+              other.disabled = false;
+              otherWrap.classList.remove("disabled-cover", "checked");
+              otherCard.classList.remove("chosen");
+            });
+          }
+        });
+      });
+
+      // Get the chosen cover (the one with the checked checkbox)
+      function getChosenPlan() {
+        var checked = document.querySelector('input[name="chosenCover"]:checked');
+        if (!checked) return null;
+        var selectId = checked.value;
+        var sel = document.getElementById(selectId);
+        var parsed = JSON.parse(sel.value);
+        var plan = schemes[parsed.scheme].find(function (p) {
+          return p.id === parsed.planId;
+        });
+        return { scheme: parsed.scheme, plan: plan };
+      }
+
       // Event handlers
       document.getElementById("compareBtn").addEventListener("click", function () {
         var selected = getSelectedPlans();
         if (selected.length === 0) return;
+
+        // Check if a cover has been chosen
+        var chosen = getChosenPlan();
+        if (!chosen) {
+          alert("Please select one cover using the checkbox below your preferred medical aid provider.");
+          return;
+        }
+
+        // Show full comparison on page
         var html = buildComparison(selected);
         document.getElementById("result").innerHTML = html;
+
+        // PDF only includes the chosen cover
         try {
-          generatePDF(selected);
+          generatePDF([chosen]);
         } catch (err) {
           console.error("PDF generation failed", err);
           alert("PDF generation failed. See console for details.");
