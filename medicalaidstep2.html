@@ -1237,7 +1237,7 @@
 
         var items = [];
         items.push({ label: "Name", value: clientData.firstName + " " + clientData.lastName });
-        if (clientData.idNumber) items.push({ label: "ID Number", value: clientData.idNumber });
+        if (clientData.idNumber) items.push({ label: "ID / Passport Number", value: clientData.idNumber });
         items.push({ label: "Email", value: clientData.email });
         if (clientData.contactNo) items.push({ label: "Contact", value: clientData.contactNo });
         items.push({ label: "Country", value: clientData.country });
@@ -1428,7 +1428,7 @@
 
           var clientRows = [];
           clientRows.push(["Name", clientData.firstName + " " + clientData.lastName]);
-          if (clientData.idNumber) clientRows.push(["ID Number", clientData.idNumber]);
+          if (clientData.idNumber) clientRows.push(["ID / Passport Number", clientData.idNumber]);
           clientRows.push(["Email", clientData.email]);
           if (clientData.contactNo) clientRows.push(["Contact", clientData.contactNo]);
           clientRows.push(["Country", clientData.country]);
