@@ -1523,13 +1523,7 @@
           doc.text("Page " + p + " of " + totalPages, pageWidth - 90, pageHeight - 30);
         }
 
-        // Generate filename with client name if available
-        var filename = "medical-aid-comparison";
-        if (clientData) {
-          filename = clientData.firstName + "-" + clientData.lastName + "-medical-aid-quote";
-          filename = filename.toLowerCase().replace(/[^a-z0-9-]/g, "");
-        }
-        doc.save(filename + ".pdf");
+        doc.save("NFSINSUREMedicalAidQuote.pdf");
       }
 
       // "Select this cover" checkbox logic
