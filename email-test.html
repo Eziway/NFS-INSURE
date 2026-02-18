@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmailJS Test - NFS Insure</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; color: #333; }
+    h1 { color: #2c3e50; }
+    .test-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .test-card h3 { margin-top: 0; }
+    button { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+    .btn-test { background: #3498db; color: white; }
+    .btn-test:hover { background: #2980b9; }
+    .btn-test:disabled { opacity: 0.6; cursor: not-allowed; }
+    #log { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; max-height: 400px; overflow-y: auto; min-height: 100px; }
+    .log-success { color: #4ec9b0; }
+    .log-error { color: #f44747; }
+    .log-info { color: #569cd6; }
+    .log-warn { color: #ce9178; }
+    .config-table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+    .config-table td { padding: 0.4rem 0.75rem; border-bottom: 1px solid #e9ecef; }
+    .config-table td:first-child { font-weight: 600; width: 140px; color: #6c757d; }
+  </style>
+</head>
+<body>
+  <h1>EmailJS Test Page</h1>
+  <p>This page isolates EmailJS to help debug email sending. Open your browser console (F12) as well.</p>
+
+  <div class="test-card">
+    <h3>Configuration</h3>
+    <table class="config-table">
+      <tr><td>Public Key</td><td id="cfgKey"></td></tr>
+      <tr><td>Service ID</td><td id="cfgService"></td></tr>
+      <tr><td>Template ID</td><td id="cfgTemplate"></td></tr>
+      <tr><td>SDK Loaded</td><td id="cfgSdk"></td></tr>
+    </table>
+  </div>
+
+  <div class="test-card">
+    <h3>Test 1: Simple Email (no attachment)</h3>
+    <p>Sends a plain email with no PDF. Tests basic config.</p>
+    <button class="btn-test" onclick="runTest1()">Send to Info@nfs.insure</button>
+    <button class="btn-test" onclick="runTest1B()" style="background: #27ae60;">Send to Gmail</button>
+  </div>
+
+  <div class="test-card">
+    <h3>Test 2: Email with tiny attachment</h3>
+    <p>Sends an email with a tiny 1KB base64 string as the content variable. Tests attachment support.</p>
+    <button class="btn-test" onclick="runTest2()">Send Test 2</button>
+  </div>
+
+  <div class="test-card">
+    <h3>Test 3: Email with realistic PDF</h3>
+    <p>Generates a sample PDF with jsPDF and sends it as an attachment. Tests the full flow.</p>
+    <button class="btn-test" onclick="runTest3()">Send Test 3</button>
+    <span id="pdfSize" style="color: #6c757d; font-size: 0.85rem;"></span>
+  </div>
+
+  <div class="test-card">
+    <h3>Log Output</h3>
+    <div id="log"></div>
+    <button style="background: #6c757d; color: white; margin-top: 0.75rem;" onclick="document.getElementById('log').innerHTML = ''">Clear Log</button>
+  </div>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- jsPDF for Test 3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    // ─── Same config as medicalaidstep2.html ───
+    var EMAILJS_PUBLIC_KEY  = "SDHknfptqUaRoSoI9";
+    var EMAILJS_SERVICE_ID  = "service_o7v0f_nfsinsure";
+    var EMAILJS_TEMPLATE_ID = "template_pdc8gqq";
+
+    var TEST_RECIPIENT      = "Info@nfs.insure";
+    var TEST_NAME           = "NFS Test";
+
+    // ─── Log helper ───
+    function log(msg, type) {
+      var el = document.getElementById("log");
+      var cls = type || "info";
+      var prefix = type === "error" ? "[ERROR] " : type === "success" ? "[OK] " : type === "warn" ? "[WARN] " : "[INFO] ";
+      el.innerHTML += '<span class="log-' + cls + '">' + prefix + msg + '</span>\n';
+      el.scrollTop = el.scrollHeight;
+      console.log(prefix + msg);
+    }
+
+    // ─── Show config on page ───
+    document.getElementById("cfgKey").textContent = EMAILJS_PUBLIC_KEY;
+    document.getElementById("cfgService").textContent = EMAILJS_SERVICE_ID;
+    document.getElementById("cfgTemplate").textContent = EMAILJS_TEMPLATE_ID;
+
+    var sdkLoaded = typeof emailjs !== "undefined";
+    document.getElementById("cfgSdk").textContent = sdkLoaded ? "Yes" : "NO — SDK failed to load!";
+    document.getElementById("cfgSdk").style.color = sdkLoaded ? "green" : "red";
+
+    // ─── Initialize EmailJS ───
+    if (sdkLoaded) {
+      try {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        log("EmailJS initialized with public key: " + EMAILJS_PUBLIC_KEY, "success");
+      } catch (e) {
+        log("EmailJS init failed: " + e.message, "error");
+      }
+    } else {
+      log("EmailJS SDK not loaded! Check network/CDN.", "error");
+    }
+
+    // Build the full HTML email body with dynamic values
+    function buildEmailHTML(recipientName) {
+      return '<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px; background-color: #fff8f1;">' +
+        '<div style="max-width: 600px; margin: auto; padding: 16px;">' +
+        '<p>Dear ' + recipientName + ',</p>' +
+        '<p>Thank you for completing your online Medical Aid quotation request with <strong>NFS Insure Consultant</strong>.</p>' +
+        '<p>Please find your Medical Aid quotation attached to this email for your review. Kindly go through the details carefully and contact us should you require any further clarification or assistance.</p>' +
+        '<p style="font-weight: 600;">Important Disclaimer:</p>' +
+        '<p>All members who are not residing in South Africa are hereby advised that travelling expenses are excluded from your Medical Aid plan. You will be responsible for covering all travel costs at your own expense in order to access treatment at a private hospital within South Africa.</p>' +
+        '<p>If you would like to proceed with the application or need further information, please reply to this email or contact our office directly.</p>' +
+        '<p><a style="display: inline-block; text-decoration: none; outline: none; color: #fff; background: linear-gradient(90deg, #001f3f 0%, #2a4d8f 100%); padding: 8px 16px; border-radius: 4px;" href="https://nfs.insure/" target="_blank">NFS.INSURE</a></p>' +
+        '<p>If you have any questions or need help, our support team is available at <a href="mailto:info@nfs.insure" style="text-decoration: none; outline: none; color: #001f3f;">info@nfs.insure</a>.</p>' +
+        '<p>Kind regards,<br />NFS Insure Consultant Team</p>' +
+        '</div></div>';
+    }
+
+    // ─── TEST 1: Simple email, no attachment ───
+    function runTest1() {
+      log("--- Test 1: Send to " + TEST_RECIPIENT + " ---");
+
+      var params = {
+        to_email: TEST_RECIPIENT,
+        from_name: "NFS Consultant",
+        subject: "Your Medical Aid Quotation from NFS Insure Consultant",
+        message_html: buildEmailHTML(TEST_NAME),
+      };
+      log("Params: " + JSON.stringify(params, null, 2));
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+      .then(function (response) {
+        log("Test 1 PASSED — Status: " + response.status + ", Text: " + response.text, "success");
+      }, function (err) {
+        log("Test 1 FAILED — Status: " + (err.status || "unknown"), "error");
+        log("Error text: " + (err.text || JSON.stringify(err)), "error");
+      });
+    }
+
+    // ─── TEST 1B: Send to Gmail to rule out domain issue ───
+    function runTest1B() {
+      var gmailAddr = "twala.simphiwe@gmail.com";
+      log("--- Test 1B: Send to " + gmailAddr + " ---");
+
+      var params = {
+        to_email: gmailAddr,
+        from_name: "NFS Consultant",
+        subject: "NFS Insure - EmailJS Test",
+        message_html: buildEmailHTML("Simphiwe"),
+      };
+      log("Params: " + JSON.stringify(params, null, 2));
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+      .then(function (response) {
+        log("Test 1B PASSED — Status: " + response.status + ", Text: " + response.text, "success");
+      }, function (err) {
+        log("Test 1B FAILED — Status: " + (err.status || "unknown"), "error");
+        log("Error text: " + (err.text || JSON.stringify(err)), "error");
+      });
+    }
+
+    // ─── TEST 2: Email with tiny base64 content ───
+    function runTest2() {
+      log("--- Test 2: Email with tiny attachment ---");
+
+      var tinyContent = btoa("This is a tiny test file content from NFS Insure email test.");
+      log("Attachment size: " + tinyContent.length + " bytes (base64)");
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: TEST_RECIPIENT,
+        from_name: "NFS Consultant",
+        subject: "Your Medical Aid Quotation from NFS Insure Consultant",
+        message_html: buildEmailHTML(TEST_NAME),
+        content: tinyContent,
+      }).then(function (response) {
+        log("Test 2 PASSED — Status: " + response.status + ", Text: " + response.text, "success");
+      }, function (err) {
+        log("Test 2 FAILED — Status: " + (err.status || "unknown"), "error");
+        log("Error text: " + (err.text || JSON.stringify(err)), "error");
+      });
+    }
+
+    // ─── TEST 3: Email with real PDF ───
+    function runTest3() {
+      log("--- Test 3: Email with PDF attachment ---");
+
+      try {
+        var jsPDF = window.jspdf.jsPDF;
+        var doc = new jsPDF({ unit: "pt", format: "a4" });
+
+        doc.setFontSize(16);
+        doc.setFont(undefined, "bold");
+        doc.text("NFS Insure Consultant", 40, 40);
+        doc.setFontSize(10);
+        doc.setFont(undefined, "normal");
+        doc.text("FSP No. 53910 | Test PDF generated on " + new Date().toLocaleString(), 40, 60);
+
+        doc.autoTable({
+          startY: 90,
+          head: [["Field", "Details"]],
+          body: [
+            ["Name", "Test Client"],
+            ["Email", TEST_RECIPIENT],
+            ["Plan", "Discovery KeyCare Plus"],
+            ["Premium", "R 2,500 /month"],
+          ],
+          styles: { fontSize: 9, cellPadding: 5 },
+          headStyles: { fillColor: [44, 62, 80], textColor: 255 },
+          margin: { left: 40, right: 40 },
+          theme: "grid",
+        });
+
+        var base64PDF = doc.output("datauristring").split(",")[1];
+        if (!base64PDF) throw new Error("PDF base64 output is empty");
+        var sizeKB = Math.round(base64PDF.length / 1024);
+        log("PDF generated — base64 size: " + sizeKB + "KB (" + base64PDF.length + " chars)");
+        document.getElementById("pdfSize").textContent = "PDF size: " + sizeKB + "KB base64";
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: TEST_RECIPIENT,
+          from_name: "NFS Consultant",
+          subject: "Your Medical Aid Quotation from NFS Insure Consultant",
+          message_html: buildEmailHTML(TEST_NAME),
+          content: base64PDF,
+        }).then(function (response) {
+          log("Test 3 PASSED — Status: " + response.status + ", Text: " + response.text, "success");
+        }, function (err) {
+          log("Test 3 FAILED — Status: " + (err.status || "unknown"), "error");
+          log("Error text: " + (err.text || JSON.stringify(err)), "error");
+        });
+      } catch (err) {
+        log("Test 3 EXCEPTION: " + err.message, "error");
+        log("Stack: " + err.stack, "error");
+      }
+    }
+  </script>
+</body>
+</html>

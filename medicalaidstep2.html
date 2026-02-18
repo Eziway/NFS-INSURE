@@ -790,6 +790,61 @@
         text-decoration: none;
       }
 
+      /* Email Quote Button */
+      .btn-email {
+        background: var(--gradient-4);
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-email:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: var(--shadow-xl);
+        color: white;
+      }
+
+      .btn-email:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Toast Notifications */
+      .toast-container {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        z-index: 9999;
+      }
+
+      .toast-msg {
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: var(--shadow-xl);
+        animation: fadeIn 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        max-width: 400px;
+        margin-top: 0.5rem;
+      }
+
+      .toast-msg.success { background: var(--success); }
+      .toast-msg.error { background: var(--danger); }
+      .toast-msg.info { background: var(--accent); }
+
       @keyframes pulse {
         0% {
           box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
@@ -885,7 +940,8 @@
           align-items: center;
         }
         .btn-compare,
-        .btn-preview {
+        .btn-preview,
+        .btn-email {
           width: 100%;
           max-width: 300px;
           justify-content: center;
@@ -1081,6 +1137,9 @@
           <button class="btn-preview" id="previewBtn" type="button">
             <i class="fas fa-eye"></i> Preview Comparison
           </button>
+          <button class="btn-email" id="emailBtn" type="button">
+            <i class="fas fa-envelope"></i> Email Quote
+          </button>
         </div>
       </div>
     </section>
@@ -1179,6 +1238,9 @@
       </div>
     </footer>
 
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
     <!-- WhatsApp Button -->
     <a
       href="https://wa.me/27100557272"
@@ -1193,6 +1255,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- EmailJS SDK (client-side email service — no backend needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <!-- Medical Aid Plan Data (edit data/medical-plans.js to update plans) -->
     <script src="data/medical-plans.js"></script>
@@ -1523,7 +1588,7 @@
           doc.text("Page " + p + " of " + totalPages, pageWidth - 90, pageHeight - 30);
         }
 
-        doc.save("NFSINSUREMedicalAidQuote.pdf");
+        return doc;
       }
 
       // "Select this cover" checkbox logic
@@ -1593,7 +1658,8 @@
 
         // PDF only includes the chosen cover
         try {
-          generatePDF([chosen]);
+          var doc = generatePDF([chosen]);
+          doc.save("NFSINSUREMedicalAidQuote.pdf");
         } catch (err) {
           console.error("PDF generation failed", err);
           alert("PDF generation failed. See console for details.");
@@ -1606,6 +1672,127 @@
         var html = buildComparison(selected);
         document.getElementById("result").innerHTML = html;
       });
+
+      // ─── EmailJS Configuration ───────────────────────────────────────
+      // Sign up free at https://www.emailjs.com/ (200 emails/month on free tier)
+      //
+      // Setup steps:
+      //   1. Create an Email Service (connect Gmail, Outlook, etc.)
+      //   2. Create an Email Template with these variables:
+      //        {{to_email}}   → recipient email address
+      //        {{to_name}}    → recipient full name
+      //        {{from_name}}  → sender name (NFS Insure Consultant)
+      //        {{message}}    → quote summary text
+      //      Then in the template Attachments section, add:
+      //        Filename: NFSINSUREMedicalAidQuote.pdf
+      //        Variable: {{content}}
+      //   3. Replace the three values below with your own credentials
+      // ──────────────────────────────────────────────────────────────────
+      var EMAILJS_PUBLIC_KEY  = "SDHknfptqUaRoSoI9";
+      var EMAILJS_SERVICE_ID  = "service_o7v0f_nfsinsure";
+      var EMAILJS_TEMPLATE_ID = "template_pdc8gqq";
+
+      // Initialize EmailJS
+      if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      }
+
+      // Email Quote button handler
+      document.getElementById("emailBtn").addEventListener("click", function () {
+        // Check EmailJS is configured
+        if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" ||
+            EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
+            EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID") {
+          alert("EmailJS is not configured yet.\n\nPlease update EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, and EMAILJS_TEMPLATE_ID in this page's source code.\n\nSee the setup instructions in the code comments.");
+          return;
+        }
+
+        var selected = getSelectedPlans();
+        if (selected.length === 0) return;
+
+        var chosen = getChosenPlan();
+        if (!chosen) {
+          alert("Please select one cover using the checkbox below your preferred medical aid provider.");
+          return;
+        }
+
+        if (!clientData || !clientData.email) {
+          alert("No client email found. Please go back to Step 1 and fill in the email address.");
+          return;
+        }
+
+        var emailBtn = this;
+        emailBtn.disabled = true;
+        emailBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Sending...';
+
+        try {
+          // Generate PDF and also download it locally
+          var doc = generatePDF([chosen]);
+          doc.save("NFSINSUREMedicalAidQuote.pdf");
+
+          // Show comparison on page
+          var html = buildComparison(selected);
+          document.getElementById("result").innerHTML = html;
+
+          // Convert PDF to base64 for email attachment
+          var base64PDF = doc.output("datauristring").split(",")[1];
+          var recipientName = clientData.firstName + " " + clientData.lastName;
+
+          var emailHTML = '<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px; background-color: #fff8f1;">' +
+            '<div style="max-width: 600px; margin: auto; padding: 16px;">' +
+            '<p>Dear ' + recipientName + ',</p>' +
+            '<p>Thank you for completing your online Medical Aid quotation request with <strong>NFS Insure Consultant</strong>.</p>' +
+            '<p>Please find your Medical Aid quotation attached to this email for your review. Kindly go through the details carefully and contact us should you require any further clarification or assistance.</p>' +
+            '<p style="font-weight: 600;">Important Disclaimer:</p>' +
+            '<p>All members who are not residing in South Africa are hereby advised that travelling expenses are excluded from your Medical Aid plan. You will be responsible for covering all travel costs at your own expense in order to access treatment at a private hospital within South Africa.</p>' +
+            '<p>If you would like to proceed with the application or need further information, please reply to this email or contact our office directly.</p>' +
+            '<p><a style="display: inline-block; text-decoration: none; outline: none; color: #fff; background: linear-gradient(90deg, #001f3f 0%, #2a4d8f 100%); padding: 8px 16px; border-radius: 4px;" href="https://nfs.insure/" target="_blank">NFS.INSURE</a></p>' +
+            '<p>If you have any questions or need help, our support team is available at <a href="mailto:info@nfs.insure" style="text-decoration: none; outline: none; color: #001f3f;">info@nfs.insure</a>.</p>' +
+            '<p>Kind regards,<br />NFS Insure Consultant Team</p>' +
+            '</div></div>';
+
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            to_email: clientData.email,
+            from_name: "NFS Consultant",
+            subject: "Your Medical Aid Quotation from NFS Insure Consultant",
+            message_html: emailHTML,
+            content: base64PDF,
+          }).then(function (response) {
+            console.log("EmailJS success:", response);
+            showToast("Quote emailed successfully to " + clientData.email, "success");
+            emailBtn.disabled = false;
+            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+          }, function (err) {
+            var errorMsg = err && err.text ? err.text : JSON.stringify(err);
+            console.error("EmailJS error:", err);
+            showToast("Email failed: " + errorMsg, "error");
+            alert("EmailJS Error:\n\nStatus: " + (err && err.status ? err.status : "unknown") + "\nMessage: " + errorMsg);
+            emailBtn.disabled = false;
+            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+          });
+        } catch (err) {
+          console.error("PDF/Email failed", err);
+          alert("PDF/Email Error:\n\n" + err.message + "\n\nStack: " + err.stack);
+          emailBtn.disabled = false;
+          emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+        }
+      });
+
+      // Toast notification helper
+      function showToast(message, type) {
+        var container = document.getElementById("toastContainer");
+        var toast = document.createElement("div");
+        toast.className = "toast-msg " + (type || "info");
+        var icon = type === "success" ? "fa-check-circle" :
+                   type === "error"   ? "fa-exclamation-circle" : "fa-info-circle";
+        toast.innerHTML = '<i class="fas ' + icon + '"></i> ' + message;
+        container.appendChild(toast);
+        setTimeout(function () {
+          toast.style.opacity = "0";
+          toast.style.transition = "opacity 0.3s ease";
+          setTimeout(function () { toast.remove(); }, 300);
+        }, 5000);
+      }
 
       // Initialize
       populateSelects();
