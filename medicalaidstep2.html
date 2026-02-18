@@ -1689,8 +1689,8 @@
       //   3. Replace the three values below with your own credentials
       // ──────────────────────────────────────────────────────────────────
       var EMAILJS_PUBLIC_KEY  = "SDHknfptqUaRoSoI9";
-      var EMAILJS_SERVICE_ID  = "service_o7v0f_nfs.insure";
-      var EMAILJS_TEMPLATE_ID = "template_dk6tpan";
+      var EMAILJS_SERVICE_ID  = "service_o7v0f_nfsinsure";
+      var EMAILJS_TEMPLATE_ID = "template_pdc8gqq";
 
       // Initialize EmailJS
       if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
@@ -1735,33 +1735,44 @@
           document.getElementById("result").innerHTML = html;
 
           // Convert PDF to base64 for email attachment
-          var base64PDF = doc.output("base64");
+          var base64PDF = doc.output("datauristring").split(",")[1];
           var recipientName = clientData.firstName + " " + clientData.lastName;
+
+          var emailHTML = '<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px; background-color: #fff8f1;">' +
+            '<div style="max-width: 600px; margin: auto; padding: 16px;">' +
+            '<p>Dear ' + recipientName + ',</p>' +
+            '<p>Thank you for completing your online Medical Aid quotation request with <strong>NFS Insure Consultant</strong>.</p>' +
+            '<p>Please find your Medical Aid quotation attached to this email for your review. Kindly go through the details carefully and contact us should you require any further clarification or assistance.</p>' +
+            '<p style="font-weight: 600;">Important Disclaimer:</p>' +
+            '<p>All members who are not residing in South Africa are hereby advised that travelling expenses are excluded from your Medical Aid plan. You will be responsible for covering all travel costs at your own expense in order to access treatment at a private hospital within South Africa.</p>' +
+            '<p>If you would like to proceed with the application or need further information, please reply to this email or contact our office directly.</p>' +
+            '<p><a style="display: inline-block; text-decoration: none; outline: none; color: #fff; background: linear-gradient(90deg, #001f3f 0%, #2a4d8f 100%); padding: 8px 16px; border-radius: 4px;" href="https://nfs.insure/" target="_blank">NFS.INSURE</a></p>' +
+            '<p>If you have any questions or need help, our support team is available at <a href="mailto:info@nfs.insure" style="text-decoration: none; outline: none; color: #001f3f;">info@nfs.insure</a>.</p>' +
+            '<p>Kind regards,<br />NFS Insure Consultant Team</p>' +
+            '</div></div>';
 
           emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             to_email: clientData.email,
-            to_name: recipientName,
-            from_name: "NFS Insure Consultant",
-            message: "Please find attached your Medical Aid Quote for " +
-              chosen.scheme + " \u2014 " + chosen.plan.name +
-              " (" + chosen.plan.premium + "/month).\n\n" +
-              "This quote was generated on " + new Date().toLocaleDateString() + ".",
-            website_link: "https://nfs.insure/",
-            company_email: "info@nfs.insure",
+            from_name: "NFS Consultant",
+            subject: "Your Medical Aid Quotation from NFS Insure Consultant",
+            message_html: emailHTML,
             content: base64PDF,
-          }).then(function () {
+          }).then(function (response) {
+            console.log("EmailJS success:", response);
             showToast("Quote emailed successfully to " + clientData.email, "success");
             emailBtn.disabled = false;
             emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
           }, function (err) {
+            var errorMsg = err && err.text ? err.text : JSON.stringify(err);
             console.error("EmailJS error:", err);
-            showToast("Failed to send email. Please try again.", "error");
+            showToast("Email failed: " + errorMsg, "error");
+            alert("EmailJS Error:\n\nStatus: " + (err && err.status ? err.status : "unknown") + "\nMessage: " + errorMsg);
             emailBtn.disabled = false;
             emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
           });
         } catch (err) {
           console.error("PDF/Email failed", err);
-          alert("Failed to generate or email the quote. See console for details.");
+          alert("PDF/Email Error:\n\n" + err.message + "\n\nStack: " + err.stack);
           emailBtn.disabled = false;
           emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
         }
