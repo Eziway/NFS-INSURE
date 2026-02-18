@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a Quote - NFS Insure</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --primary-dark: #1a252f;
+        --secondary: #d4af37;
+        --accent: #3498db;
+        --success: #27ae60;
+        --danger: #e74c3c;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-1: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        --gradient-2: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+        --gradient-3: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        --gradient-4: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --primary-light: #5d82a3;
+        --secondary-light: #f1dd81;
+        --accent-light: #8cd6f8;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.7;
+        color: var(--gray-800);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation */
+      .navbar {
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
+        padding: 1rem 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar-custom-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        box-shadow: var(--shadow-lg);
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .navbar.scrolled .navbar-custom-container {
+        padding: 0.6rem 1.8rem;
+        box-shadow: var(--shadow-xl);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.75rem;
+        color: var(--primary) !important;
+        text-decoration: none;
+        padding: 0;
+        margin-right: 1.5rem;
+      }
+
+      .navbar-brand .logo-img {
+        height: 50px;
+        width: auto;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+        margin-right: 0.5rem;
+      }
+
+      .navbar-brand:hover .logo-img {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+      }
+
+      .nav-link {
+        color: var(--gray-600) !important;
+        font-weight: 500;
+        margin: 0 0.75rem;
+        padding: 0.5rem 1rem !important;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+        position: relative;
+        font-size: 1rem;
+      }
+
+      .nav-link:hover {
+        color: var(--primary) !important;
+        background: var(--gray-100);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: var(--accent) !important;
+        background: var(--gray-50);
+        font-weight: 600;
+      }
+
+      .contact-btn-nav {
+        background: var(--gradient-1);
+        color: white !important;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-left: 1rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+      }
+
+      .contact-btn-nav:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: var(--shadow-xl);
+        color: white !important;
+      }
+
+      .navbar-toggler {
+        border: none;
+        font-size: 1.5rem;
+        color: var(--primary);
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-toggler:focus { box-shadow: none; }
+      .navbar-toggler:active { transform: scale(0.9); }
+
+      /* Subpage Hero */
+      .subpage-hero {
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop")
+          no-repeat center center;
+        background-size: cover;
+        padding-top: 100px;
+        text-align: center;
+      }
+
+      .subpage-hero::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to right, rgba(26, 37, 47, 0.9), rgba(52, 152, 219, 0.7));
+        z-index: 1;
+      }
+
+      .subpage-hero-content { position: relative; z-index: 2; width: 100%; }
+
+      .subpage-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .breadcrumb-nav { color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; }
+      .breadcrumb-nav a { color: rgba(255, 255, 255, 0.9); text-decoration: none; transition: color 0.2s ease; }
+      .breadcrumb-nav a:hover { color: var(--secondary); }
+      .breadcrumb-nav span { margin: 0 0.5rem; }
+
+      /* Step Indicator */
+      .step-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin-bottom: 3rem;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .step.active .step-number {
+        background: var(--gradient-1);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+
+      .step.inactive .step-number {
+        background: var(--gray-200);
+        color: var(--gray-500);
+      }
+
+      .step-label {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .step.active .step-label { color: var(--primary); }
+      .step.inactive .step-label { color: var(--gray-400); }
+
+      .step-connector {
+        width: 60px;
+        height: 2px;
+        background: var(--gray-200);
+        margin: 0 1rem;
+        align-self: center;
+      }
+
+      /* Form Section */
+      .form-section {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .section-header { text-align: center; margin-bottom: 2rem; }
+
+      .section-subtitle {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .section-description {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Form Card */
+      .form-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--gray-200);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .form-card fieldset {
+        border: 1px solid var(--gray-200);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background: var(--gray-50);
+      }
+
+      .form-card legend {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--primary);
+        padding: 0 0.75rem;
+      }
+
+      .form-card label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--gray-700);
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+
+      .form-card .form-control,
+      .form-card .form-select {
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 0.65rem 1rem;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .form-card .form-control:focus,
+      .form-card .form-select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+      }
+
+      .form-card .form-check-label {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--gray-600);
+      }
+
+      .form-card .form-check-input:checked {
+        background-color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* Buttons */
+      .btn-next {
+        background: var(--gradient-1);
+        color: white;
+        border: none;
+        padding: 1rem 3rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-next:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: var(--shadow-xl);
+        color: white;
+      }
+
+      .btn-next:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .validation-error {
+        color: var(--danger);
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: none;
+      }
+
+      .was-validated .form-control:invalid,
+      .was-validated .form-select:invalid {
+        border-color: var(--danger);
+      }
+
+      .was-validated .form-control:invalid ~ .validation-error,
+      .was-validated .form-select:invalid ~ .validation-error {
+        display: block;
+      }
+
+      /* Footer */
+      .footer .col-lg-3.col-md-6 .social-links {
+        display: flex; gap: 10px; margin-top: 1.5rem; justify-content: flex-start;
+      }
+      .footer .col-lg-3.col-md-6 p { margin-bottom: 0.75rem; }
+      .footer .col-lg-3.col-md-6 p a { display: inline; padding: 0; margin: 0; word-break: break-word; }
+      .footer .social-links a.facebook:hover { background-color: #3b5998; }
+      .footer .social-links a.instagram:hover { background-color: #c13584; }
+      .footer .social-links a.linkedin:hover { background-color: #0077b5; }
+
+      .footer {
+        background: var(--gray-900);
+        color: var(--gray-400);
+        padding: 6rem 0 2rem;
+      }
+      .footer h5 { color: white; margin-bottom: 1.5rem; font-weight: 700; }
+      .footer a { color: var(--gray-400); text-decoration: none; transition: all 0.3s ease; display: block; padding: 0.4rem 0; }
+      .footer a:hover { color: var(--secondary); padding-left: 5px; }
+      .footer .social-links a {
+        display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center;
+        border-radius: 50%; background: var(--gray-800); color: white; margin-right: 0.5rem; text-decoration: none;
+      }
+      .footer .social-links a:hover { background: var(--accent); color: white; padding-left: 0; transform: scale(1.1); }
+      .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 2rem; margin-top: 4rem; }
+      .footer-bottom a { color: var(--secondary); text-decoration: underline; display: inline; padding: 0; }
+      .footer-bottom a:hover { color: white; }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+        width: 60px; height: 60px; border-radius: 50%; background-color: #25d366;
+        color: white; border: none; display: flex; align-items: center; justify-content: center;
+        font-size: 24px; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s ease; animation: pulse 2s infinite; cursor: pointer;
+      }
+      .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); color: white; }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .navbar { justify-content: center; padding: 1rem 0; }
+        .navbar-custom-container { width: 90%; padding: 0.75rem 1rem; flex-direction: column; border-radius: 20px; }
+        .navbar-brand { margin-right: 0; margin-bottom: 1rem; }
+        .navbar-collapse { background: rgba(255, 255, 255, 0.98); border-radius: 12px; box-shadow: var(--shadow-lg); margin-top: 1rem; padding: 1rem; width: 100%; }
+        .navbar-nav { width: 100%; }
+        .navbar-nav .nav-item { text-align: center; }
+        .nav-link { margin: 0.5rem 0; }
+        .contact-btn-nav { display: flex !important; width: fit-content; margin: 1rem auto 0 auto; }
+        .subpage-hero { min-height: 40vh; padding-top: 80px; }
+      }
+
+      @media (max-width: 768px) {
+        .form-section { padding: 3rem 0; }
+        .form-card { padding: 1.5rem; }
+        .step-indicator { flex-wrap: wrap; gap: 0.5rem; }
+        .step-connector { width: 30px; }
+        .footer { padding: 4rem 0 2rem; text-align: center; }
+        .footer .row > div { margin-bottom: 2rem; }
+        .footer .social-links { justify-content: center; display: flex; }
+        .whatsapp-btn { width: 50px; height: 50px; font-size: 20px; bottom: 1rem; right: 15px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
+            alt="NFS Insure Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="medicalaidstep1.html"
+                >Get Quote</a
+              >
+            </li>
+          </ul>
+          <a href="contact.html" class="contact-btn-nav">
+            <i class="fas fa-phone-alt"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Subpage Hero Section -->
+    <section class="subpage-hero">
+      <div class="container">
+        <div class="subpage-hero-content">
+          <h1>Get a Medical Aid Quote</h1>
+          <div class="breadcrumb-nav">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="service.html">Services</a>
+            <span>/</span>
+            <span>Get Quote</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="form-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Step 1 of 2</div>
+          <h2 class="section-title">Client Registration</h2>
+          <p class="section-description">
+            Complete the form below to request a tailored medical aid quote.
+            Fields marked with <strong>*</strong> are required.
+          </p>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+          <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Your Details</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Compare Plans</div>
+          </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+          <form id="quoteForm" novalidate>
+            <!-- Client Information -->
+            <fieldset>
+              <legend><i class="fas fa-user me-2"></i>Client Information</legend>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="firstName">First Name *</label>
+                  <input id="firstName" name="firstName" type="text" class="form-control" required />
+                  <div class="validation-error">First name is required</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="lastName">Last Name *</label>
+                  <input id="lastName" name="lastName" type="text" class="form-control" required />
+                  <div class="validation-error">Last name is required</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="idNumber">ID / Passport Number</label>
+                  <input id="idNumber" name="idNumber" type="text" class="form-control" inputmode="numeric" />
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" class="form-control" required />
+                  <div class="validation-error">Valid email is required</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="country">Country *</label>
+                  <select id="country" name="country" class="form-select" required>
+                    <option value="">Select country</option>
+                    <option value="South Africa" selected>South Africa</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Cabo Verde">Cabo Verde</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Central African Republic">Central African Republic</option>
+                    <option value="Chad">Chad</option>
+                    <option value="Comoros">Comoros</option>
+                    <option value="Congo (Brazzaville)">Congo (Brazzaville)</option>
+                    <option value="Congo (DRC)">Congo (DRC)</option>
+                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                    <option value="Djibouti">Djibouti</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                    <option value="Eritrea">Eritrea</option>
+                    <option value="Eswatini">Eswatini</option>
+                    <option value="Ethiopia">Ethiopia</option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Gambia">Gambia</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Guinea">Guinea</option>
+                    <option value="Guinea-Bissau">Guinea-Bissau</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Liberia">Liberia</option>
+                    <option value="Libya">Libya</option>
+                    <option value="Madagascar">Madagascar</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Mauritania">Mauritania</option>
+                    <option value="Mauritius">Mauritius</option>
+                    <option value="Morocco">Morocco</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Seychelles">Seychelles</option>
+                    <option value="Sierra Leone">Sierra Leone</option>
+                    <option value="Somalia">Somalia</option>
+                    <option value="South Sudan">South Sudan</option>
+                    <option value="Sudan">Sudan</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Tunisia">Tunisia</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="United States">United States</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="validation-error">Country is required</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactNo">Contact No</label>
+                  <input id="contactNo" name="contactNo" type="text" class="form-control" inputmode="tel" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Quote Information -->
+            <fieldset>
+              <legend><i class="fas fa-file-invoice me-2"></i>Quote Information</legend>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="inceptionDate">Inception Date</label>
+                  <input id="inceptionDate" name="inceptionDate" type="date" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                  <label for="monthlySubsidy">Monthly Subsidy</label>
+                  <input id="monthlySubsidy" name="monthlySubsidy" type="number" min="0" step="1" class="form-control" placeholder="Amount" />
+                </div>
+                <div class="col-md-3">
+                  <label for="subsidyCurrency">Currency</label>
+                  <select id="subsidyCurrency" name="subsidyCurrency" class="form-select">
+                    <option value="ZAR">ZAR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="EUR">EUR</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="familyAdults">Adults *</label>
+                  <input id="familyAdults" name="familyAdults" type="number" min="1" value="1" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                  <label for="familyChildren">Children</label>
+                  <input id="familyChildren" name="familyChildren" type="number" min="0" value="0" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                  <label for="familyStudents">Students</label>
+                  <input id="familyStudents" name="familyStudents" type="number" min="0" value="0" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <label for="lateJoiner">Late Joiner</label>
+                  <select id="lateJoiner" name="lateJoiner" class="form-select">
+                    <option value="">None</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="ageRange">Oldest Member Age</label>
+                  <input id="ageRange" name="ageRange" type="number" min="0" max="120" class="form-control" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Underwriting Options -->
+            <fieldset>
+              <legend><i class="fas fa-clipboard-check me-2"></i>Underwriting Options</legend>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input id="waiting3" name="waiting3" type="checkbox" class="form-check-input" />
+                    <label for="waiting3" class="form-check-label">3-month Waiting Period</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input id="exclusion12" name="exclusion12" type="checkbox" class="form-check-input" />
+                    <label for="exclusion12" class="form-check-label">12-month Exclusion</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input id="noneApply" name="noneApply" type="checkbox" class="form-check-input" />
+                    <label for="noneApply" class="form-check-label">None to apply</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input id="compulsoryMove" name="compulsoryMove" type="checkbox" class="form-check-input" />
+                    <label for="compulsoryMove" class="form-check-label">Compulsory move from closed scheme</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Additional Details -->
+            <fieldset>
+              <legend><i class="fas fa-sticky-note me-2"></i>Additional Details</legend>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="notes">Notes</label>
+                  <input id="notes" name="notes" type="text" class="form-control" placeholder="Any additional information" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Submit -->
+            <div class="text-center mt-4">
+              <button type="submit" class="btn-next">
+                Next: Compare Plans <i class="fas fa-arrow-right"></i>
+              </button>
+              <p class="text-muted mt-2" style="font-size: 0.85rem;">
+                Fields marked with <strong>*</strong> are compulsory.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="p-0">
+              <img
+                style="height: 50px; margin-bottom: 10px"
+                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png"
+                alt="Logo"
+              />
+            </a>
+            <p>
+              Your trusted partner in building a secure financial future. We
+              provide comprehensive insurance solutions with integrity and
+              transparency.
+            </p>
+            <p class="mb-0"><strong>FSP No. 53910</strong></p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Useful Links</h5>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="FAQ.html">FAQ's</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Legal</h5>
+            <a href="docs/PAIA MANUAL WEBSITE.pdf">PAIA Manual</a>
+            <a href="docs/Conflict of Interest Management Policy Website.pdf">Conflict of Interest</a>
+            <a href="docs/Complaints Policy WEBSITE.pdf">Complaints</a>
+            <a href="docs/TCF Policy WEBSITE.pdf">TCF</a>
+            <a href="docs/PRIVACY NOTICE WEBSITE.pdf">Privacy Notice</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>
+              <a href="https://www.google.com/maps/search/Eagle+Canyon+Office+Park,+Cnr+Christiaan+De+Wet+%26+Dolfyn+St,+Randpark+Ridge,+2154" target="_blank">Eagle Canyon Office Park, Cnr Christiaan De Wet & Dolfyn St, Randpark Ridge, 2154</a>
+            </p>
+            <p>
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+27100110010">+27 10 011 0010</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:info@nfs.insure">info@nfs.insure</a>
+            </p>
+            <div class="social-links mt-3">
+              <a href="https://www.instagram.com/nfs_insure/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://web.facebook.com/profile.php?id=61566917234605" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/company/nfsinsure/about/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row footer-bottom text-center">
+          <div class="col-12">
+            &copy; <span id="current-year"></span> NFS Insure Consultant | All Rights Reserved. | <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27100557272" target="_blank" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Update current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      // Form submission — validate, save to sessionStorage, navigate to step 2
+      document.getElementById("quoteForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var form = this;
+
+        // Trigger validation styling
+        form.classList.add("was-validated");
+
+        // Check required fields
+        var firstName = document.getElementById("firstName").value.trim();
+        var lastName = document.getElementById("lastName").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var country = document.getElementById("country").value;
+
+        if (!firstName || !lastName || !email || !country) {
+          return;
+        }
+
+        // Gather all form data
+        var clientData = {
+          firstName: firstName,
+          lastName: lastName,
+          idNumber: document.getElementById("idNumber").value.trim(),
+          email: email,
+          country: country,
+          contactNo: document.getElementById("contactNo").value.trim(),
+          inceptionDate: document.getElementById("inceptionDate").value,
+          monthlySubsidy: document.getElementById("monthlySubsidy").value,
+          subsidyCurrency: document.getElementById("subsidyCurrency").value,
+          familyAdults: document.getElementById("familyAdults").value || "1",
+          familyChildren: document.getElementById("familyChildren").value || "0",
+          familyStudents: document.getElementById("familyStudents").value || "0",
+          lateJoiner: document.getElementById("lateJoiner").value,
+          ageRange: document.getElementById("ageRange").value,
+          waiting3: document.getElementById("waiting3").checked,
+          exclusion12: document.getElementById("exclusion12").checked,
+          noneApply: document.getElementById("noneApply").checked,
+          compulsoryMove: document.getElementById("compulsoryMove").checked,
+          notes: document.getElementById("notes").value.trim()
+        };
+
+        // Save to sessionStorage so step 2 can read it
+        sessionStorage.setItem("nfsQuoteClient", JSON.stringify(clientData));
+
+        // Navigate to step 2
+        window.location.href = "medicalaidstep2.html";
+      });
+    </script>
+  </body>
+</html>

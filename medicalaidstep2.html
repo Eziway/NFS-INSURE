@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Aid Quote - NFS Insure</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --primary-dark: #1a252f;
+        --secondary: #d4af37;
+        --accent: #3498db;
+        --success: #27ae60;
+        --danger: #e74c3c;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-1: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        --gradient-2: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+        --gradient-3: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        --gradient-4: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --primary-light: #5d82a3;
+        --secondary-light: #f1dd81;
+        --accent-light: #8cd6f8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.7;
+        color: var(--gray-800);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation */
+      .navbar {
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
+        padding: 1rem 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar-custom-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        box-shadow: var(--shadow-lg);
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .navbar.scrolled .navbar-custom-container {
+        padding: 0.6rem 1.8rem;
+        box-shadow: var(--shadow-xl);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.75rem;
+        color: var(--primary) !important;
+        text-decoration: none;
+        padding: 0;
+        margin-right: 1.5rem;
+      }
+
+      .navbar-brand .logo-img {
+        height: 50px;
+        width: auto;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+        margin-right: 0.5rem;
+      }
+
+      .navbar-brand:hover .logo-img {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+      }
+
+      .nav-link {
+        color: var(--gray-600) !important;
+        font-weight: 500;
+        margin: 0 0.75rem;
+        padding: 0.5rem 1rem !important;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+        position: relative;
+        font-size: 1rem;
+      }
+
+      .nav-link:hover {
+        color: var(--primary) !important;
+        background: var(--gray-100);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: var(--accent) !important;
+        background: var(--gray-50);
+        font-weight: 600;
+      }
+
+      .contact-btn-nav {
+        background: var(--gradient-1);
+        color: white !important;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-left: 1rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+      }
+
+      .contact-btn-nav:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: var(--shadow-xl);
+        color: white !important;
+      }
+
+      .contact-btn-nav i {
+        color: white;
+      }
+
+      .navbar-contact-info,
+      .contact-btn {
+        display: none !important;
+      }
+
+      .navbar-toggler {
+        border: none;
+        font-size: 1.5rem;
+        color: var(--primary);
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .navbar-toggler:active {
+        transform: scale(0.9);
+      }
+
+      /* Subpage Hero Section */
+      .subpage-hero {
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop")
+          no-repeat center center;
+        background-size: cover;
+        padding-top: 100px;
+        text-align: center;
+      }
+
+      .subpage-hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to right,
+          rgba(26, 37, 47, 0.9),
+          rgba(52, 152, 219, 0.7)
+        );
+        z-index: 1;
+      }
+
+      .subpage-hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+
+      .subpage-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .breadcrumb-nav {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+      }
+
+      .breadcrumb-nav a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .breadcrumb-nav a:hover {
+        color: var(--secondary);
+      }
+      .breadcrumb-nav span {
+        margin: 0 0.5rem;
+      }
+
+      /* General Section Styling */
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .section-description {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Step Indicator */
+      .step-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin-bottom: 2rem;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .step.completed .step-number {
+        background: var(--gradient-4);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+
+      .step.active .step-number {
+        background: var(--gradient-1);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+
+      .step.inactive .step-number {
+        background: var(--gray-200);
+        color: var(--gray-500);
+      }
+
+      .step-label {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .step.completed .step-label { color: var(--success); }
+      .step.active .step-label { color: var(--primary); }
+      .step.inactive .step-label { color: var(--gray-400); }
+
+      .step-connector {
+        width: 60px;
+        height: 2px;
+        background: var(--gray-200);
+        margin: 0 1rem;
+        align-self: center;
+      }
+
+      .step-connector.done {
+        background: var(--success);
+      }
+
+      .step a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .step a:hover .step-label {
+        text-decoration: underline;
+      }
+
+      /* Client Info Summary */
+      .client-summary-section {
+        padding: 2rem 0 0;
+        background: white;
+      }
+
+      .client-summary-card {
+        background: var(--gray-50);
+        border-radius: 20px;
+        padding: 1.5rem 2rem;
+        border: 1px solid var(--gray-200);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .client-summary-card h5 {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .client-summary-card .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .client-summary-card .summary-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .client-summary-card .summary-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .client-summary-card .summary-value {
+        font-size: 0.95rem;
+        color: var(--gray-800);
+        font-weight: 500;
+      }
+
+      .no-client-banner {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        border-radius: 16px;
+        padding: 1.25rem 2rem;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        color: var(--gray-700);
+      }
+
+      .no-client-banner a {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .no-client-banner a:hover {
+        text-decoration: underline;
+      }
+
+      /* Quote Tool Section */
+      .quote-tool-section {
+        padding: 3rem 0 5rem;
+        background: white;
+      }
+
+      /* Scheme Selection Cards */
+      .scheme-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-200);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .scheme-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--secondary);
+      }
+
+      .scheme-card .icon-wrapper {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+        background: var(--gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .scheme-card:hover .icon-wrapper {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px) rotate(5deg);
+      }
+
+      .scheme-card h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+      }
+
+      .scheme-card select {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        font-size: 0.95rem;
+        color: var(--gray-700);
+        background: var(--gray-50);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+      }
+
+      .scheme-card select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+      }
+
+      .scheme-card .choose-cover {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        background: var(--gray-50);
+        border: 2px solid var(--gray-200);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .scheme-card .choose-cover:hover {
+        border-color: var(--accent);
+        background: white;
+      }
+
+      .scheme-card .choose-cover input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+        cursor: pointer;
+      }
+
+      .scheme-card .choose-cover label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray-600);
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .scheme-card .choose-cover.checked {
+        border-color: var(--success);
+        background: #f0fdf4;
+      }
+
+      .scheme-card .choose-cover.checked label {
+        color: var(--success);
+      }
+
+      .scheme-card .choose-cover.disabled-cover {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .scheme-card.chosen {
+        border-color: var(--success);
+        box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15), var(--shadow-lg);
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-compare {
+        background: var(--gradient-1);
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-compare:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: var(--shadow-xl);
+        color: white;
+      }
+
+      .btn-preview {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-preview:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Results Section */
+      .comparison-results-section {
+        padding: 5rem 0;
+        background: var(--gray-50);
+      }
+
+      #result {
+        overflow: auto;
+      }
+
+      #result table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background: white;
+      }
+
+      #result table th {
+        background: var(--primary);
+        color: white;
+        padding: 1.25rem 1.5rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-align: left;
+        border: none;
+      }
+
+      #result table td {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--gray-100);
+        color: var(--gray-700);
+        font-size: 0.95rem;
+      }
+
+      #result table tr:last-child td {
+        border-bottom: none;
+      }
+
+      #result table tbody tr:hover {
+        background: var(--gray-50);
+      }
+
+      #result table td:first-child {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .note-text {
+        font-size: 0.9rem;
+        color: var(--gray-500);
+        margin-top: 1.5rem;
+        text-align: center;
+      }
+
+      /* Footer */
+      .footer .col-lg-3.col-md-6 .social-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 1.5rem;
+        justify-content: flex-start;
+      }
+
+      .footer .col-lg-3.col-md-6 p {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer .col-lg-3.col-md-6 p a {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        word-break: break-word;
+      }
+
+      .footer .social-links a.facebook:hover {
+        background-color: #3b5998;
+      }
+      .footer .social-links a.twitter:hover {
+        background-color: #00acee;
+      }
+      .footer .social-links a.instagram:hover {
+        background-color: #c13584;
+      }
+      .footer .social-links a.linkedin:hover {
+        background-color: #0077b5;
+      }
+
+      .footer {
+        background: var(--gray-900);
+        color: var(--gray-400);
+        padding: 6rem 0 2rem;
+      }
+
+      .footer h5 {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .footer a {
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: block;
+        padding: 0.4rem 0;
+      }
+
+      .footer a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+      }
+
+      .footer .social-links a {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--gray-800);
+        color: white;
+        margin-right: 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer .social-links a:hover {
+        background: var(--accent);
+        color: white;
+        padding-left: 0;
+        transform: scale(1.1);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--gray-800);
+        padding-top: 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-bottom a {
+        color: var(--secondary);
+        text-decoration: underline;
+        display: inline;
+        padding: 0;
+      }
+      .footer-bottom a:hover {
+        color: white;
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #25d366;
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        cursor: pointer;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        color: white;
+        text-decoration: none;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 991px) {
+        .navbar {
+          justify-content: center;
+          padding: 1rem 0;
+        }
+        .navbar-custom-container {
+          width: 90%;
+          padding: 0.75rem 1rem;
+          flex-direction: column;
+          border-radius: 20px;
+        }
+        .navbar-brand {
+          margin-right: 0;
+          margin-bottom: 1rem;
+        }
+        .navbar-collapse {
+          background: rgba(255, 255, 255, 0.98);
+          border-radius: 12px;
+          box-shadow: var(--shadow-lg);
+          margin-top: 1rem;
+          padding: 1rem;
+          width: 100%;
+        }
+        .navbar-nav {
+          width: 100%;
+        }
+        .navbar-nav .nav-item {
+          text-align: center;
+        }
+        .nav-link {
+          margin: 0.5rem 0;
+        }
+        .contact-btn-nav {
+          display: flex !important;
+          width: fit-content;
+          margin: 1rem auto 0 auto;
+        }
+        .subpage-hero {
+          min-height: 40vh;
+          padding-top: 80px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-header {
+          margin-bottom: 2rem;
+        }
+        .quote-tool-section {
+          padding: 2rem 0 3rem;
+        }
+        .comparison-results-section {
+          padding: 3rem 0;
+        }
+        .step-indicator {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .step-connector {
+          width: 30px;
+        }
+        .client-summary-card {
+          padding: 1.25rem;
+        }
+        .client-summary-card .summary-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn-compare,
+        .btn-preview {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+        .footer {
+          padding: 4rem 0 2rem;
+          text-align: center;
+        }
+        .footer .row > div {
+          margin-bottom: 2rem;
+        }
+        .footer .social-links {
+          justify-content: center;
+          display: flex;
+        }
+        .whatsapp-btn {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          bottom: 1rem;
+          right: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
+            alt="NFS Insure Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="medicalaidstep1.html"
+                >Get Quote</a
+              >
+            </li>
+          </ul>
+          <a href="contact.html" class="contact-btn-nav">
+            <i class="fas fa-phone-alt"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Subpage Hero Section -->
+    <section class="subpage-hero">
+      <div class="container">
+        <div class="subpage-hero-content">
+          <h1>Medical Aid Quote</h1>
+          <div class="breadcrumb-nav">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="service.html">Services</a>
+            <span>/</span>
+            <span>Medical Aid Quote</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step Indicator & Client Summary -->
+    <section class="client-summary-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+          <div class="section-subtitle">Step 2 of 2</div>
+          <h2 class="section-title">Medical Aid Cover Comparison</h2>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+          <div class="step completed">
+            <a href="medicalaidstep1.html">
+              <div class="step-number"><i class="fas fa-check"></i></div>
+              <div class="step-label">Your Details</div>
+            </a>
+          </div>
+          <div class="step-connector done"></div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Compare Plans</div>
+          </div>
+        </div>
+
+        <!-- Client Info Summary (populated by JS) -->
+        <div id="clientSummary"></div>
+      </div>
+    </section>
+
+    <!-- Comparison Tool Section -->
+    <section class="quote-tool-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-description">
+            Select a plan from each scheme below and click "Preview" to compare
+            them side-by-side. Then tick the checkbox on your preferred cover
+            and click "Generate PDF" to create your quote.
+          </p>
+        </div>
+
+        <!-- Scheme Selection Cards -->
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="scheme-card">
+              <div class="icon-wrapper">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h4>Discovery Health</h4>
+              <select id="scheme1"></select>
+              <div class="choose-cover" id="cover1-wrap">
+                <input type="checkbox" id="cover1" name="chosenCover" value="scheme1" />
+                <label for="cover1">Select this cover</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="scheme-card">
+              <div class="icon-wrapper">
+                <i class="fas fa-hand-holding-medical"></i>
+              </div>
+              <h4>Bonitas</h4>
+              <select id="scheme2"></select>
+              <div class="choose-cover" id="cover2-wrap">
+                <input type="checkbox" id="cover2" name="chosenCover" value="scheme2" />
+                <label for="cover2">Select this cover</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="scheme-card">
+              <div class="icon-wrapper">
+                <i class="fas fa-hospital"></i>
+              </div>
+              <h4>Momentum Health</h4>
+              <select id="scheme3"></select>
+              <div class="choose-cover" id="cover3-wrap">
+                <input type="checkbox" id="cover3" name="chosenCover" value="scheme3" />
+                <label for="cover3">Select this cover</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="scheme-card">
+              <div class="icon-wrapper">
+                <i class="fas fa-medkit"></i>
+              </div>
+              <h4>GEMS</h4>
+              <select id="scheme4"></select>
+              <div class="choose-cover" id="cover4-wrap">
+                <input type="checkbox" id="cover4" name="chosenCover" value="scheme4" />
+                <label for="cover4">Select this cover</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn-compare" id="compareBtn">
+            <i class="fas fa-file-pdf"></i> Compare & Generate PDF
+          </button>
+          <button class="btn-preview" id="previewBtn" type="button">
+            <i class="fas fa-eye"></i> Preview Comparison
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Results Section -->
+    <section class="comparison-results-section">
+      <div class="container">
+        <div id="result" aria-live="polite"></div>
+        <p class="note-text" id="disclaimer-text"></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="p-0">
+              <img
+                style="height: 50px; margin-bottom: 10px"
+                src="img/NFS_Insure_Logo_Off-white_Mustard_Combination@2x.png"
+                alt="Logo"
+              />
+            </a>
+            <p>
+              Your trusted partner in building a secure financial future. We
+              provide comprehensive insurance solutions with integrity and
+              transparency.
+            </p>
+            <p class="mb-0"><strong>FSP No. 53910</strong></p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Useful Links</h5>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="FAQ.html">FAQ's</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Legal</h5>
+            <a href="docs/PAIA MANUAL WEBSITE.pdf">PAIA Manual</a>
+            <a href="docs/Conflict of Interest Management Policy Website.pdf"
+              >Conflict of Interest</a
+            >
+            <a href="docs/Complaints Policy WEBSITE.pdf">Complaints</a>
+            <a href="docs/TCF Policy WEBSITE.pdf">TCF</a>
+            <a href="docs/PRIVACY NOTICE WEBSITE.pdf">Privacy Notice</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>
+              <a
+                href="https://www.google.com/maps/search/Eagle+Canyon+Office+Park,+Cnr+Christiaan+De+Wet+%26+Dolfyn+St,+Randpark+Ridge,+2154"
+                target="_blank"
+                >Eagle Canyon Office Park, Cnr Christiaan De Wet & Dolfyn St,
+                Randpark Ridge, 2154</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+27100110010">+27 10 011 0010</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:info@nfs.insure">info@nfs.insure</a>
+            </p>
+            <div class="social-links mt-3">
+              <a
+                href="https://www.instagram.com/nfs_insure/"
+                target="_blank"
+                class="instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://web.facebook.com/profile.php?id=61566917234605"
+                target="_blank"
+                class="facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/nfsinsure/about/"
+                target="_blank"
+                class="linkedin"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="row footer-bottom text-center">
+          <div class="col-12">
+            &copy; <span id="current-year"></span> NFS Insure Consultant | All
+            Rights Reserved. | <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/27100557272"
+      target="_blank"
+      class="whatsapp-btn"
+      title="Contact us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- jsPDF and autotable from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Medical Aid Plan Data (edit data/medical-plans.js to update plans) -->
+    <script src="data/medical-plans.js"></script>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Update current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Read client data from sessionStorage (saved in step 1)
+      var clientData = null;
+      try {
+        var raw = sessionStorage.getItem("nfsQuoteClient");
+        if (raw) clientData = JSON.parse(raw);
+      } catch (e) {
+        console.warn("Could not read client data from sessionStorage", e);
+      }
+
+      // Display client info summary
+      (function renderClientSummary() {
+        var container = document.getElementById("clientSummary");
+        if (!container) return;
+
+        if (!clientData) {
+          container.innerHTML =
+            '<div class="no-client-banner">' +
+            '<i class="fas fa-exclamation-triangle me-2"></i> ' +
+            'No client details found. <a href="medicalaidstep1.html">Go back to Step 1</a> to fill in your details first.' +
+            '</div>';
+          return;
+        }
+
+        var items = [];
+        items.push({ label: "Name", value: clientData.firstName + " " + clientData.lastName });
+        if (clientData.idNumber) items.push({ label: "ID / Passport Number", value: clientData.idNumber });
+        items.push({ label: "Email", value: clientData.email });
+        if (clientData.contactNo) items.push({ label: "Contact", value: clientData.contactNo });
+        items.push({ label: "Country", value: clientData.country });
+        if (clientData.inceptionDate) items.push({ label: "Inception Date", value: clientData.inceptionDate });
+
+        // Family composition
+        var family = clientData.familyAdults + " adult(s)";
+        if (clientData.familyChildren && clientData.familyChildren !== "0") family += ", " + clientData.familyChildren + " child(ren)";
+        if (clientData.familyStudents && clientData.familyStudents !== "0") family += ", " + clientData.familyStudents + " student(s)";
+        items.push({ label: "Family", value: family });
+
+        if (clientData.monthlySubsidy) items.push({ label: "Subsidy", value: clientData.subsidyCurrency + " " + clientData.monthlySubsidy });
+        if (clientData.lateJoiner) items.push({ label: "Late Joiner", value: clientData.lateJoiner });
+        if (clientData.ageRange) items.push({ label: "Oldest Member Age", value: clientData.ageRange });
+
+        // Underwriting
+        var uw = [];
+        if (clientData.waiting3) uw.push("3-month Waiting Period");
+        if (clientData.exclusion12) uw.push("12-month Exclusion");
+        if (clientData.noneApply) uw.push("None to apply");
+        if (clientData.compulsoryMove) uw.push("Compulsory move from closed scheme");
+        if (uw.length > 0) items.push({ label: "Underwriting", value: uw.join(", ") });
+
+        if (clientData.notes) items.push({ label: "Notes", value: clientData.notes });
+
+        var html = '<div class="client-summary-card">';
+        html += '<h5><i class="fas fa-user-circle me-2"></i>Client Details</h5>';
+        html += '<div class="summary-grid">';
+        items.forEach(function (item) {
+          html += '<div class="summary-item">';
+          html += '<span class="summary-label">' + item.label + '</span>';
+          html += '<span class="summary-value">' + item.value + '</span>';
+          html += '</div>';
+        });
+        html += '</div></div>';
+        container.innerHTML = html;
+      })();
+
+      // Build schemes lookup from external data file
+      // This creates the same { "Discovery Health": [...plans], "Bonitas": [...plans] } shape
+      var schemes = {};
+      if (typeof medicalPlansData !== "undefined" && medicalPlansData.providers) {
+        medicalPlansData.providers.forEach(function (provider) {
+          schemes[provider.name] = provider.plans;
+        });
+
+        // Show disclaimer from data file
+        var disclaimerEl = document.getElementById("disclaimer-text");
+        if (disclaimerEl && medicalPlansData.meta) {
+          disclaimerEl.textContent =
+            medicalPlansData.meta.disclaimer +
+            " (Last updated: " + medicalPlansData.meta.lastUpdated + ")";
+        }
+      }
+
+      // Populate selects with optgroup grouping by category
+      function populateSelects() {
+        if (typeof medicalPlansData === "undefined" || !medicalPlansData.providers) {
+          console.error("Medical plan data not loaded. Check that data/medical-plans.js is accessible.");
+          return;
+        }
+
+        medicalPlansData.providers.forEach(function (provider) {
+          var sel = document.getElementById(provider.selectId);
+          if (!sel) return;
+          sel.innerHTML = "";
+
+          // Group plans by category
+          var categories = {};
+          provider.plans.forEach(function (plan) {
+            var cat = plan.category || "General";
+            if (!categories[cat]) categories[cat] = [];
+            categories[cat].push(plan);
+          });
+
+          var catKeys = Object.keys(categories);
+
+          if (catKeys.length <= 1) {
+            // Single category — flat list
+            provider.plans.forEach(function (plan) {
+              var opt = document.createElement("option");
+              opt.value = JSON.stringify({ scheme: provider.name, planId: plan.id });
+              opt.textContent = plan.name + " \u2014 " + plan.premium;
+              sel.appendChild(opt);
+            });
+          } else {
+            // Multiple categories — use optgroup
+            catKeys.forEach(function (cat) {
+              var group = document.createElement("optgroup");
+              group.label = cat;
+              categories[cat].forEach(function (plan) {
+                var opt = document.createElement("option");
+                opt.value = JSON.stringify({ scheme: provider.name, planId: plan.id });
+                opt.textContent = plan.name + " \u2014 " + plan.premium;
+                group.appendChild(opt);
+              });
+              sel.appendChild(group);
+            });
+          }
+        });
+      }
+
+      // Build comparison table HTML
+      function buildComparison(selected) {
+        var headers = [
+          "Attribute"
+        ];
+        selected.forEach(function (s) {
+          headers.push(s.scheme + " \u2014 " + s.plan.name);
+        });
+
+        var attributes = [
+          { key: "premium", label: "Monthly Premium" },
+          { key: "hospital", label: "Hospital Cover" },
+          { key: "dayToDay", label: "Day-to-day Benefits" },
+          { key: "gpVisits", label: "GP Visits" },
+          { key: "chronic", label: "Chronic Medication" },
+          { key: "network", label: "Network" },
+        ];
+
+        var html = "<table><thead><tr>";
+        headers.forEach(function (h) { html += "<th>" + h + "</th>"; });
+        html += "</tr></thead><tbody>";
+        attributes.forEach(function (attr) {
+          html += "<tr><td><strong>" + attr.label + "</strong></td>";
+          selected.forEach(function (s) {
+            html += "<td>" + (s.plan[attr.key] || "\u2014") + "</td>";
+          });
+          html += "</tr>";
+        });
+        html += "</tbody></table>";
+        return html;
+      }
+
+      // Get selected plans
+      function getSelectedPlans() {
+        if (!schemes || Object.keys(schemes).length === 0) {
+          alert("Plan data has not loaded. Please check that data/medical-plans.js is in the correct location.");
+          return [];
+        }
+        var ids = ["scheme1", "scheme2", "scheme3", "scheme4"].map(function (id) {
+          var sel = document.getElementById(id);
+          return JSON.parse(sel.value);
+        });
+        return ids.map(function (sel) {
+          var plan = schemes[sel.scheme].find(function (p) {
+            return p.id === sel.planId;
+          });
+          return { scheme: sel.scheme, plan: plan };
+        });
+      }
+
+      // Generate PDF using jsPDF + autotable
+      function generatePDF(selected) {
+        var jsPDF = window.jspdf.jsPDF;
+        var doc = new jsPDF({ unit: "pt", format: "a4" });
+        var pageWidth = doc.internal.pageSize.width;
+        var cursorY = 40;
+
+        // PDF Title
+        doc.setFontSize(16);
+        doc.setFont(undefined, "bold");
+        doc.text("NFS Insure Consultant", 40, cursorY);
+        cursorY += 14;
+        doc.setFontSize(9);
+        doc.setFont(undefined, "normal");
+        doc.setTextColor(100);
+        doc.text("FSP No. 53910 | Eagle Canyon Office Park, Randpark Ridge, 2154", 40, cursorY);
+        doc.setTextColor(0);
+        cursorY += 25;
+
+        // Main heading
+        doc.setFontSize(14);
+        doc.setFont(undefined, "bold");
+        doc.text("Medical Aid Quote", 40, cursorY);
+        cursorY += 8;
+        doc.setDrawColor(212, 175, 55);
+        doc.setLineWidth(2);
+        doc.line(40, cursorY, 200, cursorY);
+        cursorY += 20;
+
+        // Client Details Section
+        if (clientData) {
+          doc.setFontSize(11);
+          doc.setFont(undefined, "bold");
+          doc.text("Client Details", 40, cursorY);
+          cursorY += 15;
+
+          var clientRows = [];
+          clientRows.push(["Name", clientData.firstName + " " + clientData.lastName]);
+          if (clientData.idNumber) clientRows.push(["ID / Passport Number", clientData.idNumber]);
+          clientRows.push(["Email", clientData.email]);
+          if (clientData.contactNo) clientRows.push(["Contact", clientData.contactNo]);
+          clientRows.push(["Country", clientData.country]);
+          if (clientData.inceptionDate) clientRows.push(["Inception Date", clientData.inceptionDate]);
+
+          var family = clientData.familyAdults + " adult(s)";
+          if (clientData.familyChildren && clientData.familyChildren !== "0") family += ", " + clientData.familyChildren + " child(ren)";
+          if (clientData.familyStudents && clientData.familyStudents !== "0") family += ", " + clientData.familyStudents + " student(s)";
+          clientRows.push(["Family Composition", family]);
+
+          if (clientData.monthlySubsidy) clientRows.push(["Monthly Subsidy", clientData.subsidyCurrency + " " + clientData.monthlySubsidy]);
+          if (clientData.lateJoiner) clientRows.push(["Late Joiner", clientData.lateJoiner]);
+          if (clientData.ageRange) clientRows.push(["Oldest Member Age", clientData.ageRange]);
+
+          var uw = [];
+          if (clientData.waiting3) uw.push("3-month Waiting Period");
+          if (clientData.exclusion12) uw.push("12-month Exclusion");
+          if (clientData.noneApply) uw.push("None to apply");
+          if (clientData.compulsoryMove) uw.push("Compulsory move from closed scheme");
+          if (uw.length > 0) clientRows.push(["Underwriting", uw.join(", ")]);
+
+          if (clientData.notes) clientRows.push(["Notes", clientData.notes]);
+
+          doc.autoTable({
+            startY: cursorY,
+            head: [["Field", "Details"]],
+            body: clientRows,
+            styles: { fontSize: 9, cellPadding: 5 },
+            headStyles: {
+              fillColor: [44, 62, 80],
+              textColor: 255,
+              halign: "left",
+              fontSize: 9,
+            },
+            columnStyles: {
+              0: { cellWidth: 120, fontStyle: "bold" },
+            },
+            margin: { left: 40, right: 40 },
+            theme: "grid",
+          });
+
+          cursorY = doc.lastAutoTable.finalY + 25;
+        }
+
+        // Selected Cover Section
+        var chosen = selected[0];
+        doc.setFontSize(11);
+        doc.setFont(undefined, "bold");
+        doc.text("Selected Cover: " + chosen.scheme + " \u2014 " + chosen.plan.name, 40, cursorY);
+        cursorY += 15;
+
+        var planRows = [
+          ["Monthly Premium", chosen.plan.premium || "\u2014"],
+          ["Hospital Cover", chosen.plan.hospital || "\u2014"],
+          ["Day-to-day Benefits", chosen.plan.dayToDay || "\u2014"],
+          ["GP Visits", chosen.plan.gpVisits || "\u2014"],
+          ["Chronic Medication", chosen.plan.chronic || "\u2014"],
+          ["Network", chosen.plan.network || "\u2014"],
+        ];
+
+        doc.autoTable({
+          startY: cursorY,
+          head: [["Benefit", "Details"]],
+          body: planRows,
+          styles: { fontSize: 9, cellPadding: 5 },
+          headStyles: {
+            fillColor: [44, 62, 80],
+            textColor: 255,
+            halign: "left",
+            fontSize: 9,
+          },
+          columnStyles: {
+            0: { cellWidth: 140, fontStyle: "bold" },
+          },
+          margin: { left: 40, right: 40 },
+          theme: "grid",
+        });
+
+        // Footer on every page
+        var totalPages = doc.internal.getNumberOfPages();
+        var pageHeight = doc.internal.pageSize.height;
+        doc.setFontSize(8);
+        doc.setFont(undefined, "normal");
+        doc.setTextColor(120);
+        var footerText = "Generated by NFS Insure Consultant | FSP No. 53910";
+        if (typeof medicalPlansData !== "undefined" && medicalPlansData.meta) {
+          footerText += " | Data as of " + medicalPlansData.meta.lastUpdated;
+        }
+        for (var p = 1; p <= totalPages; p++) {
+          doc.setPage(p);
+          doc.text(footerText, 40, pageHeight - 30);
+          doc.text("Page " + p + " of " + totalPages, pageWidth - 90, pageHeight - 30);
+        }
+
+        doc.save("NFSINSUREMedicalAidQuote.pdf");
+      }
+
+      // "Select this cover" checkbox logic
+      var coverCheckboxes = document.querySelectorAll('input[name="chosenCover"]');
+
+      coverCheckboxes.forEach(function (cb) {
+        cb.addEventListener("change", function () {
+          var wrappers = document.querySelectorAll(".choose-cover");
+          var cards = document.querySelectorAll(".scheme-card");
+
+          if (this.checked) {
+            // Disable all other checkboxes, highlight chosen card
+            coverCheckboxes.forEach(function (other) {
+              var otherWrap = document.getElementById(other.id + "-wrap");
+              var otherCard = other.closest(".scheme-card");
+              if (other !== cb) {
+                other.disabled = true;
+                otherWrap.classList.add("disabled-cover");
+                otherWrap.classList.remove("checked");
+                otherCard.classList.remove("chosen");
+              } else {
+                otherWrap.classList.add("checked");
+                otherCard.classList.add("chosen");
+              }
+            });
+          } else {
+            // Re-enable all checkboxes
+            coverCheckboxes.forEach(function (other) {
+              var otherWrap = document.getElementById(other.id + "-wrap");
+              var otherCard = other.closest(".scheme-card");
+              other.disabled = false;
+              otherWrap.classList.remove("disabled-cover", "checked");
+              otherCard.classList.remove("chosen");
+            });
+          }
+        });
+      });
+
+      // Get the chosen cover (the one with the checked checkbox)
+      function getChosenPlan() {
+        var checked = document.querySelector('input[name="chosenCover"]:checked');
+        if (!checked) return null;
+        var selectId = checked.value;
+        var sel = document.getElementById(selectId);
+        var parsed = JSON.parse(sel.value);
+        var plan = schemes[parsed.scheme].find(function (p) {
+          return p.id === parsed.planId;
+        });
+        return { scheme: parsed.scheme, plan: plan };
+      }
+
+      // Event handlers
+      document.getElementById("compareBtn").addEventListener("click", function () {
+        var selected = getSelectedPlans();
+        if (selected.length === 0) return;
+
+        // Check if a cover has been chosen
+        var chosen = getChosenPlan();
+        if (!chosen) {
+          alert("Please select one cover using the checkbox below your preferred medical aid provider.");
+          return;
+        }
+
+        // Show full comparison on page
+        var html = buildComparison(selected);
+        document.getElementById("result").innerHTML = html;
+
+        // PDF only includes the chosen cover
+        try {
+          generatePDF([chosen]);
+        } catch (err) {
+          console.error("PDF generation failed", err);
+          alert("PDF generation failed. See console for details.");
+        }
+      });
+
+      document.getElementById("previewBtn").addEventListener("click", function () {
+        var selected = getSelectedPlans();
+        if (selected.length === 0) return;
+        var html = buildComparison(selected);
+        document.getElementById("result").innerHTML = html;
+      });
+
+      // Initialize
+      populateSelects();
+      document.getElementById("previewBtn").click();
+    </script>
+  </body>
+</html>
