@@ -1138,7 +1138,7 @@
             <i class="fas fa-eye"></i> Preview Comparison
           </button>
           <button class="btn-email" id="emailBtn" type="button">
-            <i class="fas fa-envelope"></i> Email Quote
+            <i class="fas fa-envelope"></i> Submit Quote
           </button>
         </div>
       </div>
@@ -1754,6 +1754,7 @@
           emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             to_email: clientData.email,
             from_name: "NFS Consultant",
+            from_email: "noreply@nfs.insure",
             subject: "Your Medical Aid Quotation from NFS Insure Consultant",
             message_html: emailHTML,
             content: base64PDF,
@@ -1761,20 +1762,20 @@
             console.log("EmailJS success:", response);
             showToast("Quote emailed successfully to " + clientData.email, "success");
             emailBtn.disabled = false;
-            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Submit Quote';
           }, function (err) {
             var errorMsg = err && err.text ? err.text : JSON.stringify(err);
             console.error("EmailJS error:", err);
             showToast("Email failed: " + errorMsg, "error");
             alert("EmailJS Error:\n\nStatus: " + (err && err.status ? err.status : "unknown") + "\nMessage: " + errorMsg);
             emailBtn.disabled = false;
-            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Submit Quote';
           });
         } catch (err) {
           console.error("PDF/Email failed", err);
           alert("PDF/Email Error:\n\n" + err.message + "\n\nStack: " + err.stack);
           emailBtn.disabled = false;
-          emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Quote';
+          emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Submit Quote';
         }
       });
 
