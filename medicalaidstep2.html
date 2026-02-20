@@ -10,6 +10,7 @@
 
   gtag('config', 'G-0HLC0J1CVP');
 </script>
+
 </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1286,6 +1287,8 @@
       // Update current year in footer
       document.getElementById("current-year").textContent =
         new Date().getFullYear();
+        gtag('event', 'step2_page_view');
+
 
       // Read client data from sessionStorage (saved in step 1)
       var clientData = null;
@@ -1652,6 +1655,7 @@
 
       // Event handlers
       document.getElementById("compareBtn").addEventListener("click", function () {
+        gtag('event', 'pdf_generated');
         var selected = getSelectedPlans();
         if (selected.length === 0) return;
 
@@ -1677,6 +1681,7 @@
       });
 
       document.getElementById("previewBtn").addEventListener("click", function () {
+        gtag('event', 'preview_clicked');
         var selected = getSelectedPlans();
         if (selected.length === 0) return;
         var html = buildComparison(selected);
@@ -1709,6 +1714,8 @@
 
       // Email Quote button handler
       document.getElementById("emailBtn").addEventListener("click", function () {
+        gtag('event', 'quote_submitted');
+
         // Check EmailJS is configured
         if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" ||
             EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
@@ -1808,6 +1815,7 @@
       // Initialize
       populateSelects();
       document.getElementById("previewBtn").click();
+
     </script>
   </body>
 </html>

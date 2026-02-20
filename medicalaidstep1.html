@@ -10,7 +10,7 @@
 
   gtag('config', 'G-0HLC0J1CVP');
 </script>
-</script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get a Quote - NFS Insure</title>
@@ -864,6 +864,8 @@
 
       // Update current year
       document.getElementById("current-year").textContent = new Date().getFullYear();
+      gtag('event', 'step1_page_view');
+
 
       // Form submission — validate, save to sessionStorage, navigate to step 2
       document.getElementById("quoteForm").addEventListener("submit", function (e) {
@@ -908,6 +910,8 @@
 
         // Save to sessionStorage so step 2 can read it
         sessionStorage.setItem("nfsQuoteClient", JSON.stringify(clientData));
+        gtag('event', 'step1_completed');
+
 
         // Navigate to step 2
         window.location.href = "medicalaidstep2.html";
