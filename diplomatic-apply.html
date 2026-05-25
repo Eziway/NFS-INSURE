@@ -7,6 +7,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- ✅ Supabase SDK — loaded in <head> before anything else -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      // ── Supabase Config — replace with your real keys from Supabase → Settings → API ──
+      const SUPABASE_URL = 'https://kyjarrgrpbrhaasgzxtc.supabase.co';
+      const SUPABASE_ANON_KEY = 'sb_publishable_vgRg51xhQ0g1FftFuzH8-Q_Fe0RK_VJ';
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+
     <style>
       :root{
         --primary:#2c3e50;--primary-dark:#1a252f;--secondary:#d4af37;--accent:#3498db;
@@ -34,8 +44,6 @@
       .nav-link{color:var(--gray-600)!important;font-weight:500;margin:0 .5rem;padding:.5rem .9rem!important;border-radius:10px;transition:all .2s ease;font-size:.95rem;}
       .nav-link:hover{color:var(--primary)!important;background:var(--gray-100);transform:translateY(-2px);}
       .nav-link.active{color:var(--accent)!important;background:var(--gray-50);font-weight:600;}
-      .apply-btn-nav{background:var(--gradient-2);color:var(--primary-dark)!important;padding:.6rem 1.3rem!important;border-radius:50px;font-weight:700;box-shadow:var(--shadow);transition:all .3s ease;text-decoration:none;display:flex;align-items:center;gap:.4rem;white-space:nowrap;font-size:.9rem;}
-      .apply-btn-nav:hover{transform:translateY(-2px) scale(1.05);box-shadow:var(--shadow-xl);color:var(--primary-dark)!important;}
       .contact-btn-nav{background:var(--gradient-1);color:white!important;padding:.65rem 1.3rem!important;border-radius:50px;font-weight:600;margin-left:.5rem;box-shadow:var(--shadow);transition:all .3s ease;text-decoration:none;display:flex;align-items:center;gap:.4rem;white-space:nowrap;font-size:.9rem;}
       .contact-btn-nav:hover{transform:translateY(-2px) scale(1.05);box-shadow:var(--shadow-xl);color:white!important;}
       .navbar-toggler{border:none;font-size:1.5rem;color:var(--primary);}
@@ -63,7 +71,6 @@
       .section-badge.gold{background:rgba(212,175,55,.1);color:#b8940e;border-color:rgba(212,175,55,.3);}
       .section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:var(--primary);line-height:1.2;margin-bottom:.75rem;}
       .section-description{font-size:1rem;color:var(--gray-600);line-height:1.8;max-width:660px;margin:0 auto;}
-
       .why-banner{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 100%);border-radius:24px;padding:2.5rem;color:white;position:relative;overflow:hidden;}
       .why-banner::before{content:"🏛";position:absolute;right:-1rem;bottom:-1rem;font-size:9rem;opacity:.06;line-height:1;}
       .why-banner .gold-line{width:50px;height:4px;background:var(--gradient-2);border-radius:2px;margin-bottom:1.25rem;}
@@ -71,7 +78,6 @@
       .why-banner p{color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.8;margin-bottom:0;}
       .stat-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:.4rem 1rem;border-radius:50px;font-size:.83rem;font-weight:600;color:white;margin:.25rem .25rem 0 0;}
       .stat-pill i{color:var(--secondary);}
-
       .benefit-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.25rem;border-radius:14px;border:1px solid var(--gray-200);margin-bottom:.65rem;transition:all .3s ease;background:white;}
       .benefit-item:hover{border-color:var(--secondary);box-shadow:var(--shadow-lg);transform:translateX(5px);}
       .benefit-item .b-icon{width:44px;height:44px;min-width:44px;border-radius:12px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:#b8940e;transition:all .3s ease;}
@@ -91,11 +97,7 @@
       .step-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--secondary);margin-bottom:.35rem;}
       .step-card h5{font-size:1rem;font-weight:800;color:var(--primary);margin-bottom:.4rem;}
       .step-card p{color:var(--gray-600);font-size:.85rem;line-height:1.6;margin:0;}
-      @media(max-width:767px){
-        .step-cards-row{flex-direction:column;gap:1rem;}
-        .step-cards-row::before{display:none;}
-        .step-number{margin-bottom:.75rem;}
-      }
+      @media(max-width:767px){.step-cards-row{flex-direction:column;gap:1rem;}.step-cards-row::before{display:none;}.step-number{margin-bottom:.75rem;}}
 
       /* ── REQUIREMENTS ── */
       .requirements-section{padding:5rem 0;background:white;}
@@ -116,7 +118,6 @@
       .doc-item .doc-badge{margin-left:auto;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;}
       .badge-required{background:rgba(231,76,60,.1);color:var(--danger);}
       .badge-optional{background:rgba(52,152,219,.1);color:var(--accent);}
-
       .privacy-info-box{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 100%);border-radius:20px;padding:2rem;color:white;}
       .privacy-info-box h5{font-weight:800;color:white;margin-bottom:.75rem;font-size:1rem;}
       .privacy-info-box p{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.7;margin-bottom:0;}
@@ -133,29 +134,20 @@
       .progress-step.active{color:var(--accent);border-bottom-color:var(--accent);background:white;}
       .progress-step.done{color:var(--success);border-bottom-color:var(--success);}
       .progress-step i{display:block;font-size:1.1rem;margin-bottom:.25rem;}
-
       .form-body{padding:2.25rem 2.5rem;}
       .form-panel{display:none;}
       .form-panel.active{display:block;}
-
       .form-label{font-weight:600;color:var(--gray-700);font-size:.87rem;margin-bottom:.35rem;}
       .required-star{color:var(--danger);}
       .form-control,.form-select{border:1.5px solid var(--gray-200);border-radius:10px;padding:.65rem 1rem;font-size:.92rem;color:var(--gray-800);transition:all .2s ease;background:var(--gray-50);}
       .form-control:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(52,152,219,.1);background:white;outline:none;}
       .form-control::placeholder{color:var(--gray-400);}
-      .form-control.is-invalid{border-color:var(--danger);}
-      .invalid-feedback{font-size:.8rem;color:var(--danger);}
-
       .panel-title{font-weight:800;color:var(--primary);font-size:1.1rem;margin-bottom:.25rem;}
       .panel-subtitle{color:var(--gray-500);font-size:.88rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--gray-100);}
-
-      /* checkbox service grid */
       .service-check-label{display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:.55rem .75rem;border:1.5px solid var(--gray-200);border-radius:10px;transition:all .2s ease;font-size:.88rem;color:var(--gray-700);font-weight:500;}
       .service-check-label:hover{border-color:var(--accent);background:rgba(52,152,219,.03);}
       .service-check-label input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;}
       .service-check-label.checked{border-color:var(--accent);background:rgba(52,152,219,.06);color:var(--primary);font-weight:600;}
-
-      /* file upload */
       .upload-zone{border:2px dashed var(--gray-300);border-radius:12px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .3s ease;background:var(--gray-50);position:relative;}
       .upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);background:rgba(52,152,219,.04);}
       .upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
@@ -164,8 +156,6 @@
       .upload-zone p strong{color:var(--accent);}
       .file-chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(52,152,219,.08);border:1px solid rgba(52,152,219,.2);color:var(--accent);padding:.22rem .7rem;border-radius:50px;font-size:.78rem;font-weight:600;margin:.2rem;}
       .file-chip button{background:none;border:none;color:var(--accent);cursor:pointer;padding:0;font-size:.85rem;line-height:1;margin-left:.1rem;}
-
-      /* nav buttons */
       .form-nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--gray-100);}
       .btn-prev{background:white;color:var(--primary);padding:.7rem 1.75rem;border-radius:50px;font-weight:600;border:2px solid var(--gray-200);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:.5rem;font-size:.9rem;}
       .btn-prev:hover{border-color:var(--primary);background:var(--gray-50);}
@@ -174,17 +164,12 @@
       .btn-submit-final{background:var(--gradient-2);color:var(--primary-dark);padding:.85rem 2.5rem;border-radius:50px;font-weight:800;border:none;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;gap:.6rem;font-size:1rem;box-shadow:0 4px 20px rgba(212,175,55,.4);}
       .btn-submit-final:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.5);}
       .btn-submit-final:disabled{opacity:.6;cursor:not-allowed;transform:none;}
-
-      /* declarations */
       .decl-label{display:flex;align-items:flex-start;gap:.75rem;cursor:pointer;padding:.75rem;border:1.5px solid var(--gray-200);border-radius:12px;transition:all .2s ease;margin-bottom:.75rem;}
       .decl-label:hover{border-color:var(--accent);background:rgba(52,152,219,.03);}
       .decl-label input{width:18px;height:18px;min-width:18px;accent-color:var(--accent);margin-top:.2rem;cursor:pointer;}
       .decl-label span{font-size:.88rem;color:var(--gray-700);line-height:1.6;}
-
       .privacy-note-box{background:rgba(212,175,55,.07);border-left:4px solid var(--secondary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;font-size:.83rem;color:var(--gray-600);line-height:1.7;}
       .privacy-note-box strong{color:var(--primary);}
-
-      /* success */
       .success-panel{display:none;text-align:center;padding:4rem 2rem;}
       .success-icon{font-size:5rem;margin-bottom:1.5rem;animation:bounceIn .6s ease;}
       @keyframes bounceIn{0%{transform:scale(.3);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
@@ -193,7 +178,7 @@
       .btn-back-link{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-1);color:white;padding:.75rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;box-shadow:var(--shadow-lg);font-size:.9rem;}
       .btn-back-link:hover{color:white;transform:translateY(-2px);box-shadow:var(--shadow-xl);}
 
-      /* FOOTER */
+      /* ── FOOTER ── */
       .footer{background:var(--gray-900);color:var(--gray-400);padding:5rem 0 0;}
       .footer h5{color:white;font-weight:700;margin-bottom:1.5rem;font-size:1.1rem;}
       .footer a{color:var(--gray-400);text-decoration:none;display:block;margin-bottom:.75rem;transition:color .2s ease;padding:.1rem 0;}
@@ -210,82 +195,33 @@
       .whatsapp-btn{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;border-radius:50%;background:#25D366;color:white;border:none;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:1000;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.5);animation:pulse 2s infinite;transition:all .3s ease;}
       .whatsapp-btn:hover{transform:scale(1.1);color:white;}
       @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 12px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
-      @media(max-width:991px){
-        .navbar-custom-container{max-width:95%;border-radius:20px;padding:.75rem 1.25rem;}
-        .nav-link{margin:0;}
-        .contact-btn-nav,.apply-btn-nav{margin:.4rem 0 0;}
-        .form-body,.form-header{padding:1.5rem;}
-        .progress-step{font-size:.68rem;padding:.75rem .3rem;}
-      }
+      @media(max-width:991px){.navbar-custom-container{max-width:95%;border-radius:20px;padding:.75rem 1.25rem;}.nav-link{margin:0;}.contact-btn-nav{margin:.4rem 0 0;}.form-body,.form-header{padding:1.5rem;}.progress-step{font-size:.68rem;padding:.75rem .3rem;}}
     </style>
-    <!-- Supabase SDK -->
-      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-      <script>
-        // ── Supabase Config ──
-        const SUPABASE_URL = 'https://YOUR_PROJECT_URL.supabase.co';
-        const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      </script>
   </head>
-  
   <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
       <div class="navbar-custom-container container">
         <a class="navbar-brand" href="index.html">
-          <img
-            src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png"
-            alt="NFS Insure Logo"
-            class="logo-img"
-          />
+          <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="NFS Insure Logo" class="logo-img" />
         </a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="diplomatic.html">Diplomatic Desk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="smme-funding.html">SMME Funding</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="medicalaidstep1.html"
-                >Get Quote</a
-              >
-            </li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="diplomatic.html">Diplomatic Desk</a></li>
+            <li class="nav-item"><a class="nav-link" href="smme-funding.html">SMME Funding</a></li>
+            <li class="nav-item"><a class="nav-link active" href="diplomatic-apply.html">Apply Now</a></li>
           </ul>
-          <a href="contact.html" class="contact-btn-nav">
-            <i class="fas fa-phone-alt"></i> Contact Us
-          </a>
+          <a href="contact.html" class="contact-btn-nav"><i class="fas fa-phone-alt"></i> Contact Us</a>
         </div>
       </div>
     </nav>
-
 
     <!-- Hero -->
     <section class="subpage-hero">
@@ -329,32 +265,17 @@
             </div>
           </div>
           <div class="col-lg-7">
-            <div class="benefit-item">
-              <div class="b-icon"><i class="fas fa-user-tie"></i></div>
-              <div><h6>Dedicated Diplomatic Consultant</h6><p>Your mission is assigned a personal consultant who manages your account with full discretion and deep sector expertise.</p></div>
-            </div>
-            <div class="benefit-item">
-              <div class="b-icon"><i class="fas fa-cut"></i></div>
-              <div><h6>Tailor-Made Products</h6><p>Insurance covers and financial products structured specifically around your mission's size, personnel, assets, and operational profile.</p></div>
-            </div>
-            <div class="benefit-item">
-              <div class="b-icon"><i class="fas fa-lock"></i></div>
-              <div><h6>Strictly Confidential</h6><p>All information submitted is handled to the highest standard of professional confidentiality in line with diplomatic expectations.</p></div>
-            </div>
-            <div class="benefit-item">
-              <div class="b-icon"><i class="fas fa-network-wired"></i></div>
-              <div><h6>Access to Financial Partners</h6><p>Connect with banking institutions, investment partners, and professional advisory networks through our established relationships.</p></div>
-            </div>
-            <div class="benefit-item">
-              <div class="b-icon"><i class="fas fa-bolt"></i></div>
-              <div><h6>Fast, Personalized Onboarding</h6><p>Once approved, expect your first tailored proposals within days — not weeks — from a team that moves at your pace.</p></div>
-            </div>
+            <div class="benefit-item"><div class="b-icon"><i class="fas fa-user-tie"></i></div><div><h6>Dedicated Diplomatic Consultant</h6><p>Your mission is assigned a personal consultant who manages your account with full discretion and deep sector expertise.</p></div></div>
+            <div class="benefit-item"><div class="b-icon"><i class="fas fa-cut"></i></div><div><h6>Tailor-Made Products</h6><p>Insurance covers and financial products structured specifically around your mission's size, personnel, assets, and operational profile.</p></div></div>
+            <div class="benefit-item"><div class="b-icon"><i class="fas fa-lock"></i></div><div><h6>Strictly Confidential</h6><p>All information submitted is handled to the highest standard of professional confidentiality in line with diplomatic expectations.</p></div></div>
+            <div class="benefit-item"><div class="b-icon"><i class="fas fa-network-wired"></i></div><div><h6>Access to Financial Partners</h6><p>Connect with banking institutions, investment partners, and professional advisory networks through our established relationships.</p></div></div>
+            <div class="benefit-item"><div class="b-icon"><i class="fas fa-bolt"></i></div><div><h6>Fast, Personalized Onboarding</h6><p>Once approved, expect your first tailored proposals within days — not weeks — from a team that moves at your pace.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- How to Apply — Steps -->
+    <!-- Steps -->
     <section class="steps-section">
       <div class="container">
         <div class="text-center mb-5">
@@ -362,40 +283,11 @@
           <h2 class="section-title">How to Apply</h2>
           <p class="section-description">Four clear steps from submission to a fully active diplomatic service relationship with NFS Insure.</p>
         </div>
-
         <div class="step-cards-row">
-          <div class="step-col">
-            <div class="step-number">1</div>
-            <div class="step-card">
-              <div class="step-label">Step 1</div>
-              <h5><i class="fas fa-file-alt me-1" style="color:var(--secondary);"></i> Application Form</h5>
-              <p>Complete the online application form below with your mission's details and required supporting documents.</p>
-            </div>
-          </div>
-          <div class="step-col">
-            <div class="step-number">2</div>
-            <div class="step-card">
-              <div class="step-label">Step 2</div>
-              <h5><i class="fas fa-search me-1" style="color:var(--secondary);"></i> Initial Review</h5>
-              <p>Our team reviews your submission within <strong>3 business days</strong> and confirms receipt.</p>
-            </div>
-          </div>
-          <div class="step-col">
-            <div class="step-number">3</div>
-            <div class="step-card">
-              <div class="step-label">Step 3</div>
-              <h5><i class="fas fa-comments me-1" style="color:var(--secondary);"></i> Consultation</h5>
-              <p>Selected applicants are invited for a formal consultation — in-person or via video call — with a dedicated consultant.</p>
-            </div>
-          </div>
-          <div class="step-col">
-            <div class="step-number">4</div>
-            <div class="step-card">
-              <div class="step-label">Step 4</div>
-              <h5><i class="fas fa-check-circle me-1" style="color:var(--secondary);"></i> Onboarding</h5>
-              <p>Upon approval, your mission is onboarded and tailored proposals are presented for activation.</p>
-            </div>
-          </div>
+          <div class="step-col"><div class="step-number">1</div><div class="step-card"><div class="step-label">Step 1</div><h5><i class="fas fa-file-alt me-1" style="color:var(--secondary);"></i> Application Form</h5><p>Complete the online application form below with your mission's details and required supporting documents.</p></div></div>
+          <div class="step-col"><div class="step-number">2</div><div class="step-card"><div class="step-label">Step 2</div><h5><i class="fas fa-search me-1" style="color:var(--secondary);"></i> Initial Review</h5><p>Our team reviews your submission within <strong>3 business days</strong> and confirms receipt.</p></div></div>
+          <div class="step-col"><div class="step-number">3</div><div class="step-card"><div class="step-label">Step 3</div><h5><i class="fas fa-comments me-1" style="color:var(--secondary);"></i> Consultation</h5><p>Selected applicants are invited for a formal consultation — in-person or via video call — with a dedicated consultant.</p></div></div>
+          <div class="step-col"><div class="step-number">4</div><div class="step-card"><div class="step-label">Step 4</div><h5><i class="fas fa-check-circle me-1" style="color:var(--secondary);"></i> Onboarding</h5><p>Upon approval, your mission is onboarded and tailored proposals are presented for activation.</p></div></div>
         </div>
       </div>
     </section>
@@ -409,42 +301,12 @@
           <p class="section-description">Your mission must meet the following criteria to be eligible for the Concierge Diplomatic Desk programme.</p>
         </div>
         <div class="row g-3">
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-landmark"></i></div>
-              <div><h6>Recognised Diplomatic Entity</h6><p>Must be a registered Embassy, High Commission, Consulate, or accredited International Organization.</p></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-id-card"></i></div>
-              <div><h6>Official Accreditation</h6><p>Proof of diplomatic accreditation recognized by the South African Department of International Relations (DIRCO).</p></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-user-shield"></i></div>
-              <div><h6>Authorized Representative</h6><p>Application must be submitted by an Ambassador, Deputy Chief of Mission, or designated authorized officer.</p></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-globe-africa"></i></div>
-              <div><h6>Operational in South Africa</h6><p>Your mission must be currently operational, or in the process of establishing operations within South Africa.</p></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-briefcase"></i></div>
-              <div><h6>Genuine Service Need</h6><p>The mission must have a current or upcoming requirement for at least one insurance or financial service.</p></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="req-card">
-              <div class="req-icon"><i class="fas fa-file-contract"></i></div>
-              <div><h6>Documents Ready to Submit</h6><p>All required supporting documents must be available and uploaded at the time of application.</p></div>
-            </div>
-          </div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-landmark"></i></div><div><h6>Recognised Diplomatic Entity</h6><p>Must be a registered Embassy, High Commission, Consulate, or accredited International Organization.</p></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-id-card"></i></div><div><h6>Official Accreditation</h6><p>Proof of diplomatic accreditation recognized by the South African Department of International Relations (DIRCO).</p></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-user-shield"></i></div><div><h6>Authorized Representative</h6><p>Application must be submitted by an Ambassador, Deputy Chief of Mission, or designated authorized officer.</p></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-globe-africa"></i></div><div><h6>Operational in South Africa</h6><p>Your mission must be currently operational, or in the process of establishing operations within South Africa.</p></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-briefcase"></i></div><div><h6>Genuine Service Need</h6><p>The mission must have a current or upcoming requirement for at least one insurance or financial service.</p></div></div></div>
+          <div class="col-md-6 col-lg-4"><div class="req-card"><div class="req-icon"><i class="fas fa-file-contract"></i></div><div><h6>Documents Ready to Submit</h6><p>All required supporting documents must be available and uploaded at the time of application.</p></div></div></div>
         </div>
         <div class="text-center mt-4">
           <p style="color:var(--gray-500);font-size:.88rem;"><i class="fas fa-info-circle me-1" style="color:var(--secondary);"></i> Should you not be contacted within <strong>3 business days</strong> of applying, please contact us at <a href="mailto:info@nfs.insure" style="color:var(--accent);">info@nfs.insure</a>.</p>
@@ -452,7 +314,7 @@
       </div>
     </section>
 
-    <!-- Documents Required -->
+    <!-- Documents -->
     <section class="docs-section">
       <div class="container">
         <div class="text-center mb-5">
@@ -462,46 +324,14 @@
         </div>
         <div class="row g-4">
           <div class="col-lg-7">
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-passport"></i></div>
-              <span>Passport Copy / Government-Issued ID of the Authorized Representative</span>
-              <span class="doc-badge badge-required">Required</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <span>Proof of Address — Official Mission / Embassy Address in South Africa</span>
-              <span class="doc-badge badge-required">Required</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-id-badge"></i></div>
-              <span>Proof of Diplomatic Accreditation (DIRCO Letter or Diplomatic Identity Card)</span>
-              <span class="doc-badge badge-required">Required</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-building"></i></div>
-              <span>Official Mission Introduction Letter or Embassy Profile</span>
-              <span class="doc-badge badge-required">Required</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-user-circle"></i></div>
-              <span>Curriculum Vitae (CV) of the Authorized Representative</span>
-              <span class="doc-badge badge-required">Required</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-users"></i></div>
-              <span>List of Diplomatic Staff & Dependants to be Covered</span>
-              <span class="doc-badge badge-optional">Optional</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-file-invoice"></i></div>
-              <span>Most Recent Utility Bill or Bank Statement for Proof of Address</span>
-              <span class="doc-badge badge-optional">Optional</span>
-            </div>
-            <div class="doc-item">
-              <div class="doc-icon"><i class="fas fa-car"></i></div>
-              <span>Vehicle Registration Documents (if Fleet Insurance is required)</span>
-              <span class="doc-badge badge-optional">Optional</span>
-            </div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-passport"></i></div><span>Passport Copy / Government-Issued ID of the Authorized Representative</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-map-marker-alt"></i></div><span>Proof of Address — Official Mission / Embassy Address in South Africa</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-id-badge"></i></div><span>Proof of Diplomatic Accreditation (DIRCO Letter or Diplomatic Identity Card)</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-building"></i></div><span>Official Mission Introduction Letter or Embassy Profile</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-user-circle"></i></div><span>Curriculum Vitae (CV) of the Authorized Representative</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-users"></i></div><span>List of Diplomatic Staff & Dependants to be Covered</span><span class="doc-badge badge-optional">Optional</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-file-invoice"></i></div><span>Most Recent Utility Bill or Bank Statement for Proof of Address</span><span class="doc-badge badge-optional">Optional</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-car"></i></div><span>Vehicle Registration Documents (if Fleet Insurance is required)</span><span class="doc-badge badge-optional">Optional</span></div>
           </div>
           <div class="col-lg-5">
             <div class="privacy-info-box">
@@ -515,7 +345,7 @@
       </div>
     </section>
 
-    <!-- Multi-Step Application Form -->
+    <!-- Application Form -->
     <section class="form-section" id="application-form">
       <div class="container">
         <div class="text-center mb-5">
@@ -523,18 +353,13 @@
           <h2 class="section-title">Complete the Application Form</h2>
           <p class="section-description">The application process starts with completing this form. All fields marked <span style="color:var(--danger);">*</span> are required.</p>
         </div>
-
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="form-wrapper">
-
-              <!-- Form Header -->
               <div class="form-header">
                 <h3><i class="fas fa-landmark me-2" style="color:var(--secondary);"></i> Concierge Diplomatic Desk — Service Application</h3>
                 <p>NFS Insure | FSP No. 53910 &nbsp;|&nbsp; Confidential Application &nbsp;|&nbsp; All information is protected and treated with full discretion</p>
               </div>
-
-              <!-- Step Progress Tabs -->
               <div class="form-progress" id="formProgress">
                 <div class="progress-step active" data-step="1"><i class="fas fa-building"></i> Mission</div>
                 <div class="progress-step" data-step="2"><i class="fas fa-user-tie"></i> Representative</div>
@@ -542,11 +367,9 @@
                 <div class="progress-step" data-step="4"><i class="fas fa-paperclip"></i> Documents</div>
                 <div class="progress-step" data-step="5"><i class="fas fa-check-square"></i> Declaration</div>
               </div>
-
-              <!-- Form Body -->
               <div class="form-body">
 
-                <!-- Success -->
+                <!-- Success Panel -->
                 <div class="success-panel" id="successPanel">
                   <div class="success-icon">🎉</div>
                   <h3>Application Submitted!</h3>
@@ -556,130 +379,59 @@
 
                 <form id="diplomaticForm" novalidate>
 
-                  <!-- PANEL 1: Mission Details -->
+                  <!-- PANEL 1 -->
                   <div class="form-panel active" id="panel1">
                     <p class="panel-title">Mission / Embassy Details</p>
                     <p class="panel-subtitle">Tell us about your diplomatic mission or embassy.</p>
                     <div class="row g-3">
-                      <div class="col-md-6">
-                        <label class="form-label">Mission / Embassy Name <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="missionName" placeholder="e.g. Embassy of France" required />
-                        <div class="invalid-feedback">Please enter the mission name.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Country Represented <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="country" placeholder="e.g. France" required />
-                        <div class="invalid-feedback">Please enter the country.</div>
-                      </div>
+                      <div class="col-md-6"><label class="form-label">Mission / Embassy Name <span class="required-star">*</span></label><input type="text" class="form-control" id="missionName" placeholder="e.g. Embassy of France" required /></div>
+                      <div class="col-md-6"><label class="form-label">Country Represented <span class="required-star">*</span></label><input type="text" class="form-control" id="country" placeholder="e.g. France" required /></div>
                       <div class="col-md-6">
                         <label class="form-label">Type of Mission <span class="required-star">*</span></label>
                         <select class="form-select" id="missionType" required>
                           <option value="" disabled selected>Select mission type</option>
-                          <option>Embassy</option>
-                          <option>High Commission</option>
-                          <option>Consulate General</option>
-                          <option>Consulate</option>
-                          <option>International Organization</option>
-                          <option>Diplomatic Trade Office</option>
-                          <option>Other</option>
+                          <option>Embassy</option><option>High Commission</option><option>Consulate General</option><option>Consulate</option><option>International Organization</option><option>Diplomatic Trade Office</option><option>Other</option>
                         </select>
-                        <div class="invalid-feedback">Please select a mission type.</div>
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Number of Diplomatic Staff & Dependants <span class="required-star">*</span></label>
                         <select class="form-select" id="staffCount" required>
                           <option value="" disabled selected>Select range</option>
-                          <option>1 – 10</option>
-                          <option>11 – 25</option>
-                          <option>26 – 50</option>
-                          <option>51 – 100</option>
-                          <option>100+</option>
+                          <option>1 – 10</option><option>11 – 25</option><option>26 – 50</option><option>51 – 100</option><option>100+</option>
                         </select>
-                        <div class="invalid-feedback">Please select a range.</div>
                       </div>
-                      <div class="col-12">
-                        <label class="form-label">Physical Address in South Africa <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="address" placeholder="Street address, Suburb, City, Postal Code" required />
-                        <div class="invalid-feedback">Please enter the mission's address.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">City <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="city" placeholder="e.g. Pretoria" required />
-                      </div>
+                      <div class="col-12"><label class="form-label">Physical Address in South Africa <span class="required-star">*</span></label><input type="text" class="form-control" id="address" placeholder="Street address, Suburb, City, Postal Code" required /></div>
+                      <div class="col-md-6"><label class="form-label">City <span class="required-star">*</span></label><input type="text" class="form-control" id="city" placeholder="e.g. Pretoria" required /></div>
                       <div class="col-md-6">
                         <label class="form-label">Province</label>
                         <select class="form-select" id="province">
                           <option value="" disabled selected>Select province</option>
-                          <option>Gauteng</option>
-                          <option>Western Cape</option>
-                          <option>KwaZulu-Natal</option>
-                          <option>Eastern Cape</option>
-                          <option>Limpopo</option>
-                          <option>Mpumalanga</option>
-                          <option>North West</option>
-                          <option>Free State</option>
-                          <option>Northern Cape</option>
+                          <option>Gauteng</option><option>Western Cape</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Limpopo</option><option>Mpumalanga</option><option>North West</option><option>Free State</option><option>Northern Cape</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-nav-btns"><div></div><button type="button" class="btn-next" onclick="goToPanel(2)">Next: Representative <i class="fas fa-arrow-right"></i></button></div>
                   </div>
 
-                  <!-- PANEL 2: Authorized Representative -->
+                  <!-- PANEL 2 -->
                   <div class="form-panel" id="panel2">
                     <p class="panel-title">Authorized Representative</p>
                     <p class="panel-subtitle">Details of the person authorized to submit this application on behalf of the mission.</p>
                     <div class="row g-3">
-                      <div class="col-md-6">
-                        <label class="form-label">Full Name <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="repName" placeholder="First and last name" required />
-                        <div class="invalid-feedback">Please enter the representative's full name.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Title / Diplomatic Position <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="repTitle" placeholder="e.g. Ambassador, First Secretary, Admin Officer" required />
-                        <div class="invalid-feedback">Please enter their position.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Official Email Address <span class="required-star">*</span></label>
-                        <input type="email" class="form-control" id="repEmail" placeholder="official@embassy.gov" required />
-                        <div class="invalid-feedback">Please enter a valid email address.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Phone Number <span class="required-star">*</span></label>
-                        <input type="tel" class="form-control" id="repPhone" placeholder="+27 ..." required />
-                        <div class="invalid-feedback">Please enter a phone number.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Passport Number / ID Number <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="repPassport" placeholder="Passport or ID number" required />
-                        <div class="invalid-feedback">Please enter a passport or ID number.</div>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Nationality <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="repNationality" placeholder="e.g. French" required />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Residential Address in South Africa <span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="repAddress" placeholder="Street address, Suburb, City — or same as mission address" required />
-                        <div class="invalid-feedback">Please enter a residential address.</div>
-                      </div>
+                      <div class="col-md-6"><label class="form-label">Full Name <span class="required-star">*</span></label><input type="text" class="form-control" id="repName" placeholder="First and last name" required /></div>
+                      <div class="col-md-6"><label class="form-label">Title / Diplomatic Position <span class="required-star">*</span></label><input type="text" class="form-control" id="repTitle" placeholder="e.g. Ambassador, First Secretary, Admin Officer" required /></div>
+                      <div class="col-md-6"><label class="form-label">Official Email Address <span class="required-star">*</span></label><input type="email" class="form-control" id="repEmail" placeholder="official@embassy.gov" required /></div>
+                      <div class="col-md-6"><label class="form-label">Phone Number <span class="required-star">*</span></label><input type="tel" class="form-control" id="repPhone" placeholder="+27 ..." required /></div>
+                      <div class="col-md-6"><label class="form-label">Passport Number / ID Number <span class="required-star">*</span></label><input type="text" class="form-control" id="repPassport" placeholder="Passport or ID number" required /></div>
+                      <div class="col-md-6"><label class="form-label">Nationality <span class="required-star">*</span></label><input type="text" class="form-control" id="repNationality" placeholder="e.g. French" required /></div>
+                      <div class="col-12"><label class="form-label">Residential Address in South Africa <span class="required-star">*</span></label><input type="text" class="form-control" id="repAddress" placeholder="Street address, Suburb, City — or same as mission address" required /></div>
                       <div class="col-md-6">
                         <label class="form-label">Preferred Contact Method</label>
-                        <select class="form-select" id="contactMethod">
-                          <option>Email</option>
-                          <option>Phone Call</option>
-                          <option>WhatsApp</option>
-                          <option>In-person Meeting</option>
-                        </select>
+                        <select class="form-select" id="contactMethod"><option>Email</option><option>Phone Call</option><option>WhatsApp</option><option>In-person Meeting</option></select>
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Best Time to Contact</label>
-                        <select class="form-select" id="contactTime">
-                          <option>Morning (08:00 – 12:00)</option>
-                          <option>Afternoon (12:00 – 17:00)</option>
-                          <option>Any time during business hours</option>
-                        </select>
+                        <select class="form-select" id="contactTime"><option>Morning (08:00 – 12:00)</option><option>Afternoon (12:00 – 17:00)</option><option>Any time during business hours</option></select>
                       </div>
                     </div>
                     <div class="form-nav-btns">
@@ -688,11 +440,10 @@
                     </div>
                   </div>
 
-                  <!-- PANEL 3: Services Required -->
+                  <!-- PANEL 3 -->
                   <div class="form-panel" id="panel3">
                     <p class="panel-title">Services Required</p>
-                    <p class="panel-subtitle">Select all the services your mission requires. You may choose multiple options across both insurance and financial categories.</p>
-
+                    <p class="panel-subtitle">Select all the services your mission requires. You may choose multiple options.</p>
                     <p style="font-weight:700;color:var(--primary);font-size:.9rem;margin-bottom:.6rem;"><i class="fas fa-shield-alt me-1" style="color:var(--secondary);"></i> Insurance Services</p>
                     <div class="row g-2 mb-4">
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Embassy Building Insurance</label></div>
@@ -708,7 +459,6 @@
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Personal Accident Cover</label></div>
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Fire & Theft Insurance</label></div>
                     </div>
-
                     <p style="font-weight:700;color:var(--primary);font-size:.9rem;margin-bottom:.6rem;"><i class="fas fa-coins me-1" style="color:var(--secondary);"></i> Financial Services</p>
                     <div class="row g-2 mb-4">
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Financial Advice & Consultation</label></div>
@@ -720,10 +470,9 @@
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Business & Asset Funding Solutions</label></div>
                       <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Private & Corporate Banking Introductions</label></div>
                     </div>
-
                     <div class="mb-2">
                       <label class="form-label">Additional Requirements or Notes</label>
-                      <textarea class="form-control" rows="3" placeholder="Describe any specific requirements, timelines, or additional information you'd like us to know…"></textarea>
+                      <textarea class="form-control" id="additionalNotes" rows="3" placeholder="Describe any specific requirements, timelines, or additional information you'd like us to know…"></textarea>
                     </div>
                     <div class="form-nav-btns">
                       <button type="button" class="btn-prev" onclick="goToPanel(2)"><i class="fas fa-arrow-left"></i> Back</button>
@@ -731,124 +480,65 @@
                     </div>
                   </div>
 
-                  <!-- PANEL 4: Documents Upload -->
+                  <!-- PANEL 4 -->
                   <div class="form-panel" id="panel4">
                     <p class="panel-title">Upload Supporting Documents</p>
                     <p class="panel-subtitle">Upload all required documents. Accepted formats: PDF, DOC, DOCX, JPG, PNG. Max 10MB per file.</p>
-
                     <div class="row g-4">
-                      <!-- Passport / ID -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-passport me-1" style="color:var(--secondary);"></i> Passport / ID Copy <span class="required-star">*</span></label>
-                        <div class="upload-zone" id="zone-passport">
-                          <input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="passport" />
-                          <div class="up-icon"><i class="fas fa-id-card"></i></div>
-                          <p><strong>Upload Passport or ID</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p>
-                        </div>
+                        <div class="upload-zone" id="zone-passport"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="passport" /><div class="up-icon"><i class="fas fa-id-card"></i></div><p><strong>Upload Passport or ID</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p></div>
                         <div class="file-list mt-2" id="files-passport"></div>
                       </div>
-
-                      <!-- Proof of Address -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-map-marker-alt me-1" style="color:var(--secondary);"></i> Proof of Address <span class="required-star">*</span></label>
-                        <div class="upload-zone" id="zone-address">
-                          <input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="address" />
-                          <div class="up-icon"><i class="fas fa-home"></i></div>
-                          <p><strong>Upload Proof of Address</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">Utility bill or bank statement — not older than 3 months</p>
-                        </div>
+                        <div class="upload-zone" id="zone-address"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="address" /><div class="up-icon"><i class="fas fa-home"></i></div><p><strong>Upload Proof of Address</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Utility bill or bank statement — not older than 3 months</p></div>
                         <div class="file-list mt-2" id="files-address"></div>
                       </div>
-
-                      <!-- DIRCO Accreditation -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-id-badge me-1" style="color:var(--secondary);"></i> Diplomatic Accreditation (DIRCO) <span class="required-star">*</span></label>
-                        <div class="upload-zone" id="zone-dirco">
-                          <input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="dirco" />
-                          <div class="up-icon"><i class="fas fa-certificate"></i></div>
-                          <p><strong>Upload DIRCO Letter or Diplomatic Card</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p>
-                        </div>
+                        <div class="upload-zone" id="zone-dirco"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="dirco" /><div class="up-icon"><i class="fas fa-certificate"></i></div><p><strong>Upload DIRCO Letter or Diplomatic Card</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p></div>
                         <div class="file-list mt-2" id="files-dirco"></div>
                       </div>
-
-                      <!-- Mission Intro Letter -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-building me-1" style="color:var(--secondary);"></i> Mission Introduction Letter <span class="required-star">*</span></label>
-                        <div class="upload-zone" id="zone-intro">
-                          <input type="file" accept=".pdf,.doc,.docx" data-zone="intro" />
-                          <div class="up-icon"><i class="fas fa-envelope-open-text"></i></div>
-                          <p><strong>Upload Embassy Profile or Introduction Letter</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">PDF, DOC, DOCX • Max 10MB</p>
-                        </div>
+                        <div class="upload-zone" id="zone-intro"><input type="file" accept=".pdf,.doc,.docx" data-zone="intro" /><div class="up-icon"><i class="fas fa-envelope-open-text"></i></div><p><strong>Upload Embassy Profile or Introduction Letter</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, DOC, DOCX • Max 10MB</p></div>
                         <div class="file-list mt-2" id="files-intro"></div>
                       </div>
-
-                      <!-- CV -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-user-circle me-1" style="color:var(--secondary);"></i> CV of Authorized Representative <span class="required-star">*</span></label>
-                        <div class="upload-zone" id="zone-cv">
-                          <input type="file" accept=".pdf,.doc,.docx" data-zone="cv" />
-                          <div class="up-icon"><i class="fas fa-file-user"></i></div>
-                          <p><strong>Upload CV / Résumé</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">PDF, DOC, DOCX • Max 10MB</p>
-                        </div>
+                        <div class="upload-zone" id="zone-cv"><input type="file" accept=".pdf,.doc,.docx" data-zone="cv" /><div class="up-icon"><i class="fas fa-file-alt"></i></div><p><strong>Upload CV / Résumé</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, DOC, DOCX • Max 10MB</p></div>
                         <div class="file-list mt-2" id="files-cv"></div>
                       </div>
-
-                      <!-- Additional / Optional -->
                       <div class="col-md-6">
                         <label class="form-label"><i class="fas fa-paperclip me-1" style="color:var(--secondary);"></i> Additional Documents <span style="color:var(--gray-400);font-weight:400;">(Optional)</span></label>
-                        <div class="upload-zone" id="zone-other">
-                          <input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple data-zone="other" />
-                          <div class="up-icon"><i class="fas fa-folder-open"></i></div>
-                          <p><strong>Upload any additional documents</strong></p>
-                          <p style="font-size:.78rem;color:var(--gray-400);">Vehicle reg, staff lists, etc. — PDF, JPG, PNG</p>
-                        </div>
+                        <div class="upload-zone" id="zone-other"><input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple data-zone="other" /><div class="up-icon"><i class="fas fa-folder-open"></i></div><p><strong>Upload any additional documents</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Vehicle reg, staff lists, etc.</p></div>
                         <div class="file-list mt-2" id="files-other"></div>
                       </div>
                     </div>
-
                     <div class="form-nav-btns">
                       <button type="button" class="btn-prev" onclick="goToPanel(3)"><i class="fas fa-arrow-left"></i> Back</button>
                       <button type="button" class="btn-next" onclick="goToPanel(5)">Next: Declaration <i class="fas fa-arrow-right"></i></button>
                     </div>
                   </div>
 
-                  <!-- PANEL 5: Declaration & Submit -->
+                  <!-- PANEL 5 -->
                   <div class="form-panel" id="panel5">
                     <p class="panel-title">Declaration & Submission</p>
                     <p class="panel-subtitle">Please read and confirm the following declarations before submitting your application.</p>
-
-                    <label class="decl-label" id="decl1-label">
-                      <input type="checkbox" id="decl1" />
-                      <span>I confirm that I am an authorized representative of the diplomatic mission named in this application, and that I have the authority to submit this application on its behalf.</span>
-                    </label>
-                    <label class="decl-label" id="decl2-label">
-                      <input type="checkbox" id="decl2" />
-                      <span>I confirm that all information provided in this application is accurate, complete, and up to date to the best of my knowledge.</span>
-                    </label>
-                    <label class="decl-label" id="decl3-label">
-                      <input type="checkbox" id="decl3" />
-                      <span>I understand that NFS Insure may request additional information or documents to verify the details provided, and I consent to this process.</span>
-                    </label>
-                    <label class="decl-label" id="decl4-label">
-                      <input type="checkbox" id="decl4" />
-                      <span>I agree to the <a href="#" style="color:var(--accent);text-decoration:underline;">Privacy Policy</a> and consent to NFS Insure processing my personal information for the purpose of evaluating and administering this application.</span>
-                    </label>
-
+                    <label class="decl-label" id="decl1-label"><input type="checkbox" id="decl1" /><span>I confirm that I am an authorized representative of the diplomatic mission named in this application, and that I have the authority to submit this application on its behalf.</span></label>
+                    <label class="decl-label" id="decl2-label"><input type="checkbox" id="decl2" /><span>I confirm that all information provided in this application is accurate, complete, and up to date to the best of my knowledge.</span></label>
+                    <label class="decl-label" id="decl3-label"><input type="checkbox" id="decl3" /><span>I understand that NFS Insure may request additional information or documents to verify the details provided, and I consent to this process.</span></label>
+                    <label class="decl-label" id="decl4-label"><input type="checkbox" id="decl4" /><span>I agree to the <a href="#" style="color:var(--accent);text-decoration:underline;">Privacy Policy</a> and consent to NFS Insure processing my personal information for the purpose of evaluating and administering this application.</span></label>
                     <div class="privacy-note-box mt-3">
                       <strong>Confidentiality Notice:</strong> All information submitted through this form is treated in the strictest confidence and will not be disclosed to any third party without your express consent. NFS Insure (FSP No. 53910) reserves the right to request additional documentation to verify any information provided.
                     </div>
-
                     <div class="text-center mt-4">
                       <button type="submit" class="btn-submit-final mx-auto" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> Submit Application
                       </button>
                       <p style="color:var(--gray-400);font-size:.78rem;margin-top:1rem;">You will receive a confirmation upon submission. If not contacted within 3 business days, email <a href="mailto:info@nfs.insure" style="color:var(--accent);">info@nfs.insure</a>.</p>
                     </div>
-
                     <div class="form-nav-btns" style="border:none;padding-top:0;margin-top:.5rem;">
                       <button type="button" class="btn-prev" onclick="goToPanel(4)"><i class="fas fa-arrow-left"></i> Back</button>
                       <div></div>
@@ -908,75 +598,74 @@
       </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/27790284802" target="_blank" class="whatsapp-btn" title="Contact us on WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/27790284802" target="_blank" class="whatsapp-btn" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
       // Navbar scroll
-      window.addEventListener("scroll",function(){document.querySelector(".navbar").classList.toggle("scrolled",window.scrollY>50);});
-      document.getElementById("current-year").textContent=new Date().getFullYear();
+      window.addEventListener("scroll", function() {
+        document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+      });
+      document.getElementById("current-year").textContent = new Date().getFullYear();
 
-      // ── Multi-step form logic ──
-      let currentPanel=1;
-      const totalPanels=5;
+      // ── Multi-step navigation ──
+      let currentPanel = 1;
 
-      function goToPanel(n){
-        document.getElementById("panel"+currentPanel).classList.remove("active");
-        currentPanel=n;
-        document.getElementById("panel"+n).classList.add("active");
-        // Update progress tabs
-        document.querySelectorAll(".progress-step").forEach(function(el,i){
-          el.classList.remove("active","done");
-          if(i+1<n) el.classList.add("done");
-          if(i+1===n) el.classList.add("active");
+      function goToPanel(n) {
+        document.getElementById("panel" + currentPanel).classList.remove("active");
+        currentPanel = n;
+        document.getElementById("panel" + n).classList.add("active");
+        document.querySelectorAll(".progress-step").forEach(function(el, i) {
+          el.classList.remove("active", "done");
+          if (i + 1 < n) el.classList.add("done");
+          if (i + 1 === n) el.classList.add("active");
         });
-        window.scrollTo({top:document.getElementById("application-form").offsetTop-80,behavior:"smooth"});
+        window.scrollTo({ top: document.getElementById("application-form").offsetTop - 80, behavior: "smooth" });
       }
 
       // ── Service checkbox highlight ──
-      document.querySelectorAll(".svc-check").forEach(function(cb){
-        cb.addEventListener("change",function(){
-          const label=cb.closest(".service-check-label");
-          label.classList.toggle("checked",cb.checked);
+      document.querySelectorAll(".svc-check").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          cb.closest(".service-check-label").classList.toggle("checked", cb.checked);
         });
       });
 
       // ── Declaration checkbox highlight ──
-      ["decl1","decl2","decl3","decl4"].forEach(function(id){
-        const cb=document.getElementById(id);
-        cb.addEventListener("change",function(){
-          document.getElementById(id+"-label").style.borderColor=cb.checked?"var(--success)":"var(--gray-200)";
-          document.getElementById(id+"-label").style.background=cb.checked?"rgba(39,174,96,.04)":"";
+      ["decl1", "decl2", "decl3", "decl4"].forEach(function(id) {
+        var cb = document.getElementById(id);
+        cb.addEventListener("change", function() {
+          var label = document.getElementById(id + "-label");
+          label.style.borderColor = cb.checked ? "var(--success)" : "var(--gray-200)";
+          label.style.background  = cb.checked ? "rgba(39,174,96,.04)" : "";
         });
       });
 
       // ── File upload zones ──
-      var fileStores={};
-      document.querySelectorAll(".upload-zone").forEach(function(zone){
-        var input=zone.querySelector("input[type=file]");
-        var zoneId=input.getAttribute("data-zone");
-        fileStores[zoneId]=[];
+      var fileStores = {};
+      document.querySelectorAll(".upload-zone").forEach(function(zone) {
+        var input  = zone.querySelector("input[type=file]");
+        var zoneId = input.getAttribute("data-zone");
+        fileStores[zoneId] = [];
 
-        input.addEventListener("change",function(){
-          Array.from(input.files).forEach(function(f){
-            if(!fileStores[zoneId].find(function(u){return u.name===f.name;})){
+        input.addEventListener("change", function() {
+          Array.from(input.files).forEach(function(f) {
+            if (!fileStores[zoneId].find(function(u) { return u.name === f.name; })) {
               fileStores[zoneId].push(f);
             }
           });
           renderZone(zoneId);
-          input.value="";
+          input.value = "";
         });
 
-        ["dragover","dragleave","drop"].forEach(function(evt){
-          zone.addEventListener(evt,function(e){
+        ["dragover", "dragleave", "drop"].forEach(function(evt) {
+          zone.addEventListener(evt, function(e) {
             e.preventDefault();
-            zone.classList.toggle("dragover",evt==="dragover");
-            if(evt==="drop"){
-              Array.from(e.dataTransfer.files).forEach(function(f){
-                if(!fileStores[zoneId].find(function(u){return u.name===f.name;})){fileStores[zoneId].push(f);}
+            zone.classList.toggle("dragover", evt === "dragover");
+            if (evt === "drop") {
+              Array.from(e.dataTransfer.files).forEach(function(f) {
+                if (!fileStores[zoneId].find(function(u) { return u.name === f.name; })) {
+                  fileStores[zoneId].push(f);
+                }
               });
               renderZone(zoneId);
             }
@@ -984,36 +673,133 @@
         });
       });
 
-      function renderZone(zoneId){
-        var container=document.getElementById("files-"+zoneId);
-        container.innerHTML="";
-        fileStores[zoneId].forEach(function(f,i){
-          var chip=document.createElement("span");
-          chip.className="file-chip";
-          chip.innerHTML='<i class="fas fa-file"></i>'+f.name+' <button onclick="removeFile(\''+zoneId+'\','+i+')" title="Remove"><i class="fas fa-times"></i></button>';
+      function renderZone(zoneId) {
+        var container = document.getElementById("files-" + zoneId);
+        container.innerHTML = "";
+        fileStores[zoneId].forEach(function(f, i) {
+          var chip = document.createElement("span");
+          chip.className = "file-chip";
+          chip.innerHTML = '<i class="fas fa-file"></i>' + f.name +
+            ' <button onclick="removeFile(\'' + zoneId + '\',' + i + ')" title="Remove"><i class="fas fa-times"></i></button>';
           container.appendChild(chip);
         });
       }
 
-      window.removeFile=function(zoneId,i){fileStores[zoneId].splice(i,1);renderZone(zoneId);};
+      window.removeFile = function(zoneId, i) {
+        fileStores[zoneId].splice(i, 1);
+        renderZone(zoneId);
+      };
 
-      // ── Form submit ──
-      document.getElementById("diplomaticForm").addEventListener("submit",function(e){
+      // ── Form submit — saves to Supabase ──
+      document.getElementById("diplomaticForm").addEventListener("submit", async function(e) {
         e.preventDefault();
-        var allChecked=["decl1","decl2","decl3","decl4"].every(function(id){return document.getElementById(id).checked;});
-        if(!allChecked){
+
+        // Check all declarations are ticked
+        var allChecked = ["decl1", "decl2", "decl3", "decl4"].every(function(id) {
+          return document.getElementById(id).checked;
+        });
+        if (!allChecked) {
           alert("Please confirm all declarations before submitting.");
           return;
         }
-        var btn=document.getElementById("submitBtn");
-        btn.disabled=true;
-        btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Submitting…';
-        setTimeout(function(){
-          document.getElementById("diplomaticForm").style.display="none";
-          document.getElementById("formProgress").style.display="none";
-          document.getElementById("successPanel").style.display="block";
-          window.scrollTo({top:document.getElementById("application-form").offsetTop-80,behavior:"smooth"});
-        },2000);
+
+        var btn = document.getElementById("submitBtn");
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
+
+        try {
+          // 1. Generate a unique folder for this application's documents
+          var appId = crypto.randomUUID();
+
+          // Helper: upload a single file to Supabase Storage
+          async function uploadFile(zoneId, fieldName) {
+            var files = fileStores[zoneId];
+            if (!files || files.length === 0) return null;
+            var file = files[0];
+            var path = appId + "/" + fieldName + "/" + file.name;
+            var result = await supabase.storage.from("diplomatic-documents").upload(path, file);
+            if (result.error) throw result.error;
+            return path;
+          }
+
+          // Helper: upload multiple files to Supabase Storage
+          async function uploadMultiple(zoneId, fieldName) {
+            var files = fileStores[zoneId] || [];
+            var paths = [];
+            for (var i = 0; i < files.length; i++) {
+              var path = appId + "/" + fieldName + "/" + files[i].name;
+              var result = await supabase.storage.from("diplomatic-documents").upload(path, files[i]);
+              if (result.error) throw result.error;
+              paths.push(path);
+            }
+            return paths;
+          }
+
+          // 2. Upload all documents in parallel
+          var uploads = await Promise.all([
+            uploadFile("passport", "passport"),
+            uploadFile("address", "proof-of-address"),
+            uploadFile("dirco", "dirco"),
+            uploadFile("intro", "intro-letter"),
+            uploadFile("cv", "cv"),
+            uploadMultiple("other", "other")
+          ]);
+          var passportPath = uploads[0];
+          var addressPath  = uploads[1];
+          var dircoPath    = uploads[2];
+          var introPath    = uploads[3];
+          var cvPath       = uploads[4];
+          var otherPaths   = uploads[5];
+
+          // 3. Collect selected services
+          var selectedServices = [];
+          document.querySelectorAll(".svc-check:checked").forEach(function(cb) {
+            selectedServices.push(cb.closest(".service-check-label").textContent.trim());
+          });
+
+          // 4. Insert all form data into the Supabase database
+          var insertResult = await supabase.from("diplomatic_applications").insert({
+            mission_name:         document.getElementById("missionName").value,
+            country:              document.getElementById("country").value,
+            mission_type:         document.getElementById("missionType").value,
+            mission_address:      document.getElementById("address").value,
+            city:                 document.getElementById("city").value,
+            province:             document.getElementById("province").value,
+            staff_count:          document.getElementById("staffCount").value,
+            rep_name:             document.getElementById("repName").value,
+            rep_title:            document.getElementById("repTitle").value,
+            rep_email:            document.getElementById("repEmail").value,
+            rep_phone:            document.getElementById("repPhone").value,
+            rep_passport:         document.getElementById("repPassport").value,
+            rep_nationality:      document.getElementById("repNationality").value,
+            rep_address:          document.getElementById("repAddress").value,
+            contact_method:       document.getElementById("contactMethod").value,
+            contact_time:         document.getElementById("contactTime").value,
+            services_selected:    selectedServices,
+            additional_notes:     document.getElementById("additionalNotes").value,
+            doc_passport:         passportPath,
+            doc_proof_of_address: addressPath,
+            doc_dirco:            dircoPath,
+            doc_intro_letter:     introPath,
+            doc_cv:               cvPath,
+            doc_other:            otherPaths,
+            status:               "pending"
+          });
+
+          if (insertResult.error) throw insertResult.error;
+
+          // 5. Show success screen
+          document.getElementById("diplomaticForm").style.display = "none";
+          document.getElementById("formProgress").style.display  = "none";
+          document.getElementById("successPanel").style.display  = "block";
+          window.scrollTo({ top: document.getElementById("application-form").offsetTop - 80, behavior: "smooth" });
+
+        } catch (err) {
+          console.error("Submission error:", err);
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+          alert("Something went wrong: " + err.message + "\n\nPlease try again or contact info@nfs.insure");
+        }
       });
     </script>
   </body>
