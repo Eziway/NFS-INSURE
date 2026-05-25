@@ -8,14 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- ✅ Supabase SDK — UMD build so it works directly in the browser -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <!-- ✅ Supabase SDK — pinned UMD build -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
     <script>
-      // ── Supabase Config ──
-      const SUPABASE_URL = 'https://kyjarrgrpbrhaasgzxtc.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5amFycmdycGJyaGFhc2d6eHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MjU3NjUsImV4cCI6MjA5NTIwMTc2NX0.zs59XLkAuT9apHuzPe_gYna2GqTujKwsQHHNtLOjYFY';
-      const { createClient } = window.supabase;
-      const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      var SUPABASE_URL = 'https://kyjarrgrpbrhaasgzxtc.supabase.co';
+      var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5amFycmdycGJyaGFhc2d6eHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MjU3NjUsImV4cCI6MjA5NTIwMTc2NX0.zs59XLkAuT9apHuzPe_gYna2GqTujKwsQHHNtLOjYFY';
+      var _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     </script>
 
     <style>
@@ -718,7 +716,7 @@
             if (!files || files.length === 0) return null;
             var file = files[0];
             var path = appId + "/" + fieldName + "/" + file.name;
-            var result = await supabase.storage.from("diplomatic-documents").upload(path, file);
+            var result = await _supabase.storage.from("diplomatic-documents").upload(path, file);
             if (result.error) throw result.error;
             return path;
           }
@@ -729,7 +727,7 @@
             var paths = [];
             for (var i = 0; i < files.length; i++) {
               var path = appId + "/" + fieldName + "/" + files[i].name;
-              var result = await supabase.storage.from("diplomatic-documents").upload(path, files[i]);
+              var result = await _supabase.storage.from("diplomatic-documents").upload(path, files[i]);
               if (result.error) throw result.error;
               paths.push(path);
             }
@@ -759,7 +757,7 @@
           });
 
           // 4. Insert all form data into the Supabase database
-          var insertResult = await supabase.from("diplomatic_applications").insert({
+          var insertResult = await _supabase.from("diplomatic_applications").insert({
             mission_name:         document.getElementById("missionName").value,
             country:              document.getElementById("country").value,
             mission_type:         document.getElementById("missionType").value,
