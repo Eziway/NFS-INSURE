@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supabase Connection Test</title>
+</head>
+<body>
+  <h2>Supabase Connection Test</h2>
+  <div id="status" style="font-size:1.2rem;padding:1rem;margin-top:1rem;border-radius:8px;background:#f3f4f6;">Testing...</div>
+  <button onclick="testInsert()" style="margin-top:1rem;padding:.75rem 2rem;font-size:1rem;cursor:pointer;">Test Insert to DB</button>
+  <div id="result" style="margin-top:1rem;font-family:monospace;white-space:pre-wrap;"></div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+    const SUPABASE_URL = 'https://kyjarrgrpbrhaasgzxtc.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5amFycmdycGJyaGFhc2d6eHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MjU3NjUsImV4cCI6MjA5NTIwMTc2NX0.zs59XLkAuT9apHuzPe_gYna2GqTujKwsQHHNtLOjYFY';
+
+    const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById('status').style.background = '#d1fae5';
+    document.getElementById('status').textContent = '✅ Supabase client created successfully!';
+
+    window.testInsert = async function() {
+      const result = document.getElementById('result');
+      result.textContent = 'Inserting test record...';
+      try {
+        const { data, error } = await db.from('diplomatic_applications').insert({
+          mission_name: 'Test Embassy',
+          country: 'Test Country',
+          mission_type: 'Embassy',
+          mission_address: '123 Test Street',
+          city: 'Pretoria',
+          staff_count: '1 – 10',
+          rep_name: 'Test Person',
+          rep_title: 'Ambassador',
+          rep_email: 'test@test.com',
+          rep_phone: '+27 000 000 0000',
+          rep_passport: 'TEST123',
+          rep_nationality: 'Test',
+          rep_address: '123 Test Street',
+          status: 'pending'
+        });
+        if (error) {
+          result.style.color = 'red';
+          result.textContent = '❌ DB Error:\n' + JSON.stringify(error, null, 2);
+        } else {
+          result.style.color = 'green';
+          result.textContent = '✅ Success! Check your Supabase Table Editor.';
+        }
+      } catch(e) {
+        result.style.color = 'red';
+        result.textContent = '❌ Exception:\n' + e.message;
+      }
+    }
+  </script>
+</body>
+</html>
