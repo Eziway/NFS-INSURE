@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Now — SMME Funding Solutions | NFS Insure</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+      :root{
+        --primary:#2c3e50;--primary-dark:#1a252f;--secondary:#d4af37;--accent:#3498db;
+        --success:#27ae60;--danger:#e74c3c;
+        --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
+        --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;
+        --gray-800:#1f2937;--gray-900:#111827;
+        --gradient-1:linear-gradient(135deg,#2c3e50 0%,#3498db 100%);
+        --gradient-2:linear-gradient(135deg,#d4af37 0%,#f1c40f 100%);
+        --shadow-sm:0 1px 2px 0 rgb(0 0 0/.05);
+        --shadow:0 4px 6px -1px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.1);
+        --shadow-lg:0 10px 15px -3px rgb(0 0 0/.1),0 4px 6px -4px rgb(0 0 0/.1);
+        --shadow-xl:0 20px 25px -5px rgb(0 0 0/.1),0 8px 10px -6px rgb(0 0 0/.1);
+      }
+      *{margin:0;padding:0;box-sizing:border-box;}
+      body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;color:var(--gray-800);overflow-x:hidden;scroll-behavior:smooth;}
+
+      /* ── NAV ── */
+      .navbar{background:none;border-bottom:none;padding:1rem 0;position:absolute;top:0;width:100%;z-index:1000;transition:all .3s cubic-bezier(.4,0,.2,1);display:flex;justify-content:center;}
+      .navbar-custom-container{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:50px;padding:.75rem 2rem;box-shadow:var(--shadow-lg);max-width:1200px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;width:90%;}
+      .navbar.scrolled .navbar-custom-container{padding:.6rem 1.8rem;box-shadow:var(--shadow-xl);}
+      .navbar-brand{display:flex;align-items:center;text-decoration:none;padding:0;margin-right:1.5rem;}
+      .navbar-brand .logo-img{height:50px;width:auto;transition:all .3s ease;filter:drop-shadow(0 0 5px rgba(0,0,0,.2));}
+      .navbar-brand:hover .logo-img{transform:scale(1.08);}
+      .nav-link{color:var(--gray-600)!important;font-weight:500;margin:0 .5rem;padding:.5rem .9rem!important;border-radius:10px;transition:all .2s ease;font-size:.95rem;}
+      .nav-link:hover{color:var(--primary)!important;background:var(--gray-100);transform:translateY(-2px);}
+      .nav-link.active{color:var(--accent)!important;background:var(--gray-50);font-weight:600;}
+      .contact-btn-nav{background:var(--gradient-1);color:white!important;padding:.65rem 1.3rem!important;border-radius:50px;font-weight:600;margin-left:.5rem;box-shadow:var(--shadow);transition:all .3s ease;text-decoration:none;display:flex;align-items:center;gap:.4rem;white-space:nowrap;font-size:.9rem;}
+      .contact-btn-nav:hover{transform:translateY(-2px) scale(1.05);box-shadow:var(--shadow-xl);color:white!important;}
+      .navbar-toggler{border:none;font-size:1.5rem;color:var(--primary);}
+      .navbar-toggler:focus{box-shadow:none;}
+
+      /* ── HERO ── */
+      .subpage-hero{min-height:55vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a252f 0%,#2c3e50 40%,#1a3a5c 70%,#0d2137 100%);padding-top:110px;text-align:center;}
+      .subpage-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(212,175,55,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(52,152,219,.12) 0%,transparent 50%);z-index:1;}
+      .subpage-hero::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(212,175,55,.04) 60px,rgba(212,175,55,.04) 61px);z-index:1;}
+      .subpage-hero-content{position:relative;z-index:2;width:100%;padding:2.5rem 0;}
+      .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--secondary);padding:.4rem 1.2rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.25rem;}
+      .subpage-hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;color:white;margin-bottom:1rem;line-height:1.2;text-shadow:0 4px 20px rgba(0,0,0,.4);}
+      .subpage-hero h1 .gold-accent{color:var(--secondary);}
+      .subpage-hero .lead{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:620px;margin:0 auto 1.5rem;line-height:1.8;}
+      .breadcrumb-nav{color:rgba(255,255,255,.5);font-size:.85rem;}
+      .breadcrumb-nav a{color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s;}
+      .breadcrumb-nav a:hover{color:var(--secondary);}
+      .breadcrumb-nav span{margin:0 .4rem;}
+      .hero-apply-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gradient-2);color:var(--primary-dark);padding:.9rem 2.2rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 8px 32px rgba(212,175,55,.4);transition:all .3s ease;margin-top:1.5rem;}
+      .hero-apply-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 40px rgba(212,175,55,.5);color:var(--primary-dark);}
+
+      /* ── WHY APPLY ── */
+      .why-section{padding:5rem 0;background:white;}
+      .section-badge{display:inline-block;background:rgba(52,152,219,.1);color:var(--accent);font-weight:700;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:.75rem;border:1px solid rgba(52,152,219,.25);}
+      .section-badge.gold{background:rgba(212,175,55,.1);color:#b8940e;border-color:rgba(212,175,55,.3);}
+      .section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:var(--primary);line-height:1.2;margin-bottom:.75rem;}
+      .section-description{font-size:1rem;color:var(--gray-600);line-height:1.8;max-width:660px;margin:0 auto;}
+      .why-banner{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 100%);border-radius:24px;padding:2.5rem;color:white;position:relative;overflow:hidden;}
+      .why-banner::before{content:"💼";position:absolute;right:-1rem;bottom:-1rem;font-size:9rem;opacity:.06;line-height:1;}
+      .why-banner .gold-line{width:50px;height:4px;background:var(--gradient-2);border-radius:2px;margin-bottom:1.25rem;}
+      .why-banner h3{font-size:1.45rem;font-weight:800;color:white;margin-bottom:.75rem;}
+      .why-banner p{color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.8;margin-bottom:0;}
+      .stat-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:.4rem 1rem;border-radius:50px;font-size:.83rem;font-weight:600;color:white;margin:.25rem .25rem 0 0;}
+      .stat-pill i{color:var(--secondary);}
+      .benefit-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.25rem;border-radius:14px;border:1px solid var(--gray-200);margin-bottom:.65rem;transition:all .3s ease;background:white;}
+      .benefit-item:hover{border-color:var(--secondary);box-shadow:var(--shadow-lg);transform:translateX(5px);}
+      .benefit-item .b-icon{width:44px;height:44px;min-width:44px;border-radius:12px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:#b8940e;transition:all .3s ease;}
+      .benefit-item:hover .b-icon{background:var(--secondary);color:white;}
+      .benefit-item h6{font-weight:700;color:var(--primary);margin-bottom:.1rem;font-size:.92rem;}
+      .benefit-item p{color:var(--gray-600);font-size:.85rem;margin:0;line-height:1.5;}
+
+      /* ── STEPS ── */
+      .steps-section{padding:5rem 0;background:var(--gray-50);}
+      .step-cards-row{display:flex;gap:0;position:relative;}
+      .step-cards-row::before{content:"";position:absolute;top:36px;left:10%;right:10%;height:3px;background:linear-gradient(90deg,var(--secondary),rgba(212,175,55,.2));z-index:0;}
+      .step-col{flex:1;text-align:center;position:relative;z-index:1;padding:0 .75rem;}
+      .step-number{width:72px;height:72px;border-radius:50%;background:var(--gradient-2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:var(--primary-dark);margin:0 auto 1.25rem;box-shadow:0 0 0 6px rgba(212,175,55,.18),var(--shadow-lg);transition:all .3s ease;}
+      .step-col:hover .step-number{transform:scale(1.1);}
+      .step-card{background:white;border-radius:18px;padding:1.5rem 1.25rem;border:1px solid var(--gray-200);box-shadow:var(--shadow-sm);transition:all .3s ease;height:100%;}
+      .step-card:hover{box-shadow:var(--shadow-xl);border-color:var(--secondary);transform:translateY(-5px);}
+      .step-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--secondary);margin-bottom:.35rem;}
+      .step-card h5{font-size:1rem;font-weight:800;color:var(--primary);margin-bottom:.4rem;}
+      .step-card p{color:var(--gray-600);font-size:.85rem;line-height:1.6;margin:0;}
+      @media(max-width:767px){.step-cards-row{flex-direction:column;gap:1rem;}.step-cards-row::before{display:none;}.step-number{margin-bottom:.75rem;}}
+
+      /* ── REQUIREMENTS ── */
+      .requirements-section{padding:5rem 0;background:white;}
+      .req-card{background:var(--gray-50);border-radius:16px;padding:1.35rem;border:1px solid var(--gray-200);display:flex;align-items:flex-start;gap:.9rem;transition:all .3s ease;height:100%;}
+      .req-card:hover{border-color:var(--accent);box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+      .req-icon{width:44px;height:44px;min-width:44px;border-radius:12px;background:rgba(52,152,219,.1);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;transition:all .3s ease;}
+      .req-card:hover .req-icon{background:var(--accent);color:white;}
+      .req-card h6{font-weight:700;color:var(--primary);margin-bottom:.15rem;font-size:.9rem;}
+      .req-card p{color:var(--gray-600);font-size:.83rem;margin:0;line-height:1.5;}
+
+      /* ── DOCUMENTS ── */
+      .docs-section{padding:5rem 0;background:var(--gray-50);}
+      .doc-item{display:flex;align-items:center;gap:1rem;padding:.9rem 1.1rem;background:white;border-radius:12px;border:1px solid var(--gray-200);margin-bottom:.6rem;transition:all .3s ease;}
+      .doc-item:hover{border-color:var(--secondary);box-shadow:var(--shadow);transform:translateX(5px);}
+      .doc-icon{width:38px;height:38px;min-width:38px;border-radius:10px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;color:#b8940e;font-size:.95rem;transition:all .3s ease;}
+      .doc-item:hover .doc-icon{background:var(--secondary);color:white;}
+      .doc-item span{font-weight:600;color:var(--gray-700);font-size:.9rem;}
+      .doc-item .doc-badge{margin-left:auto;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;}
+      .badge-required{background:rgba(231,76,60,.1);color:var(--danger);}
+      .badge-optional{background:rgba(52,152,219,.1);color:var(--accent);}
+      .privacy-info-box{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 100%);border-radius:20px;padding:2rem;color:white;}
+      .privacy-info-box h5{font-weight:800;color:white;margin-bottom:.75rem;font-size:1rem;}
+      .privacy-info-box p{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.7;margin-bottom:0;}
+
+      /* ── FORM ── */
+      .form-section{padding:5rem 0;background:white;}
+      .form-wrapper{border-radius:24px;border:1px solid var(--gray-200);box-shadow:var(--shadow-xl);overflow:hidden;}
+      .form-header{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 100%);padding:2.25rem 2.5rem;position:relative;overflow:hidden;}
+      .form-header::after{content:"📋";position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.07;}
+      .form-header h3{font-size:1.4rem;font-weight:800;color:white;margin-bottom:.35rem;}
+      .form-header p{color:rgba(255,255,255,.7);font-size:.88rem;margin:0;}
+      .form-progress{display:flex;gap:0;border-bottom:1px solid var(--gray-200);background:var(--gray-50);}
+      .progress-step{flex:1;padding:.9rem .5rem;text-align:center;cursor:pointer;transition:all .2s ease;border-bottom:3px solid transparent;font-size:.78rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;}
+      .progress-step.active{color:var(--accent);border-bottom-color:var(--accent);background:white;}
+      .progress-step.done{color:var(--success);border-bottom-color:var(--success);}
+      .progress-step i{display:block;font-size:1.1rem;margin-bottom:.25rem;}
+      .form-body{padding:2.25rem 2.5rem;}
+      .form-panel{display:none;}
+      .form-panel.active{display:block;}
+      .form-label{font-weight:600;color:var(--gray-700);font-size:.87rem;margin-bottom:.35rem;}
+      .required-star{color:var(--danger);}
+      .form-control,.form-select{border:1.5px solid var(--gray-200);border-radius:10px;padding:.65rem 1rem;font-size:.92rem;color:var(--gray-800);transition:all .2s ease;background:var(--gray-50);}
+      .form-control:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(52,152,219,.1);background:white;outline:none;}
+      .form-control::placeholder{color:var(--gray-400);}
+      .panel-title{font-weight:800;color:var(--primary);font-size:1.1rem;margin-bottom:.25rem;}
+      .panel-subtitle{color:var(--gray-500);font-size:.88rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--gray-100);}
+      .service-check-label{display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:.55rem .75rem;border:1.5px solid var(--gray-200);border-radius:10px;transition:all .2s ease;font-size:.88rem;color:var(--gray-700);font-weight:500;}
+      .service-check-label:hover{border-color:var(--accent);background:rgba(52,152,219,.03);}
+      .service-check-label input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;}
+      .service-check-label.checked{border-color:var(--accent);background:rgba(52,152,219,.06);color:var(--primary);font-weight:600;}
+      .upload-zone{border:2px dashed var(--gray-300);border-radius:12px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .3s ease;background:var(--gray-50);position:relative;}
+      .upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);background:rgba(52,152,219,.04);}
+      .upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+      .upload-zone .up-icon{font-size:2rem;color:var(--gray-400);margin-bottom:.5rem;}
+      .upload-zone p{font-size:.88rem;color:var(--gray-500);margin:0;}
+      .upload-zone p strong{color:var(--accent);}
+      .file-chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(52,152,219,.08);border:1px solid rgba(52,152,219,.2);color:var(--accent);padding:.22rem .7rem;border-radius:50px;font-size:.78rem;font-weight:600;margin:.2rem;}
+      .file-chip button{background:none;border:none;color:var(--accent);cursor:pointer;padding:0;font-size:.85rem;line-height:1;margin-left:.1rem;}
+      .form-nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--gray-100);}
+      .btn-prev{background:white;color:var(--primary);padding:.7rem 1.75rem;border-radius:50px;font-weight:600;border:2px solid var(--gray-200);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:.5rem;font-size:.9rem;}
+      .btn-prev:hover{border-color:var(--primary);background:var(--gray-50);}
+      .btn-next{background:var(--gradient-1);color:white;padding:.7rem 2rem;border-radius:50px;font-weight:700;border:none;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;gap:.5rem;font-size:.9rem;box-shadow:var(--shadow);}
+      .btn-next:hover{transform:translateY(-2px);box-shadow:var(--shadow-xl);}
+      .btn-submit-final{background:var(--gradient-2);color:var(--primary-dark);padding:.85rem 2.5rem;border-radius:50px;font-weight:800;border:none;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;gap:.6rem;font-size:1rem;box-shadow:0 4px 20px rgba(212,175,55,.4);}
+      .btn-submit-final:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.5);}
+      .btn-submit-final:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+      .decl-label{display:flex;align-items:flex-start;gap:.75rem;cursor:pointer;padding:.75rem;border:1.5px solid var(--gray-200);border-radius:12px;transition:all .2s ease;margin-bottom:.75rem;}
+      .decl-label:hover{border-color:var(--accent);background:rgba(52,152,219,.03);}
+      .decl-label input{width:18px;height:18px;min-width:18px;accent-color:var(--accent);margin-top:.2rem;cursor:pointer;}
+      .decl-label span{font-size:.88rem;color:var(--gray-700);line-height:1.6;}
+      .privacy-note-box{background:rgba(212,175,55,.07);border-left:4px solid var(--secondary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;font-size:.83rem;color:var(--gray-600);line-height:1.7;}
+      .privacy-note-box strong{color:var(--primary);}
+      .success-panel{display:none;text-align:center;padding:4rem 2rem;}
+      .success-icon{font-size:5rem;margin-bottom:1.5rem;animation:bounceIn .6s ease;}
+      @keyframes bounceIn{0%{transform:scale(.3);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
+      .success-panel h3{font-size:1.75rem;font-weight:800;color:var(--primary);margin-bottom:.75rem;}
+      .success-panel p{color:var(--gray-600);font-size:.95rem;max-width:480px;margin:0 auto 2rem;line-height:1.7;}
+      .btn-back-link{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-1);color:white;padding:.75rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;box-shadow:var(--shadow-lg);font-size:.9rem;}
+      .btn-back-link:hover{color:white;transform:translateY(-2px);box-shadow:var(--shadow-xl);}
+
+      /* ── FOOTER ── */
+      .footer{background:var(--gray-900);color:var(--gray-400);padding:5rem 0 0;}
+      .footer h5{color:white;font-weight:700;margin-bottom:1.5rem;font-size:1.1rem;}
+      .footer a{color:var(--gray-400);text-decoration:none;display:block;margin-bottom:.75rem;transition:color .2s ease;padding:.1rem 0;}
+      .footer a:hover{color:var(--secondary);}
+      .footer .social-links{display:flex;gap:10px;margin-top:1.5rem;}
+      .footer .social-links a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--gray-800);border-radius:50%;color:white;font-size:1.1rem;transition:all .3s ease;margin:0;padding:0;}
+      .footer .social-links a:hover{transform:translateY(-3px);}
+      .footer .social-links a.facebook:hover{background:#3b5998;}
+      .footer .social-links a.instagram:hover{background:#C13584;}
+      .footer .social-links a.linkedin:hover{background:#0077B5;}
+      .footer-bottom{background:var(--gray-900);border-top:1px solid var(--gray-800);padding:1.5rem 0;margin-top:4rem;color:var(--gray-500);font-size:.9rem;}
+      .footer-bottom a{color:var(--gray-400);display:inline;margin:0;padding:0;}
+      .footer-bottom a:hover{color:var(--secondary);}
+      .whatsapp-btn{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;border-radius:50%;background:#25D366;color:white;border:none;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:1000;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.5);animation:pulse 2s infinite;transition:all .3s ease;}
+      .whatsapp-btn:hover{transform:scale(1.1);color:white;}
+      @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 12px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+      @media(max-width:991px){.navbar-custom-container{max-width:95%;border-radius:20px;padding:.75rem 1.25rem;}.nav-link{margin:0;}.contact-btn-nav{margin:.5rem 0 0;}.form-body{padding:1.5rem;}.form-header{padding:1.75rem 1.5rem;}}
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-custom-container container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="NFS Insure Logo" class="logo-img" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="diplomatic.html">Diplomatic Desk</a></li>
+            <li class="nav-item"><a class="nav-link" href="smme-funding.html">SMME Funding</a></li>
+          </ul>
+          <a href="contact.html" class="contact-btn-nav"><i class="fas fa-phone-alt"></i> Contact Us</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero -->
+    <section class="subpage-hero">
+      <div class="subpage-hero-content container">
+        <div class="hero-badge"><i class="fas fa-seedling"></i> SMME Funding Solutions</div>
+        <h1>Apply for <span class="gold-accent">Business Funding</span></h1>
+        <p class="lead">Access tailored financing solutions designed to unlock growth for small, medium and micro enterprises across South Africa.</p>
+        <div class="breadcrumb-nav">
+          <a href="index.html">Home</a><span>›</span>
+          <a href="smme-funding.html">SMME Funding</a><span>›</span>
+          Apply Now
+        </div>
+        <a href="#application-form" class="hero-apply-btn"><i class="fas fa-rocket"></i> Start Your Application</a>
+      </div>
+    </section>
+
+    <!-- Why Apply Section -->
+    <section class="why-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Why NFS Insure</span>
+          <h2 class="section-title">Funding Built for South African Businesses</h2>
+          <p class="section-description">We understand the challenges SMMEs face. Our solutions are designed to be accessible, flexible and fast — so you can focus on growing your business.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="why-banner">
+              <div class="gold-line"></div>
+              <h3>Empowering SMMEs Across South Africa</h3>
+              <p>NFS Insure partners with a network of trusted lenders and financial institutions to bring you competitive funding solutions. Whether you need working capital, asset finance, or a growth loan — we find the right fit for your business.</p>
+              <div class="mt-3">
+                <span class="stat-pill"><i class="fas fa-bolt"></i> Fast Approvals</span>
+                <span class="stat-pill"><i class="fas fa-handshake"></i> Trusted Partners</span>
+                <span class="stat-pill"><i class="fas fa-chart-line"></i> Growth Focused</span>
+                <span class="stat-pill"><i class="fas fa-shield-alt"></i> FSP No. 53910</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="benefit-item">
+              <div class="b-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div><h6>Quick Turnaround</h6><p>Get a decision in as little as 48 hours. We work efficiently to ensure your funding is approved and disbursed without unnecessary delays.</p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="b-icon"><i class="fas fa-sliders-h"></i></div>
+              <div><h6>Flexible Funding Options</h6><p>From R50 000 to R5 million — working capital, equipment finance, property loans and more. We tailor a solution that matches your business needs.</p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="b-icon"><i class="fas fa-user-tie"></i></div>
+              <div><h6>Dedicated Business Advisor</h6><p>Every applicant is assigned a dedicated NFS advisor who guides you through the process and advocates on your behalf with lenders.</p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="b-icon"><i class="fas fa-lock"></i></div>
+              <div><h6>Confidential & Secure</h6><p>Your business and financial information is treated with the utmost confidentiality. We are a registered FSP and comply with all POPIA regulations.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Steps -->
+    <section class="steps-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge gold">How It Works</span>
+          <h2 class="section-title">Simple 4-Step Process</h2>
+          <p class="section-description">From application to funding in four straightforward steps.</p>
+        </div>
+        <div class="step-cards-row">
+          <div class="step-col">
+            <div class="step-number">1</div>
+            <div class="step-card">
+              <p class="step-label">Step 1</p>
+              <h5>Submit Application</h5>
+              <p>Complete the online form with your business and personal details. It takes under 10 minutes.</p>
+            </div>
+          </div>
+          <div class="step-col">
+            <div class="step-number">2</div>
+            <div class="step-card">
+              <p class="step-label">Step 2</p>
+              <h5>Assessment & Review</h5>
+              <p>Your dedicated advisor reviews your application and assesses the best funding options available.</p>
+            </div>
+          </div>
+          <div class="step-col">
+            <div class="step-number">3</div>
+            <div class="step-card">
+              <p class="step-label">Step 3</p>
+              <h5>Lender Submission</h5>
+              <p>We present your application to our network of lenders and negotiate the most competitive terms.</p>
+            </div>
+          </div>
+          <div class="step-col">
+            <div class="step-number">4</div>
+            <div class="step-card">
+              <p class="step-label">Step 4</p>
+              <h5>Funding Approved</h5>
+              <p>Once approved, funds are disbursed directly to your business account. You're ready to grow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eligibility Requirements -->
+    <section class="requirements-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Eligibility</span>
+          <h2 class="section-title">Basic Requirements</h2>
+          <p class="section-description">To qualify for SMME funding through NFS Insure, your business should meet the following basic criteria.</p>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-building"></i></div>
+              <div><h6>Registered Business</h6><p>Your business must be registered with CIPC (Pty Ltd, CC, Sole Prop or Partnership).</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-calendar-check"></i></div>
+              <div><h6>Minimum 6 Months Trading</h6><p>Your business should have been actively trading for at least 6 months with verifiable turnover.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-chart-bar"></i></div>
+              <div><h6>Monthly Revenue</h6><p>Minimum monthly turnover of R30 000 or more, evidenced by 3–6 months bank statements.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-id-card"></i></div>
+              <div><h6>SA ID / Valid Passport</h6><p>The business owner or director must hold a valid South African ID or passport.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-university"></i></div>
+              <div><h6>Business Bank Account</h6><p>A dedicated business bank account is required. Personal accounts are not accepted.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="req-card">
+              <div class="req-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><h6>South Africa Based</h6><p>Your business must be registered and actively operating within the Republic of South Africa.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Required Documents -->
+    <section class="docs-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge gold">Documentation</span>
+          <h2 class="section-title">Documents You'll Need</h2>
+          <p class="section-description">Have these documents ready before completing your application to speed up the review process.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-id-card"></i></div><span>Certified Copy of Owner / Director's ID or Passport</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-university"></i></div><span>6 Months Business Bank Statements</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-file-alt"></i></div><span>CIPC Company Registration Document (COR 14.3 or CK)</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-home"></i></div><span>Proof of Business Address (Utility Bill or Lease Agreement)</span><span class="doc-badge badge-required">Required</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-file-invoice-dollar"></i></div><span>Latest Annual Financial Statements or Management Accounts</span><span class="doc-badge badge-optional">Optional</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-receipt"></i></div><span>Tax Clearance Certificate / SARS Compliance Status</span><span class="doc-badge badge-optional">Optional</span></div>
+            <div class="doc-item"><div class="doc-icon"><i class="fas fa-file-signature"></i></div><span>Existing Loan Agreements or Business Contracts (if applicable)</span><span class="doc-badge badge-optional">Optional</span></div>
+          </div>
+          <div class="col-lg-5">
+            <div class="privacy-info-box">
+              <h5><i class="fas fa-shield-alt me-2" style="color:var(--secondary);"></i> Confidentiality Notice</h5>
+              <p>All documents and information submitted are treated with the strictest confidence and used solely for the purpose of assessing your funding application.</p>
+              <p style="margin-top:.75rem;">NFS Insure is a registered Financial Services Provider (FSP No. 53910) and complies fully with the Protection of Personal Information Act (POPIA).</p>
+              <p style="margin-top:.75rem;">Accepted formats: <strong style="color:white;">PDF, DOC, DOCX, JPG, PNG</strong>. Maximum 10MB per file.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="form-section" id="application-form">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge gold">Apply Now</span>
+          <h2 class="section-title">Complete the Application Form</h2>
+          <p class="section-description">The application process starts with completing this form. All fields marked <span style="color:var(--danger);">*</span> are required.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="form-wrapper">
+              <div class="form-header">
+                <h3><i class="fas fa-seedling me-2" style="color:var(--secondary);"></i> SMME Funding Solutions — Application Form</h3>
+                <p>NFS Insure | FSP No. 53910 &nbsp;|&nbsp; Confidential Application &nbsp;|&nbsp; All information is protected under POPIA</p>
+              </div>
+              <div class="form-progress" id="formProgress">
+                <div class="progress-step active" data-step="1"><i class="fas fa-building"></i> Business</div>
+                <div class="progress-step" data-step="2"><i class="fas fa-user-tie"></i> Owner</div>
+                <div class="progress-step" data-step="3"><i class="fas fa-coins"></i> Funding</div>
+                <div class="progress-step" data-step="4"><i class="fas fa-paperclip"></i> Documents</div>
+                <div class="progress-step" data-step="5"><i class="fas fa-check-square"></i> Declaration</div>
+              </div>
+              <div class="form-body">
+
+                <!-- Success Panel -->
+                <div class="success-panel" id="successPanel">
+                  <div class="success-icon">🎉</div>
+                  <h3>Application Submitted!</h3>
+                  <p>Thank you for applying through NFS Insure SMME Funding Solutions. Your dedicated advisor will review your application and contact you within <strong>2 business days</strong>.</p>
+                  <a href="smme-funding.html" class="btn-back-link"><i class="fas fa-arrow-left"></i> Back to SMME Funding</a>
+                </div>
+
+                <form id="smmeForm" novalidate>
+
+                  <!-- PANEL 1: Business Details -->
+                  <div class="form-panel active" id="panel1">
+                    <p class="panel-title">Business Details</p>
+                    <p class="panel-subtitle">Tell us about your business. We use this information to match you with the right funding solutions.</p>
+                    <div class="row g-3">
+                      <div class="col-md-6"><label class="form-label">Registered Business Name <span class="required-star">*</span></label><input type="text" class="form-control" id="bizName" placeholder="e.g. Acme Trading Pty Ltd" required /></div>
+                      <div class="col-md-6"><label class="form-label">Trading Name (if different)</label><input type="text" class="form-control" id="tradingName" placeholder="e.g. Acme Supplies" /></div>
+                      <div class="col-md-6">
+                        <label class="form-label">Business Type <span class="required-star">*</span></label>
+                        <select class="form-select" id="bizType" required>
+                          <option value="" disabled selected>Select business type</option>
+                          <option>Private Company (Pty Ltd)</option>
+                          <option>Close Corporation (CC)</option>
+                          <option>Sole Proprietor</option>
+                          <option>Partnership</option>
+                          <option>Non-Profit Organisation (NPO)</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Industry / Sector <span class="required-star">*</span></label>
+                        <select class="form-select" id="industry" required>
+                          <option value="" disabled selected>Select industry</option>
+                          <option>Agriculture & Farming</option>
+                          <option>Construction & Property</option>
+                          <option>Education & Training</option>
+                          <option>Food & Beverage</option>
+                          <option>Healthcare & Medical</option>
+                          <option>IT & Technology</option>
+                          <option>Manufacturing</option>
+                          <option>Mining & Resources</option>
+                          <option>Retail & Trade</option>
+                          <option>Transport & Logistics</option>
+                          <option>Professional Services</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6"><label class="form-label">CIPC Registration Number <span class="required-star">*</span></label><input type="text" class="form-control" id="cipcNumber" placeholder="e.g. 2015/123456/07" required /></div>
+                      <div class="col-md-6">
+                        <label class="form-label">Years in Operation <span class="required-star">*</span></label>
+                        <select class="form-select" id="yearsOp" required>
+                          <option value="" disabled selected>Select range</option>
+                          <option>Less than 1 year</option>
+                          <option>1 – 2 years</option>
+                          <option>3 – 5 years</option>
+                          <option>6 – 10 years</option>
+                          <option>More than 10 years</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Average Monthly Turnover <span class="required-star">*</span></label>
+                        <select class="form-select" id="monthlyTurnover" required>
+                          <option value="" disabled selected>Select range</option>
+                          <option>R30 000 – R100 000</option>
+                          <option>R100 001 – R500 000</option>
+                          <option>R500 001 – R1 000 000</option>
+                          <option>R1 000 001 – R5 000 000</option>
+                          <option>Above R5 000 000</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Number of Employees</label>
+                        <select class="form-select" id="employees">
+                          <option value="" disabled selected>Select range</option>
+                          <option>1 (Owner only)</option>
+                          <option>2 – 5</option>
+                          <option>6 – 20</option>
+                          <option>21 – 50</option>
+                          <option>51 – 200</option>
+                          <option>200+</option>
+                        </select>
+                      </div>
+                      <div class="col-12"><label class="form-label">Business Physical Address <span class="required-star">*</span></label><input type="text" class="form-control" id="bizAddress" placeholder="Street address, Suburb, City, Postal Code" required /></div>
+                      <div class="col-md-6"><label class="form-label">City <span class="required-star">*</span></label><input type="text" class="form-control" id="bizCity" placeholder="e.g. Johannesburg" required /></div>
+                      <div class="col-md-6">
+                        <label class="form-label">Province</label>
+                        <select class="form-select" id="bizProvince">
+                          <option value="" disabled selected>Select province</option>
+                          <option>Gauteng</option><option>Western Cape</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Limpopo</option><option>Mpumalanga</option><option>North West</option><option>Free State</option><option>Northern Cape</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-nav-btns"><div></div><button type="button" class="btn-next" onclick="goToPanel(2)">Next: Owner Details <i class="fas fa-arrow-right"></i></button></div>
+                  </div>
+
+                  <!-- PANEL 2: Owner Details -->
+                  <div class="form-panel" id="panel2">
+                    <p class="panel-title">Business Owner / Director Details</p>
+                    <p class="panel-subtitle">Details of the primary owner or director submitting this application.</p>
+                    <div class="row g-3">
+                      <div class="col-md-6"><label class="form-label">Full Name <span class="required-star">*</span></label><input type="text" class="form-control" id="ownerName" placeholder="First and last name" required /></div>
+                      <div class="col-md-6"><label class="form-label">Title / Role <span class="required-star">*</span></label><input type="text" class="form-control" id="ownerTitle" placeholder="e.g. Director, Owner, CEO" required /></div>
+                      <div class="col-md-6"><label class="form-label">Email Address <span class="required-star">*</span></label><input type="email" class="form-control" id="ownerEmail" placeholder="your@business.co.za" required /></div>
+                      <div class="col-md-6"><label class="form-label">Phone Number <span class="required-star">*</span></label><input type="tel" class="form-control" id="ownerPhone" placeholder="+27 ..." required /></div>
+                      <div class="col-md-6"><label class="form-label">South African ID Number <span class="required-star">*</span></label><input type="text" class="form-control" id="ownerID" placeholder="13-digit RSA ID number" required /></div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ownership Percentage <span class="required-star">*</span></label>
+                        <select class="form-select" id="ownership" required>
+                          <option value="" disabled selected>Select percentage</option>
+                          <option>100%</option>
+                          <option>75% – 99%</option>
+                          <option>50% – 74%</option>
+                          <option>26% – 49%</option>
+                          <option>Less than 26%</option>
+                        </select>
+                      </div>
+                      <div class="col-12"><label class="form-label">Residential Address <span class="required-star">*</span></label><input type="text" class="form-control" id="ownerAddress" placeholder="Street address, Suburb, City, Postal Code" required /></div>
+                      <div class="col-md-6">
+                        <label class="form-label">Preferred Contact Method</label>
+                        <select class="form-select" id="contactMethod"><option>Email</option><option>Phone Call</option><option>WhatsApp</option><option>In-person Meeting</option></select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Best Time to Contact</label>
+                        <select class="form-select" id="contactTime"><option>Morning (08:00 – 12:00)</option><option>Afternoon (12:00 – 17:00)</option><option>Any time during business hours</option></select>
+                      </div>
+                    </div>
+                    <div class="form-nav-btns">
+                      <button type="button" class="btn-prev" onclick="goToPanel(1)"><i class="fas fa-arrow-left"></i> Back</button>
+                      <button type="button" class="btn-next" onclick="goToPanel(3)">Next: Funding Requirements <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 3: Funding Requirements -->
+                  <div class="form-panel" id="panel3">
+                    <p class="panel-title">Funding Requirements</p>
+                    <p class="panel-subtitle">Tell us what type of funding you need and how you intend to use it. You may select multiple options.</p>
+
+                    <p style="font-weight:700;color:var(--primary);font-size:.9rem;margin-bottom:.6rem;"><i class="fas fa-coins me-1" style="color:var(--secondary);"></i> Type of Funding Required</p>
+                    <div class="row g-2 mb-4">
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Working Capital / Cash Flow Loan</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Equipment & Asset Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Property / Commercial Mortgage</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Vehicle & Fleet Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Invoice Discounting / Debtor Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Business Expansion Loan</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Franchise Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Start-up Funding</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Government / SEFA Funding Assistance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Tender Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Stock / Inventory Finance</label></div>
+                      <div class="col-md-6"><label class="service-check-label"><input type="checkbox" class="svc-check"> Bridging Finance</label></div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label">Funding Amount Required <span class="required-star">*</span></label>
+                        <select class="form-select" id="fundingAmount" required>
+                          <option value="" disabled selected>Select amount range</option>
+                          <option>R50 000 – R200 000</option>
+                          <option>R200 001 – R500 000</option>
+                          <option>R500 001 – R1 000 000</option>
+                          <option>R1 000 001 – R3 000 000</option>
+                          <option>R3 000 001 – R5 000 000</option>
+                          <option>Above R5 000 000</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Preferred Repayment Term</label>
+                        <select class="form-select" id="repaymentTerm">
+                          <option>3 months</option>
+                          <option>6 months</option>
+                          <option>12 months</option>
+                          <option>24 months</option>
+                          <option>36 months</option>
+                          <option>48 – 60 months</option>
+                          <option>Flexible / Open to advice</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="mb-2">
+                      <label class="form-label">Purpose of Funding <span class="required-star">*</span></label>
+                      <textarea class="form-control" id="fundingPurpose" rows="3" placeholder="Briefly describe how you intend to use the funding and what impact it will have on your business…" required></textarea>
+                    </div>
+                    <div class="mb-2 mt-3">
+                      <label class="form-label">Additional Requirements or Notes</label>
+                      <textarea class="form-control" id="additionalNotes" rows="2" placeholder="Any other information you'd like us to know — existing credit agreements, collateral available, etc."></textarea>
+                    </div>
+                    <div class="form-nav-btns">
+                      <button type="button" class="btn-prev" onclick="goToPanel(2)"><i class="fas fa-arrow-left"></i> Back</button>
+                      <button type="button" class="btn-next" onclick="goToPanel(4)">Next: Documents <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 4: Documents -->
+                  <div class="form-panel" id="panel4">
+                    <p class="panel-title">Upload Supporting Documents</p>
+                    <p class="panel-subtitle">Upload all required documents. Accepted formats: PDF, DOC, DOCX, JPG, PNG. Max 10MB per file.</p>
+                    <div class="row g-4">
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-id-card me-1" style="color:var(--secondary);"></i> ID / Passport Copy <span class="required-star">*</span></label>
+                        <div class="upload-zone" id="zone-id"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="id" /><div class="up-icon"><i class="fas fa-id-card"></i></div><p><strong>Upload ID or Passport</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p></div>
+                        <div class="file-list mt-2" id="files-id"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-university me-1" style="color:var(--secondary);"></i> 6 Months Bank Statements <span class="required-star">*</span></label>
+                        <div class="upload-zone" id="zone-bankstmt"><input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-zone="bankstmt" /><div class="up-icon"><i class="fas fa-file-invoice-dollar"></i></div><p><strong>Upload Bank Statements</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Last 6 months — PDF, JPG, PNG</p></div>
+                        <div class="file-list mt-2" id="files-bankstmt"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-file-alt me-1" style="color:var(--secondary);"></i> CIPC Registration Document <span class="required-star">*</span></label>
+                        <div class="upload-zone" id="zone-cipc"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="cipc" /><div class="up-icon"><i class="fas fa-file-certificate"></i></div><p><strong>Upload COR 14.3 or CK Document</strong></p><p style="font-size:.78rem;color:var(--gray-400);">PDF, JPG, PNG • Max 10MB</p></div>
+                        <div class="file-list mt-2" id="files-cipc"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-home me-1" style="color:var(--secondary);"></i> Proof of Business Address <span class="required-star">*</span></label>
+                        <div class="upload-zone" id="zone-bizaddress"><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-zone="bizaddress" /><div class="up-icon"><i class="fas fa-map-marked-alt"></i></div><p><strong>Upload Proof of Address</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Utility bill or lease — not older than 3 months</p></div>
+                        <div class="file-list mt-2" id="files-bizaddress"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-file-invoice me-1" style="color:var(--secondary);"></i> Financial Statements <span style="color:var(--gray-400);font-weight:400;">(optional)</span></label>
+                        <div class="upload-zone" id="zone-financials"><input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" data-zone="financials" /><div class="up-icon"><i class="fas fa-chart-line"></i></div><p><strong>Upload Financial Statements</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Annual AFS or management accounts</p></div>
+                        <div class="file-list mt-2" id="files-financials"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-folder-open me-1" style="color:var(--secondary);"></i> Other Supporting Documents <span style="color:var(--gray-400);font-weight:400;">(optional)</span></label>
+                        <div class="upload-zone" id="zone-other"><input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple data-zone="other" /><div class="up-icon"><i class="fas fa-paperclip"></i></div><p><strong>Upload Additional Documents</strong></p><p style="font-size:.78rem;color:var(--gray-400);">Tax clearance, contracts, quotes — multiple files allowed</p></div>
+                        <div class="file-list mt-2" id="files-other"></div>
+                      </div>
+                    </div>
+                    <div class="form-nav-btns">
+                      <button type="button" class="btn-prev" onclick="goToPanel(3)"><i class="fas fa-arrow-left"></i> Back</button>
+                      <button type="button" class="btn-next" onclick="goToPanel(5)">Next: Declaration <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 5: Declaration -->
+                  <div class="form-panel" id="panel5">
+                    <p class="panel-title">Declaration & Consent</p>
+                    <p class="panel-subtitle">Please read and confirm all declarations before submitting your application.</p>
+
+                    <label class="decl-label" id="decl1-label">
+                      <input type="checkbox" id="decl1" />
+                      <span>I confirm that all information provided in this application is true, accurate and complete to the best of my knowledge, and I understand that false or misleading information may result in my application being declined.</span>
+                    </label>
+                    <label class="decl-label" id="decl2-label">
+                      <input type="checkbox" id="decl2" />
+                      <span>I consent to NFS Insure (FSP No. 53910) conducting credit bureau checks, verifying my business information, and sharing my application with its network of lenders and financial institutions for the purpose of securing funding.</span>
+                    </label>
+                    <label class="decl-label" id="decl3-label">
+                      <input type="checkbox" id="decl3" />
+                      <span>I acknowledge that submission of this application does not constitute an offer of credit or guarantee of funding, and that NFS Insure acts as an intermediary and not a lender.</span>
+                    </label>
+                    <label class="decl-label" id="decl4-label">
+                      <input type="checkbox" id="decl4" />
+                      <span>I have read and agree to the NFS Insure <a href="privacy.html" style="color:var(--accent);">Privacy Policy</a> and consent to the processing of my personal and business information in accordance with the Protection of Personal Information Act (POPIA).</span>
+                    </label>
+
+                    <div class="privacy-note-box mt-3">
+                      <strong>Privacy Notice:</strong> Your information is collected for the sole purpose of evaluating your funding application. NFS Insure will never sell or share your data with unauthorised third parties. You may request access to or deletion of your information at any time by contacting <strong>info@nfs.insure</strong>.
+                    </div>
+
+                    <div class="form-nav-btns">
+                      <button type="button" class="btn-prev" onclick="goToPanel(4)"><i class="fas fa-arrow-left"></i> Back</button>
+                      <button type="submit" class="btn-submit-final" id="submitBtn"><i class="fas fa-paper-plane"></i> Submit Application</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div><!-- /form-body -->
+            </div><!-- /form-wrapper -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <img src="img/NFS_Insure_Logo_Blue_Mustard_Combination@2x.png" alt="NFS Insure" style="height:55px;margin-bottom:1.25rem;filter:brightness(0) invert(1);" />
+            <p style="font-size:.9rem;line-height:1.8;">NFS Insure is a registered Financial Services Provider (FSP No. 53910), offering comprehensive insurance, financial and funding solutions across South Africa.</p>
+            <div class="social-links">
+              <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5>Solutions</h5>
+            <a href="smme-funding.html">SMME Funding</a>
+            <a href="diplomatic.html">Diplomatic Desk</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="financial.html">Financial Services</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Company</h5>
+            <a href="about.html">About NFS Insure</a>
+            <a href="team.html">Our Team</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact</h5>
+            <a href="mailto:info@nfs.insure"><i class="fas fa-envelope me-2"></i>info@nfs.insure</a>
+            <a href="tel:+27000000000"><i class="fas fa-phone me-2"></i>+27 (0) 00 000 0000</a>
+            <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Pretoria, South Africa</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <span>&copy; <span id="current-year"></span> NFS Insure. All rights reserved. FSP No. 53910.</span>
+          <span>
+            <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+            <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+            <a href="popia.html">POPIA</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27000000000" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      const db = window.supabase.createClient(
+        'https://kyjarrgrpbrhaasgzxtc.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5amFycmdycGJyaGFhc2d6eHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MjU3NjUsImV4cCI6MjA5NTIwMTc2NX0.zs59XLkAuT9apHuzPe_gYna2GqTujKwsQHHNtLOjYFY'
+      );
+
+      // Navbar scroll
+      window.addEventListener("scroll", function() {
+        document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+      });
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      // ── Multi-step navigation ──
+      let currentPanel = 1;
+
+      window.goToPanel = function(n) {
+        document.getElementById("panel" + currentPanel).classList.remove("active");
+        currentPanel = n;
+        document.getElementById("panel" + n).classList.add("active");
+        document.querySelectorAll(".progress-step").forEach(function(el, i) {
+          el.classList.remove("active", "done");
+          if (i + 1 < n) el.classList.add("done");
+          if (i + 1 === n) el.classList.add("active");
+        });
+        window.scrollTo({ top: document.getElementById("application-form").offsetTop - 80, behavior: "smooth" });
+      };
+
+      // ── Service checkbox highlight ──
+      document.querySelectorAll(".svc-check").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          cb.closest(".service-check-label").classList.toggle("checked", cb.checked);
+        });
+      });
+
+      // ── Declaration checkbox highlight ──
+      ["decl1", "decl2", "decl3", "decl4"].forEach(function(id) {
+        var cb = document.getElementById(id);
+        cb.addEventListener("change", function() {
+          var label = document.getElementById(id + "-label");
+          label.style.borderColor = cb.checked ? "var(--success)" : "var(--gray-200)";
+          label.style.background  = cb.checked ? "rgba(39,174,96,.04)" : "";
+        });
+      });
+
+      // ── File upload zones ──
+      var fileStores = {};
+      document.querySelectorAll(".upload-zone").forEach(function(zone) {
+        var input  = zone.querySelector("input[type=file]");
+        var zoneId = input.getAttribute("data-zone");
+        fileStores[zoneId] = [];
+
+        input.addEventListener("change", function() {
+          Array.from(input.files).forEach(function(f) {
+            if (!fileStores[zoneId].find(function(u) { return u.name === f.name; })) {
+              fileStores[zoneId].push(f);
+            }
+          });
+          renderZone(zoneId);
+          input.value = "";
+        });
+
+        ["dragover", "dragleave", "drop"].forEach(function(evt) {
+          zone.addEventListener(evt, function(e) {
+            e.preventDefault();
+            zone.classList.toggle("dragover", evt === "dragover");
+            if (evt === "drop") {
+              Array.from(e.dataTransfer.files).forEach(function(f) {
+                if (!fileStores[zoneId].find(function(u) { return u.name === f.name; })) {
+                  fileStores[zoneId].push(f);
+                }
+              });
+              renderZone(zoneId);
+            }
+          });
+        });
+      });
+
+      function renderZone(zoneId) {
+        var container = document.getElementById("files-" + zoneId);
+        container.innerHTML = "";
+        fileStores[zoneId].forEach(function(f, i) {
+          var chip = document.createElement("span");
+          chip.className = "file-chip";
+          chip.innerHTML = '<i class="fas fa-file"></i>' + f.name +
+            ' <button onclick="removeFile(\'' + zoneId + '\',' + i + ')" title="Remove"><i class="fas fa-times"></i></button>';
+          container.appendChild(chip);
+        });
+      }
+
+      window.removeFile = function(zoneId, i) {
+        fileStores[zoneId].splice(i, 1);
+        renderZone(zoneId);
+      };
+
+      // ── Form submit — saves to Supabase ──
+      document.getElementById("smmeForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        // Check all declarations are ticked
+        var allChecked = ["decl1", "decl2", "decl3", "decl4"].every(function(id) {
+          return document.getElementById(id).checked;
+        });
+        if (!allChecked) {
+          alert("Please confirm all declarations before submitting.");
+          return;
+        }
+
+        var btn = document.getElementById("submitBtn");
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
+
+        try {
+          var appId = crypto.randomUUID();
+
+          async function uploadFile(zoneId, fieldName) {
+            var files = fileStores[zoneId];
+            if (!files || files.length === 0) return null;
+            var file = files[0];
+            var path = appId + "/" + fieldName + "/" + file.name;
+            var result = await db.storage.from("smme-documents").upload(path, file);
+            if (result.error) throw result.error;
+            return path;
+          }
+
+          async function uploadMultiple(zoneId, fieldName) {
+            var files = fileStores[zoneId] || [];
+            var paths = [];
+            for (var i = 0; i < files.length; i++) {
+              var path = appId + "/" + fieldName + "/" + files[i].name;
+              var result = await db.storage.from("smme-documents").upload(path, files[i]);
+              if (result.error) throw result.error;
+              paths.push(path);
+            }
+            return paths;
+          }
+
+          var uploads = await Promise.all([
+            uploadFile("id", "id-document"),
+            uploadMultiple("bankstmt", "bank-statements"),
+            uploadFile("cipc", "cipc-registration"),
+            uploadFile("bizaddress", "business-address"),
+            uploadFile("financials", "financial-statements"),
+            uploadMultiple("other", "other")
+          ]);
+
+          var selectedFunding = [];
+          document.querySelectorAll(".svc-check:checked").forEach(function(cb) {
+            selectedFunding.push(cb.closest(".service-check-label").textContent.trim());
+          });
+
+          var insertResult = await db.from("smme_applications").insert({
+            biz_name:             document.getElementById("bizName").value,
+            trading_name:         document.getElementById("tradingName").value,
+            biz_type:             document.getElementById("bizType").value,
+            industry:             document.getElementById("industry").value,
+            cipc_number:          document.getElementById("cipcNumber").value,
+            years_operating:      document.getElementById("yearsOp").value,
+            monthly_turnover:     document.getElementById("monthlyTurnover").value,
+            employees:            document.getElementById("employees").value,
+            biz_address:          document.getElementById("bizAddress").value,
+            biz_city:             document.getElementById("bizCity").value,
+            biz_province:         document.getElementById("bizProvince").value,
+            owner_name:           document.getElementById("ownerName").value,
+            owner_title:          document.getElementById("ownerTitle").value,
+            owner_email:          document.getElementById("ownerEmail").value,
+            owner_phone:          document.getElementById("ownerPhone").value,
+            owner_id:             document.getElementById("ownerID").value,
+            ownership_percentage: document.getElementById("ownership").value,
+            owner_address:        document.getElementById("ownerAddress").value,
+            contact_method:       document.getElementById("contactMethod").value,
+            contact_time:         document.getElementById("contactTime").value,
+            funding_types:        selectedFunding,
+            funding_amount:       document.getElementById("fundingAmount").value,
+            repayment_term:       document.getElementById("repaymentTerm").value,
+            funding_purpose:      document.getElementById("fundingPurpose").value,
+            additional_notes:     document.getElementById("additionalNotes").value,
+            doc_id:               uploads[0],
+            doc_bank_statements:  uploads[1],
+            doc_cipc:             uploads[2],
+            doc_biz_address:      uploads[3],
+            doc_financials:       uploads[4],
+            doc_other:            uploads[5],
+            status:               "pending"
+          });
+
+          if (insertResult.error) throw insertResult.error;
+
+          document.getElementById("smmeForm").style.display    = "none";
+          document.getElementById("formProgress").style.display = "none";
+          document.getElementById("successPanel").style.display = "block";
+          window.scrollTo({ top: document.getElementById("application-form").offsetTop - 80, behavior: "smooth" });
+
+        } catch (err) {
+          console.error("Submission error:", err);
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+          alert("Something went wrong: " + err.message + "\n\nPlease try again or contact info@nfs.insure");
+        }
+      });
+    </script>
+  </body>
+</html>
