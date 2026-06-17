@@ -27,6 +27,10 @@
       rel="stylesheet"
     />
     <style>
+      /* Prevent layout shift when vertical scrollbar appears/disappears */
+      html{overflow-y:scroll;scrollbar-gutter:stable;}
+      /* Prevent JS (Bootstrap) from adding inline body padding that shifts layout */
+      body.modal-open, body.offcanvas-open{padding-right:0 !important;}
       :root {
         --primary: #2c3e50;
         --primary-dark: #1a252f;

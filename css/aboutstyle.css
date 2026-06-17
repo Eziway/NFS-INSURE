@@ -49,6 +49,12 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Prevent layout shift when vertical scrollbar appears/disappears */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 /* Navigation */
 .navbar {
   background: none;
@@ -119,6 +125,11 @@ body {
   transition: all 0.2s ease;
   position: relative;
   font-size: 1rem;
+
+/* Prevent JS (Bootstrap) from adding inline body padding that shifts layout */
+body.modal-open, body.offcanvas-open {
+  padding-right: 0 !important;
+}
 }
 
 .nav-link:hover {

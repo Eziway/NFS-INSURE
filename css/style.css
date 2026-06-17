@@ -67,6 +67,17 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Prevent layout shift when vertical scrollbar appears/disappears */
+html {
+  overflow-y: scroll; /* always show vertical scrollbar reserve */
+  scrollbar-gutter: stable; /* reserve space for scrollbar in supporting browsers */
+}
+
+/* Prevent JS (Bootstrap) from adding inline body padding that shifts layout */
+body.modal-open, body.offcanvas-open {
+  padding-right: 0 !important;
+}
+
 /* Navigation */
 .navbar {
   background: none;

@@ -8,6 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
+      /* Prevent layout shift when vertical scrollbar appears/disappears */
+      html{overflow-y:scroll;scrollbar-gutter:stable;}
+      /* Prevent JS (Bootstrap) from adding inline body padding that shifts layout */
+      body.modal-open, body.offcanvas-open{padding-right:0 !important;}
       :root {
         --primary:#2c3e50;--primary-dark:#1a252f;--secondary:#d4af37;--accent:#3498db;
         --success:#27ae60;--dark:#0f172a;--light:#f8fafc;
