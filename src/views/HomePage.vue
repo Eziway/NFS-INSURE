@@ -24,11 +24,6 @@
           
           <!-- Left Text Content -->
           <div class="lg:col-span-7 text-left">
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-[#d4af37]/40 backdrop-blur-md mb-6">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-pulse"></span>
-              <span class="text-xs font-bold text-[#d4af37] tracking-widest uppercase">FSP NO. 53910 — FSCA & CMS REGISTERED</span>
-            </div>
 
             <!-- Main Headline -->
             <h1 class="text-[clamp(2.1rem,3.8vw,3.2rem)] font-extrabold text-white mb-5 leading-[1.15] tracking-tight">
