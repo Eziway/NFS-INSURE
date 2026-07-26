@@ -192,10 +192,20 @@
                 <p class="text-slate-500 text-sm mb-6 pb-4 border-b border-slate-100">Optional for now, but required before final approval. Max 10MB per file.</p>
                 
                 <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center bg-slate-50 hover:bg-accent/5 hover:border-accent transition-colors cursor-pointer relative group mb-4">
-                  <input type="file" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                  <input type="file" multiple @change="handleFileChange" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
                   <div class="text-4xl text-slate-400 group-hover:text-accent mb-2 transition-colors"><i class="fas fa-cloud-upload-alt"></i></div>
                   <p class="text-slate-600 font-medium">Drag & drop files here or <span class="text-accent font-bold">browse</span></p>
-                  <p class="text-slate-400 text-xs mt-1">Accepted: PDF, DOCX, JPG, PNG</p>
+                  <p class="text-slate-400 text-xs mt-1">Accepted: PDF, DOCX, JPG, PNG (Max 10MB each)</p>
+                </div>
+
+                <!-- Display selected files -->
+                <div v-if="selectedFiles.length > 0" class="mt-4 space-y-2 mb-4">
+                  <div v-for="(file, index) in selectedFiles" :key="index" class="flex justify-between items-center bg-white border border-slate-200 p-3 rounded-lg shadow-sm">
+                    <span class="text-xs font-semibold text-slate-700 truncate mr-4"><i class="fas fa-file-alt text-slate-400 mr-2"></i>{{ file.name }}</span>
+                    <button type="button" @click="removeFile(index)" class="text-danger hover:text-danger/70 focus:outline-none">
+                      <i class="fas fa-times-circle"></i>
+                    </button>
+                  </div>
                 </div>
                 
                 <div class="p-4 rounded-lg bg-accent/10 border border-accent/20 flex gap-3">
@@ -273,6 +283,7 @@ import { supabase } from '@/lib/supabase';
 
 const step = ref(1);
 const isSubmitting = ref(false);
+const selectedFiles = ref([]);
 
 const steps = [
   { icon: 'fas fa-building', title: 'Business' },
@@ -314,10 +325,47 @@ function prevStep() {
   window.scrollTo({ top: 300, behavior: 'smooth' });
 }
 
+function handleFileChange(event) {
+  if (event.target.files) {
+    selectedFiles.value = [...selectedFiles.value, ...Array.from(event.target.files)];
+  }
+}
+
+function removeFile(index) {
+  selectedFiles.value.splice(index, 1);
+}
+
 async function submitForm() {
   isSubmitting.value = true;
   
   try {
+    // 1. Upload files if any
+    const uploadedUrls = [];
+    if (selectedFiles.value.length > 0) {
+      for (const file of selectedFiles.value) {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
+        
+        const { error: uploadError } = await supabase.storage
+          .from('Documents')
+          .upload(fileName, file);
+          
+        if (uploadError) {
+          console.error('Error uploading file:', uploadError);
+          continue; // skip failed upload
+        }
+        
+        const { data: publicUrlData } = supabase.storage
+          .from('Documents')
+          .getPublicUrl(fileName);
+          
+        if (publicUrlData) {
+          uploadedUrls.push(publicUrlData.publicUrl);
+        }
+      }
+    }
+
+    // 2. Insert into DB
     const { error } = await supabase.from('solar_applications').insert([{
       business_name: form.value.businessName,
       reg_no: form.value.regNo,
@@ -335,6 +383,7 @@ async function submitForm() {
       monthly_bill: form.value.monthlyBill,
       budget: form.value.budget || null,
       additional_notes: form.value.additionalNotes,
+      documents: uploadedUrls
     }]);
 
     if (error) throw error;

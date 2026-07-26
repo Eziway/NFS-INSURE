@@ -51,6 +51,14 @@
             </div>
           </div>
           <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/home_loan_family_1785047722826.png"
+                alt="Happy family with new home"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
             <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why it matters</div>
             <p class="text-slate-600 mb-8" style="font-size:1.05rem; line-height:1.8;">A Pre-Qualified Buyer's Certificate shows estate agents and sellers that you're a serious, ready buyer — and gives you a clear budget before you start viewing properties.</p>
             <div class="space-y-4">

@@ -51,7 +51,15 @@
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Key Highlights</div>
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/risk_cover_1785048575478.png"
+                alt="Happy family walking in a sunny park"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
+            <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why It Matters</div>
             <p class="text-slate-600 mb-8" style="font-size:1.05rem; line-height:1.8;">Our risk cover policies provide financial continuity when you need it most, ensuring debts are settled and dependents are supported.</p>
             <div class="space-y-4">
               <div v-for="item in highlights" :key="item" class="flex items-center gap-4">

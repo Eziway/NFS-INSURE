@@ -4,53 +4,22 @@
     <!-- ====================================================
          HERO
          ==================================================== -->
-    <section class="relative flex flex-col items-center justify-center text-center overflow-hidden"
-      style="min-height:70vh; padding-top:140px; padding-bottom:100px; background: radial-gradient(circle at center, #1a3a5c 0%, #0d2137 70%, #05101f 100%);">
-      <!-- Subtle Background Decorations -->
-      <div class="absolute top-10 left-10 w-32 h-32 rounded-[2rem] bg-white/5 rotate-12 blur-sm pointer-events-none"></div>
-      <div class="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-blue-500/10 blur-xl pointer-events-none"></div>
-      
-      <div class="relative z-20 max-w-[1000px] mx-auto px-6 flex flex-col items-center">
-        
-        <!-- FSP Pill -->
-        <div class="inline-flex items-center px-6 py-2.5 rounded-full mb-8" style="background: rgba(13, 33, 55, 0.6); border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 0 20px rgba(0,0,0,0.2);">
-          <span class="font-bold text-white tracking-wide" style="font-size: 0.95rem;">
-            FSP No. 53910 - Licensed Financial Services Provider
-          </span>
+    <section class="relative flex items-center justify-center text-center overflow-hidden"
+      style="min-height:55vh; padding-top:120px; padding-bottom:80px; background: linear-gradient(135deg, #1a252f 0%, #2c3e50 40%, #1a3a5c 70%, #0d2137 100%);">
+      <div class="absolute inset-0 z-10 pointer-events-none" style="background: radial-gradient(circle at 20% 50%, rgba(212,175,55,.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(52,152,219,.15) 0%, transparent 50%)"></div>
+      <div class="absolute inset-0 z-10 pointer-events-none" style="background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(212,175,55,.04) 60px, rgba(212,175,55,.04) 61px)"></div>
+      <div class="relative z-20 max-w-[860px] mx-auto px-6">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 text-xs font-bold uppercase tracking-[2px]" style="background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); color: #d4af37;">
+          <i class="fas fa-info-circle"></i> About NFS Insure
         </div>
-
-        <!-- Main Heading -->
-        <h1 class="font-extrabold text-white leading-tight mb-6" style="font-size: clamp(2.8rem, 6vw, 4.5rem);">
-          About <span style="color: #3b82f6;">NFS</span> <span style="color: #fcd34d;">Insure</span><br/>
-          Consultant
-        </h1>
-
-        <!-- Subheading -->
-        <p class="mb-14 mx-auto font-medium" style="font-size: clamp(1.1rem, 2vw, 1.35rem); color: rgba(255,255,255,0.9); max-width: 850px; line-height: 1.7;">
-          Your trusted partner in building a secure financial future. We deliver comprehensive insurance solutions with unwavering integrity, innovation, and client-focused expertise.
+        <h1 class="font-extrabold text-white leading-tight mb-5" style="font-size: clamp(2.4rem,5vw,3.8rem); text-shadow: 0 4px 20px rgba(0,0,0,.4);">About Us</h1>
+        <p class="mb-6 mx-auto" style="font-size:1.15rem; color:rgba(255,255,255,.8); max-width:700px; line-height:1.8;">
+          Learn about our mission, vision and values, and how we deliver comprehensive insurance solutions tailored to individuals, businesses and specialised sectors.
         </p>
-
-        <!-- Metrics Row -->
-        <div class="flex flex-wrap justify-center gap-12 md:gap-24 w-full">
-          <!-- Metric 1 -->
-          <div class="flex flex-col items-center">
-            <div class="font-black mb-2" style="font-size: clamp(3rem, 5vw, 4rem); color: #3b82f6; line-height: 1;">5+</div>
-            <div class="text-white font-medium tracking-wide text-sm md:text-base">Years Experience</div>
-          </div>
-          
-          <!-- Metric 2 -->
-          <div class="flex flex-col items-center">
-            <div class="font-black mb-2" style="font-size: clamp(3rem, 5vw, 4rem); color: #3b82f6; line-height: 1;">5000+</div>
-            <div class="text-white font-medium tracking-wide text-sm md:text-base">Happy Clients</div>
-          </div>
-
-          <!-- Metric 3 -->
-          <div class="flex flex-col items-center">
-            <div class="font-black mb-2" style="font-size: clamp(3rem, 5vw, 4rem); color: #fcd34d; line-height: 1;">24/7</div>
-            <div class="text-white font-medium tracking-wide text-sm md:text-base">Support Available</div>
-          </div>
+        <div style="color:rgba(255,255,255,.6); font-size:.95rem;">
+          <router-link to="/" style="color:rgba(255,255,255,.8); text-decoration:none;" class="hover:text-yellow-400 transition-colors">Home</router-link>
+          <span class="mx-2">/</span><span>About</span>
         </div>
-
       </div>
       
       <!-- Smooth Wave Divider -->
@@ -71,20 +40,10 @@
           <div class="lg:col-span-5">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
               <img
-                src="/img/about-1.png"
-                alt="About NFS Insure"
+                src="/img/aboutUs-02.png"
+                alt="About NFS Insure Infographic"
                 class="w-full h-auto object-cover max-h-[500px]"
               />
-              <!-- Badge overlay -->
-              <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl flex items-center gap-3 border border-slate-100">
-                <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(212,175,55,.15); color:#b8940e;">
-                  <i class="fas fa-certificate"></i>
-                </div>
-                <div>
-                  <div class="font-extrabold text-sm text-slate-800">FSP No. 53910</div>
-                  <div class="text-slate-500 text-xs">Licensed Financial Services Provider</div>
-                </div>
-              </div>
             </div>
           </div>
 

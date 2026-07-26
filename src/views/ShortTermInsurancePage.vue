@@ -51,6 +51,14 @@
             </div>
           </div>
           <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/short_term_insurance_1785048556498.png"
+                alt="Modern suburban house and luxury car"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
             <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why Insure With Us</div>
             <div class="space-y-4">
               <div v-for="item in whyPoints" :key="item" class="flex items-center gap-4">

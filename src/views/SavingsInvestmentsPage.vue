@@ -51,6 +51,13 @@
             </div>
           </div>
           <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/savings_investments_1785048584361.png"
+                alt="Financial advisor and client reviewing charts"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
             <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Our Investment Approach</div>
             <div class="space-y-4">
               <div v-for="item in approach" :key="item" class="flex items-center gap-4">

@@ -10,10 +10,10 @@
           <i class="fas fa-solar-panel"></i> NFS Insure — Business & Green Asset Finance
         </div>
         <h1 class="font-extrabold text-white leading-tight mb-5" style="font-size: clamp(2.4rem,5vw,3.8rem); text-shadow: 0 4px 20px rgba(0,0,0,.4);">
-          Guesthouse <span style="color:#d4af37">Solar Financing</span>
+          Home & Business <span style="color:#d4af37">Solar Financing</span>
         </h1>
         <p class="mb-8 mx-auto" style="font-size:1.15rem; color:rgba(255,255,255,.75); max-width:700px; line-height:1.8;">
-          Install a solar power system for your guesthouse or B&B without paying 100% cash upfront. Spread the cost over time while you start saving on electricity from day one.
+          Install a solar power system for your home, business, or commercial property without paying 100% cash upfront. Spread the cost over time while you start saving on electricity from day one.
         </p>
         <div class="mb-8" style="color:rgba(255,255,255,.6); font-size:.95rem;">
           <router-link to="/" style="color:rgba(255,255,255,.8); text-decoration:none;" class="hover:text-yellow-400 transition-colors">Home</router-link>
@@ -39,9 +39,9 @@
             <div class="relative rounded-3xl p-10 overflow-hidden text-white" style="background: linear-gradient(135deg,#2c3e50 0%,#1a3a5c 100%);">
               <div class="relative z-10">
                 <div class="w-16 h-1 rounded mb-6" style="background:linear-gradient(135deg,#d4af37,#f1c40f)"></div>
-                <h2 class="text-3xl font-extrabold text-white mb-4">Skip the R250k – R800k Upfront Cost</h2>
-                <p style="color:rgba(255,255,255,.85); line-height:1.8;">Guesthouse solar financing lets you install a solar power system without paying the full cost in one go. Instead of spending R250,000 – R800,000 upfront, you spread the cost over time through a funder — while your Eskom bill drops immediately.</p>
-                <p class="mt-4" style="color:rgba(255,255,255,.85); line-height:1.8;">NFS Insure helps guesthouse and B&B owners access the right financing structure for their business, from asset finance to Power Purchase Agreements and green loans.</p>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Skip the Massive Upfront Cost</h2>
+                <p style="color:rgba(255,255,255,.85); line-height:1.8;">Solar financing lets you install a solar power system without paying the full cost in one go. Instead of a massive upfront cash outlay, you spread the cost over time through a funder — while your Eskom bill drops immediately.</p>
+                <p class="mt-4" style="color:rgba(255,255,255,.85); line-height:1.8;">NFS Insure helps individuals, companies, and property owners access the right financing structure for their needs, from asset finance to Power Purchase Agreements, green loans, and rental options.</p>
                 <div class="flex flex-wrap gap-3 mt-8">
                   <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:white;"><i class="fas fa-bolt text-yellow-400"></i> Cut Bills by 50–80%</span>
                   <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:white;"><i class="fas fa-battery-full text-yellow-400"></i> No Load Shedding</span>
@@ -51,8 +51,16 @@
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why Guesthouses Need It</div>
-            <p class="text-center text-slate-600 mb-6" style="font-size:.95rem; line-height:1.7;">Guesthouses carry three big power costs — solar and batteries fix all three, and become a selling point: <strong>"We have 24/7 power."</strong></p>
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/solar_guesthouse_1785048526402.png"
+                alt="Commercial solar installation on a guesthouse roof"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
+            <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why You Need It</div>
+            <p class="text-center text-slate-600 mb-6" style="font-size:.95rem; line-height:1.7;">Homes and businesses carry huge power costs — solar and batteries fix these and provide energy independence. <strong>Stay powered 24/7.</strong></p>
             <div class="space-y-4">
               <div v-for="cost in powerCosts" :key="cost.title" class="flex items-start gap-4 p-5 rounded-2xl border border-slate-200 hover:border-yellow-300 hover:shadow-md transition-all">
                 <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(212,175,55,.1); color:#b8940e;"><i :class="cost.icon"></i></div>
@@ -70,7 +78,7 @@
         <div class="text-center mb-16">
           <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Financing Options</div>
           <h2 class="font-extrabold mb-4" style="font-size:clamp(2rem,4vw,3rem); color:#2c3e50;">Main Financing Models in South Africa</h2>
-          <p class="text-slate-600 mx-auto" style="font-size:1.1rem; max-width:720px; line-height:1.8;">There's no one-size-fits-all option — we help you choose the structure that best fits your guesthouse's cash flow and goals.</p>
+          <p class="text-slate-600 mx-auto" style="font-size:1.1rem; max-width:720px; line-height:1.8;">There's no one-size-fits-all option — we help you choose the structure that best fits your cash flow, lifestyle, or business goals.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="model in financingModels" :key="model.title"
@@ -93,8 +101,8 @@
       <div class="relative z-10 max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-5 text-xs font-bold uppercase tracking-[2px]" style="background:rgba(212,175,55,.15); border:1px solid rgba(212,175,55,.4); color:#d4af37;"><i class="fas fa-star"></i> Key Benefits</div>
-          <h2 class="font-extrabold text-white mb-4" style="font-size:clamp(2rem,4vw,3rem);">What Solar Financing Does for Your Guesthouse</h2>
-          <p style="color:rgba(255,255,255,.7); font-size:1.1rem; max-width:650px; margin:0 auto;">More than just a lower power bill — solar becomes a business advantage.</p>
+          <h2 class="font-extrabold text-white mb-4" style="font-size:clamp(2rem,4vw,3rem);">What Solar Financing Does for You</h2>
+          <p style="color:rgba(255,255,255,.7); font-size:1.1rem; max-width:650px; margin:0 auto;">More than just a lower power bill — solar becomes a lifestyle and business advantage.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="card in benefitCards" :key="card.title" class="rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400/50" style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(4px);">
@@ -113,10 +121,19 @@
           <div class="lg:col-span-5">
             <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style="background:rgba(212,175,55,.1); color:#b8940e; border:1px solid rgba(212,175,55,.3);">Your System</div>
             <h2 class="font-extrabold mt-2 mb-6" style="font-size:clamp(1.8rem,3.5vw,2.5rem); color:#2c3e50; line-height:1.2;">What's Usually Included</h2>
-            <p class="text-slate-600 mb-8" style="font-size:1.05rem; line-height:1.8;">A typical guesthouse solar system is sized around your geyser load, occupancy, and backup needs — NFS Insure helps you match the right funding to the right system.</p>
+            <p class="text-slate-600 mb-6" style="font-size:1.05rem; line-height:1.8;">A typical solar system is sized around your heavy loads, daily usage, and backup needs — NFS Insure helps you match the right funding to the right system.</p>
+            
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/solar_panels_home_1785047702097.png"
+                alt="Modern home with solar panels"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
             <div class="rounded-2xl p-8 text-center" style="background:linear-gradient(135deg,#d4af37 0%,#f1c40f 100%); color:#1a252f;">
               <h3 class="text-xl font-extrabold mb-3">Ready to Stop Paying Eskom in Full?</h3>
-              <p class="mb-6 opacity-85">Apply for solar financing and let us match you with the funding option that suits your guesthouse.</p>
+              <p class="mb-6 opacity-85">Apply for solar financing and let us match you with the funding option that suits your property.</p>
               <router-link to="/solar-financing-apply" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm hover:-translate-y-1 hover:shadow-lg transition-all" style="background:#1a252f; color:white;">
                 <i class="fas fa-arrow-right"></i> Start Your Application
               </router-link>
@@ -286,8 +303,8 @@
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="relative rounded-[2rem] p-16 text-center overflow-hidden" style="background:linear-gradient(135deg,#d4af37 0%,#f1c40f 100%);">
           <div class="relative z-10">
-            <h2 class="font-extrabold mb-4" style="font-size:clamp(1.8rem,4vw,2.8rem); color:#1a252f;">Ready to Power Your Guesthouse Differently?</h2>
-            <p class="mb-8 mx-auto" style="color:rgba(26,37,47,.75); font-size:1.1rem; max-width:600px; line-height:1.7;">Apply today and let NFS Insure match you with the right solar financing option for your business.</p>
+            <h2 class="font-extrabold mb-4" style="font-size:clamp(1.8rem,4vw,2.8rem); color:#1a252f;">Ready to Power Your Property Differently?</h2>
+            <p class="mb-8 mx-auto" style="color:rgba(26,37,47,.75); font-size:1.1rem; max-width:600px; line-height:1.7;">Apply today and let NFS Insure match you with the right solar financing option for your home or business.</p>
             <div class="flex flex-wrap gap-4 justify-center">
               <router-link to="/solar-financing-apply" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-base hover:-translate-y-1 hover:shadow-2xl transition-all" style="background:#1a252f; color:white;"><i class="fas fa-paper-plane"></i> Apply Now</router-link>
               <router-link to="/contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-base hover:-translate-y-1 transition-all" style="background:transparent; border:2px solid rgba(26,37,47,.35); color:#1a252f;"><i class="fas fa-envelope"></i> Get in Touch</router-link>
@@ -308,9 +325,9 @@ function openPackageDetails(pkg) {
   selectedPackage.value = pkg;
 }
 const powerCosts = [
-  { icon: 'fas fa-hot-tub-person', title: 'Geysers', desc: 'Guests use hot water around the clock — geysers alone make up 30–40% of the average guesthouse electricity bill.' },
-  { icon: 'fas fa-lightbulb', title: 'Lights, Fridges, AC & WiFi', desc: 'Common areas and guest rooms draw power all day, every day, regardless of occupancy.' },
-  { icon: 'fas fa-battery-three-quarters', title: 'Backup Power', desc: 'Guests expect uninterrupted power — load shedding during a stay is one of the fastest ways to lose a booking or a review.' },
+  { icon: 'fas fa-hot-tub-person', title: 'Geysers & Heating', desc: 'Water heating is often the largest single power draw for any home or facility, making up 30–40% of the bill.' },
+  { icon: 'fas fa-lightbulb', title: 'Daily Appliances', desc: 'Fridges, ACs, lights, and IT equipment draw power all day, contributing heavily to monthly costs.' },
+  { icon: 'fas fa-battery-three-quarters', title: 'Reliability', desc: 'Families and businesses need uninterrupted power — load shedding causes downtime, lost revenue, and frustration.' },
 ];
 
 const financingModels = [
@@ -323,14 +340,14 @@ const financingModels = [
 const benefitCards = [
   { emoji: '📉', title: 'Lower Running Costs', desc: 'Cut your Eskom bill by 50–80%, freeing up cash flow for the rest of your business.' },
   { emoji: '🔋', title: 'No Load Shedding', desc: 'Batteries keep lights, WiFi, gates, and fridges running through every stage of load shedding.' },
-  { emoji: '📣', title: 'Marketing Edge', desc: '"Eco-friendly + uninterrupted power" is a genuine selling point that drives more bookings.' },
-  { emoji: '🧾', title: 'Tax Break', desc: 'Section 12B allows a 100% deduction in year one for qualifying commercial solar installations.' },
-  { emoji: '🏡', title: 'Asset Value', desc: 'A solar-equipped guesthouse becomes a more valuable, more attractive property.' },
+  { emoji: '📣', title: 'Business Advantage', desc: '"Eco-friendly + uninterrupted power" keeps you productive and attractive to clients.' },
+  { emoji: '🧾', title: 'Tax Benefits', desc: 'Take advantage of tax rebates for residential solar and Section 12B for commercial installations.' },
+  { emoji: '🏡', title: 'Asset Value', desc: 'A solar-equipped home or business becomes a more valuable, more attractive property.' },
   { emoji: '📱', title: 'Remote Monitoring', desc: 'Track your savings and system performance from your phone, wherever you are.' },
 ];
 
 const systemFeatures = [
-  { icon: 'fas fa-solar-panel', title: 'Solar Panels', desc: 'Roof-mounted panels sized to your guesthouse\'s daily energy usage and occupancy patterns.' },
+  { icon: 'fas fa-solar-panel', title: 'Solar Panels', desc: 'Roof-mounted panels sized to your property\'s daily energy usage and load profile.' },
   { icon: 'fas fa-car-battery', title: 'Inverter & Lithium Batteries', desc: 'Stores solar power and keeps essentials running through load shedding and at night.' },
   { icon: 'fas fa-water', title: 'Solar Geysers or Heat Pumps', desc: 'Targets your single biggest power cost directly, cutting geyser-related electricity use.' },
   { icon: 'fas fa-chart-line', title: 'Monitoring', desc: 'An app or dashboard so you can see your savings and system performance from your phone.' },

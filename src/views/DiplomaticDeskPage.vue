@@ -73,6 +73,14 @@
 
           <!-- Right: Why it matters -->
           <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-8 border border-slate-100">
+              <img
+                src="/img/diplomatic_desk_1785048537274.png"
+                alt="Professional handshake in an elegant embassy"
+                class="w-full h-auto object-cover max-h-[300px]"
+              />
+            </div>
+
             <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style="background:rgba(52,152,219,.1); color:#3498db; border:1px solid rgba(52,152,219,.25);">Why it matters</div>
             <p class="text-slate-600 mb-8" style="font-size:1.05rem; line-height:1.8;">Diplomatic institutions face unique operational challenges that standard insurance and financial products don't address. Our dedicated consultants understand the sensitivity, compliance requirements, and specific coverage needs of embassies and missions.</p>
             <div class="space-y-4">

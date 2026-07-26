@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { supabase } from '@/lib/supabase'
 
@@ -65,6 +65,15 @@ const email = ref('')
 const password = ref('')
 const loading = ref(false)
 const errorMsg = ref('')
+
+onMounted(async () => {
+  loading.value = true
+  const { data: { session } } = await supabase.auth.getSession()
+  loading.value = false
+  if (session) {
+    router.push('/admin-dashboard')
+  }
+})
 
 async function handleLogin() {
   loading.value = true
