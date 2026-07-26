@@ -19,7 +19,7 @@
           Apply for <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-gold-bright">Solar Financing</span>
         </h1>
         <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-          Fund your business's solar system without paying the full cost upfront. Tell us about your business and we'll match you with the right financing option.
+          Fund your solar system without paying the full cost upfront. Tell us about your property and we'll match you with the right financing option.
         </p>
       </div>
     </section>
@@ -65,30 +65,46 @@
             
             <form v-if="step <= 5" @submit.prevent="nextStep">
               
-              <!-- Step 1: Business Details -->
+              <!-- Step 1: Property Details -->
               <div v-if="step === 1" class="animate-[fadeIn_0.4s_ease-out]">
-                <h4 class="text-xl font-bold text-primary mb-1">Business Details</h4>
-                <p class="text-slate-500 text-sm mb-6 pb-4 border-b border-slate-100">Tell us about your business.</p>
+                <h4 class="text-xl font-bold text-primary mb-1">Property Details</h4>
+                <p class="text-slate-500 text-sm mb-6 pb-4 border-b border-slate-100">Tell us about the property where the solar system will be installed.</p>
                 
+                <div class="flex flex-col gap-4 mb-6">
+                  <label class="text-sm font-semibold text-slate-700">I am applying as a: <span class="text-danger">*</span></label>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label class="flex items-center gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all" :class="{'border-accent bg-accent/5': form.applicantType === 'Home / Individual'}">
+                      <input v-model="form.applicantType" type="radio" value="Home / Individual" name="applicantType" class="w-4 h-4 accent-accent" required />
+                      <span class="text-sm font-semibold text-slate-700">Homeowner / Individual</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all" :class="{'border-accent bg-accent/5': form.applicantType === 'Business / Commercial'}">
+                      <input v-model="form.applicantType" type="radio" value="Business / Commercial" name="applicantType" class="w-4 h-4 accent-accent" required />
+                      <span class="text-sm font-semibold text-slate-700">Business (incl. Guest Houses)</span>
+                    </label>
+                  </div>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div class="flex flex-col gap-1.5 md:col-span-2">
-                    <label class="text-sm font-semibold text-slate-700">Business Name <span class="text-danger">*</span></label>
-                    <input v-model="form.businessName" type="text" required placeholder="e.g. Riverside Guesthouse" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
-                  </div>
-                  <div class="flex flex-col gap-1.5">
-                    <label class="text-sm font-semibold text-slate-700">Company Registration Number</label>
-                    <input v-model="form.regNo" type="text" placeholder="CIPC registration number" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
-                  </div>
-                  <div class="flex flex-col gap-1.5">
-                    <label class="text-sm font-semibold text-slate-700">Years in Operation <span class="text-danger">*</span></label>
-                    <select v-model="form.yearsOperating" required class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
-                      <option value="" disabled>Select range</option>
-                      <option value="<1">Less than 1 year</option>
-                      <option value="1-2">1 – 2 years</option>
-                      <option value="3-5">3 – 5 years</option>
-                      <option value="5+">5+ years</option>
-                    </select>
-                  </div>
+                  <template v-if="form.applicantType === 'Business / Commercial'">
+                    <div class="flex flex-col gap-1.5 md:col-span-2">
+                      <label class="text-sm font-semibold text-slate-700">Business Name <span class="text-danger">*</span></label>
+                      <input v-model="form.businessName" type="text" required placeholder="e.g. Riverside Guesthouse" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label class="text-sm font-semibold text-slate-700">Company Registration Number</label>
+                      <input v-model="form.regNo" type="text" placeholder="CIPC registration number" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label class="text-sm font-semibold text-slate-700">Years in Operation <span class="text-danger">*</span></label>
+                      <select v-model="form.yearsOperating" required class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                        <option value="" disabled>Select range</option>
+                        <option value="<1">Less than 1 year</option>
+                        <option value="1-2">1 – 2 years</option>
+                        <option value="3-5">3 – 5 years</option>
+                        <option value="5+">5+ years</option>
+                      </select>
+                    </div>
+                  </template>
                   <div class="flex flex-col gap-1.5 md:col-span-2">
                     <label class="text-sm font-semibold text-slate-700">Physical Address <span class="text-danger">*</span></label>
                     <input v-model="form.address" type="text" required placeholder="Street address, Suburb, City, Postal Code" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
@@ -110,14 +126,14 @@
               <!-- Step 2: Applicant Details -->
               <div v-if="step === 2" class="animate-[fadeIn_0.4s_ease-out]">
                 <h4 class="text-xl font-bold text-primary mb-1">Applicant Details</h4>
-                <p class="text-slate-500 text-sm mb-6 pb-4 border-b border-slate-100">Details of the owner or authorized representative.</p>
+                <p class="text-slate-500 text-sm mb-6 pb-4 border-b border-slate-100">Details of the applicant.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div class="flex flex-col gap-1.5">
                     <label class="text-sm font-semibold text-slate-700">Full Name <span class="text-danger">*</span></label>
                     <input v-model="form.fullName" type="text" required class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
                   </div>
-                  <div class="flex flex-col gap-1.5">
+                  <div v-if="form.applicantType === 'Business / Commercial'" class="flex flex-col gap-1.5">
                     <label class="text-sm font-semibold text-slate-700">Position / Role <span class="text-danger">*</span></label>
                     <input v-model="form.position" type="text" required placeholder="e.g. Owner, Manager" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
                   </div>
@@ -156,7 +172,7 @@
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all" :class="{'border-accent bg-accent/5': form.finOption === 'PPA'}">
                       <input v-model="form.finOption" type="radio" value="PPA" name="finOption" class="w-4 h-4 accent-accent" required />
-                      <span class="text-sm font-semibold text-slate-700">Solar PPA</span>
+                      <span class="text-sm font-semibold text-slate-700">Solar PPA (Pay per unit)</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all" :class="{'border-accent bg-accent/5': form.finOption === 'Lease'}">
                       <input v-model="form.finOption" type="radio" value="Lease" name="finOption" class="w-4 h-4 accent-accent" required />
@@ -211,7 +227,7 @@
                 <div class="p-4 rounded-lg bg-accent/10 border border-accent/20 flex gap-3">
                   <i class="fas fa-info-circle text-accent mt-0.5"></i>
                   <div class="text-sm text-slate-700">
-                    Required later: Owner's ID, Business Registration, 6 months bank statements, latest electricity bill.
+                    Required later: Owner's ID, 6 months bank statements, latest electricity bill. If applying as a business, Business Registration will also be required.
                   </div>
                 </div>
               </div>
@@ -224,7 +240,7 @@
                 <div class="flex flex-col gap-3 mb-6">
                   <label class="flex items-start gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all">
                     <input v-model="form.agreeTruth" type="checkbox" required class="w-5 h-5 accent-accent mt-0.5" />
-                    <span class="text-sm font-medium text-slate-700">I declare that the information provided is true and correct and I am authorized to submit this on behalf of the business.</span>
+                    <span class="text-sm font-medium text-slate-700">I declare that the information provided is true and correct and I am authorized to submit this application.</span>
                   </label>
                   <label class="flex items-start gap-3 cursor-pointer p-4 border border-slate-200 rounded-xl hover:border-accent hover:bg-accent/5 transition-all">
                     <input v-model="form.agreeCredit" type="checkbox" required class="w-5 h-5 accent-accent mt-0.5" />
@@ -286,7 +302,7 @@ const isSubmitting = ref(false);
 const selectedFiles = ref([]);
 
 const steps = [
-  { icon: 'fas fa-building', title: 'Business' },
+  { icon: 'fas fa-home', title: 'Property' },
   { icon: 'fas fa-user', title: 'Applicant' },
   { icon: 'fas fa-solar-panel', title: 'Financing' },
   { icon: 'fas fa-paperclip', title: 'Documents' },
@@ -294,6 +310,7 @@ const steps = [
 ];
 
 const form = ref({
+  applicantType: 'Home / Individual',
   businessName: '',
   regNo: '',
   yearsOperating: '',
@@ -366,10 +383,11 @@ async function submitForm() {
     }
 
     // 2. Insert into DB
+    const isBusiness = form.value.applicantType === 'Business / Commercial';
     const { error } = await supabase.from('solar_applications').insert([{
-      business_name: form.value.businessName,
-      reg_no: form.value.regNo,
-      years_operating: form.value.yearsOperating,
+      business_name: isBusiness ? form.value.businessName : 'Homeowner / Individual',
+      reg_no: isBusiness ? form.value.regNo : null,
+      years_operating: isBusiness ? form.value.yearsOperating : null,
       address: form.value.address,
       city: form.value.city,
       province: form.value.province,
