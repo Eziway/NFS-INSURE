@@ -1,0 +1,26 @@
+{
+  "name": "nfs-insure-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "@supabase/supabase-js": "^2.110.8",
+    "pdf-parse": "^2.4.5",
+    "vue": "^3.5.39",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.1.1"
+  }
+}
