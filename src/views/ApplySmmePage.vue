@@ -392,8 +392,8 @@ async function submitForm() {
       biz_city: 'Not provided',
       ownership_percentage: '100',
       owner_address: 'Not provided',
-      funding_amount: form.value.amount,
-      monthly_turnover: form.value.turnover,
+      funding_amount: form.value.amount || 0,
+      monthly_turnover: form.value.turnover || 0,
       funding_purpose: form.value.purpose,
       documents: uploadedUrls
     }]);
@@ -404,7 +404,7 @@ async function submitForm() {
     window.scrollTo({ top: 300, behavior: 'smooth' });
   } catch (error) {
     console.error('Error submitting application:', error.message);
-    alert('There was an error submitting your application. Please try again later.');
+    alert('Error submitting application: ' + (error.message || 'Please try again later.'));
   } finally {
     isSubmitting.value = false;
   }

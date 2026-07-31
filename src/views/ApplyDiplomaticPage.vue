@@ -358,7 +358,7 @@ async function submitForm() {
     window.scrollTo({ top: 300, behavior: 'smooth' });
   } catch (error) {
     console.error('Error submitting application:', error.message);
-    alert('There was an error submitting your application. Please try again later.');
+    alert('Error submitting application: ' + (error.message || 'Please try again later.'));
   } finally {
     isSubmitting.value = false;
   }

@@ -398,7 +398,7 @@ async function submitForm() {
       phone: form.value.phone,
       contact_method: form.value.contactMethod,
       fin_option: form.value.finOption,
-      monthly_bill: form.value.monthlyBill,
+      monthly_bill: form.value.monthlyBill || 0,
       budget: form.value.budget || null,
       additional_notes: form.value.additionalNotes,
       documents: uploadedUrls
@@ -410,7 +410,7 @@ async function submitForm() {
     window.scrollTo({ top: 300, behavior: 'smooth' });
   } catch (error) {
     console.error('Error submitting application:', error.message);
-    alert('There was an error submitting your application. Please try again later.');
+    alert('Error submitting application: ' + (error.message || 'Please try again later.'));
   } finally {
     isSubmitting.value = false;
   }
