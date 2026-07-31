@@ -377,24 +377,24 @@ async function submitForm() {
 
     // 2. Insert into DB
     const { error } = await supabase.from('smme_applications').insert([{
-      biz_name: form.value.bizName,
-      trading_name: form.value.tradingName,
-      biz_type: form.value.bizType,
-      cipc_number: form.value.regNum,
-      years_operating: form.value.yearsOp,
-      industry: form.value.industry,
-      owner_name: `${form.value.firstName} ${form.value.lastName}`,
+      biz_name: form.value.bizName || 'Not provided',
+      trading_name: form.value.tradingName || 'Not provided',
+      biz_type: form.value.bizType || 'Not provided',
+      cipc_number: form.value.regNum || 'Not provided',
+      years_operating: form.value.yearsOp || 0,
+      industry: form.value.industry || 'Not provided',
+      owner_name: `${form.value.firstName || ''} ${form.value.lastName || ''}`.trim() || 'Not provided',
       owner_title: 'Owner',
-      owner_id: form.value.idNumber,
-      owner_email: form.value.email,
-      owner_phone: form.value.phone,
+      owner_id: form.value.idNumber || 'Not provided',
+      owner_email: form.value.email || 'Not provided',
+      owner_phone: form.value.phone || 'Not provided',
       biz_address: 'Not provided',
       biz_city: 'Not provided',
       ownership_percentage: '100',
       owner_address: 'Not provided',
       funding_amount: form.value.amount || 0,
       monthly_turnover: form.value.turnover || 0,
-      funding_purpose: form.value.purpose,
+      funding_purpose: form.value.purpose || 'Not provided',
       documents: uploadedUrls
     }]);
 

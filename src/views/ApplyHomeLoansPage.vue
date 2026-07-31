@@ -346,12 +346,12 @@ async function submitForm() {
 
     // 2. Insert into DB
     const { error } = await supabase.from('home_loan_applications').insert([{
-      full_name: `${form.value.firstName} ${form.value.lastName}`,
-      id_number: form.value.idNumber,
+      full_name: `${form.value.firstName || ''} ${form.value.lastName || ''}`.trim() || 'Not provided',
+      id_number: form.value.idNumber || 'Not provided',
       date_of_birth: '2000-01-01', // Dummy data since not in form
       marital_status: form.value.maritalStatus || 'Single',
-      email: form.value.email,
-      phone: form.value.phone,
+      email: form.value.email || 'Not provided',
+      phone: form.value.phone || 'Not provided',
       current_address: 'Not provided',
       employment_type: form.value.empType || 'Employed',
       employer_name: 'Not provided',
