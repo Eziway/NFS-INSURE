@@ -190,10 +190,7 @@
                     <label class="text-sm font-semibold text-slate-700">Current Monthly Bill (ZAR) <span class="text-danger">*</span></label>
                     <input v-model="form.monthlyBill" type="number" required placeholder="e.g. 15000" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
                   </div>
-                  <div class="flex flex-col gap-1.5">
-                    <label class="text-sm font-semibold text-slate-700">Estimated Budget (ZAR)</label>
-                    <input v-model="form.budget" type="number" placeholder="e.g. 400000" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
-                  </div>
+                  
                 </div>
 
                 <div class="flex flex-col gap-1.5">
