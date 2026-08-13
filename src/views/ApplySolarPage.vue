@@ -189,8 +189,7 @@
                   <div class="flex flex-col gap-1.5">
                     <label class="text-sm font-semibold text-slate-700">Current Monthly Bill (ZAR) <span class="text-danger">*</span></label>
                     <input v-model="form.monthlyBill" type="number" required placeholder="e.g. 15000" class="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" />
-                  </div>
-                  
+                  </div> 
                 </div>
 
                 <div class="flex flex-col gap-1.5">
@@ -322,7 +321,6 @@ const form = ref({
   contactMethod: 'Email',
   finOption: '',
   monthlyBill: '',
-  budget: '',
   additionalNotes: '',
   agreeTruth: false,
   agreeCredit: false,
@@ -396,7 +394,6 @@ async function submitForm() {
       contact_method: form.value.contactMethod || 'Not provided',
       fin_option: form.value.finOption || 'Not provided',
       monthly_bill: form.value.monthlyBill || 0,
-      budget: form.value.budget || null,
       additional_notes: form.value.additionalNotes,
       documents: uploadedUrls
     }]);
