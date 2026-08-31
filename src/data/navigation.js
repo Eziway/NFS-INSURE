@@ -42,6 +42,13 @@ export const navLinks = [
             to: '/medical-aid',
           },
           {
+            label: 'NFS Health',
+            description: 'NFS Health Platform',
+            icon: 'fas fa-notes-medical',
+            to: 'https://health.nfs.insure',
+            external: true,
+          },
+          {
             label: 'Learner Insurance',
             description: 'Student & school protection',
             icon: 'fas fa-user-graduate',

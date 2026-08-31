@@ -75,10 +75,12 @@
                 </div>
 
                 <div class="flex flex-col gap-1">
-                  <router-link
+                  <component
+                    :is="item.external ? 'a' : 'router-link'"
                     v-for="item in group.items"
                     :key="item.label"
-                    :to="item.to"
+                    :[item.external?'href':'to']="item.to"
+                    :target="item.external ? '_blank' : null"
                     class="group/item flex items-center gap-3.5 p-2.5 rounded-2xl transition-all duration-200 hover:bg-slate-50 no-underline cursor-pointer"
                     :class="route.path === item.to ? 'bg-primary/5' : ''"
                     @click="closeMenu"
@@ -95,7 +97,7 @@
                       <div class="text-[0.88rem] font-bold text-slate-800 group-hover/item:text-primary transition-colors leading-tight">{{ item.label }}</div>
                       <div class="text-[0.75rem] text-slate-400 leading-tight mt-0.5">{{ item.description }}</div>
                     </div>
-                  </router-link>
+                  </component>
                 </div>
 
                 <!-- View All -->
@@ -180,16 +182,18 @@
               <div class="pt-1 pb-3 pl-4 border-l-2 border-slate-100 ml-4 mt-1">
                 <div v-for="group in link.children" :key="group.category" class="mb-4">
                   <div class="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-slate-400 mb-2 px-2">{{ group.category }}</div>
-                  <router-link
+                  <component
+                    :is="item.external ? 'a' : 'router-link'"
                     v-for="item in group.items"
                     :key="item.label"
-                    :to="item.to"
+                    :[item.external?'href':'to']="item.to"
+                    :target="item.external ? '_blank' : null"
                     class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-sm transition-colors text-slate-700 hover:text-primary hover:bg-slate-50 no-underline"
                     @click="closeMenu"
                   >
                     <i :class="item.icon" class="w-4 text-center text-secondary"></i>
                     {{ item.label }}
-                  </router-link>
+                  </component>
                 </div>
               </div>
             </div>
