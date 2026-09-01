@@ -121,6 +121,12 @@ const routes = [
     meta: { title: 'Learner Insurance' },
   },
   {
+    path: '/bonds-guarantees',
+    name: 'BondsGuarantees',
+    component: () => import('@/views/BondsGuaranteesPage.vue'),
+    meta: { title: 'Bonds & Guarantees' },
+  },
+  {
     path: '/admin-forgot-password',
     name: 'AdminForgotPassword',
     component: () => import('@/views/AdminForgotPasswordPage.vue'),

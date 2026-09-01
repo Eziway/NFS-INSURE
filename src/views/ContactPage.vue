@@ -140,6 +140,7 @@
                     <option value="SMME Funding">SMME Funding</option>
                     <option value="Solar Financing">Solar Financing</option>
                     <option value="Diplomatic Desk">Diplomatic Desk</option>
+                    <option value="Bonds & Guarantees">Bonds & Guarantees</option>
                     <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
@@ -210,6 +211,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const form = ref({
   name: '',
@@ -248,5 +252,12 @@ function submitForm() {
 
 onMounted(() => {
   window.scrollTo(0, 0);
+  if (route.query.service) {
+    form.value.project = route.query.service;
+  }
+  if (route.query.subject) {
+    form.value.subject = `Inquiry regarding ${route.query.subject}`;
+    form.value.message = `Good day NFS Insure team, I would like to request a quote / specialist consultation regarding ${route.query.subject}. Please have an advisor contact me.`;
+  }
 });
 </script>

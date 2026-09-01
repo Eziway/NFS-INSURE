@@ -148,6 +148,10 @@ const serviceCategories = [
     title: 'Solar Financing', icon: 'fas fa-solar-panel', to: '/solar-financing',
     items: ['Asset Finance', 'Solar PPA', 'Green Loans', 'Leasing Options'],
   },
+  {
+    title: 'Bonds & Guarantees', icon: 'fas fa-file-contract', to: '/bonds-guarantees',
+    items: ['Construction Contract Guarantees', 'Customs & Rebate Bonds', 'Court & Fiduciary Bonds', 'Contract & Fuel Guarantees', 'Alternative Risk Transfer'],
+  },
 ];
 
 const testimonials = [

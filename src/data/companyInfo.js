@@ -23,6 +23,10 @@ export const companyInfo = {
     'Short-Term Insurance (Motor & Household, Commercial, Health & Accident)',
     'Savings & Investments (Personal Savings, Investment Portfolios, Unit Trusts, Education Savings)',
     'Pension & Annuities (Retirement Planning, Retirement Annuities, Pension Funds, Provident Funds)',
+    'Home Loans (Pre-qualification and bond application via ooba)',
+    'SMME Funding & Solar Financing (Business growth loans and clean energy finance)',
+    'Diplomatic Desk (Concierge services for embassies, missions, and international personnel)',
+    'Bonds & Guarantees (In partnership with PCBS: Construction Contract Guarantees, Customs Bonds, Court Bonds, Contract Guarantees, Fuel Guarantees, and Alternative Risk Transfer)',
   ],
   mission:
     'To deliver comprehensive insurance solutions that meet the evolving needs of our clients, upholding the highest standards of integrity, transparency, and customer service.',

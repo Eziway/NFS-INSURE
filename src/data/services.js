@@ -106,5 +106,17 @@ export const services = [
       'Financial & Advisory Support',
       'Specialized Insurance',
     ],
+  },
+  {
+    icon: 'fas fa-file-contract',
+    title: 'Bonds & Guarantees',
+    to: '/bonds-guarantees',
+    features: [
+      'Construction Contract Guarantees',
+      'Customs & Import/Export Bonds',
+      'Court & Fiduciary Bonds',
+      'Contract & Fuel Guarantees',
+      'Alternative Risk Transfer',
+    ],
   }
 ];

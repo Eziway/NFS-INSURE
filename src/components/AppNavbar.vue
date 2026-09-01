@@ -62,7 +62,10 @@
             <!-- Arrow pointer -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 rotate-45 rounded-sm shadow-sm z-20"></div>
 
-            <div class="bg-white border border-slate-100 rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.18)] p-5 flex gap-4 relative z-10" style="min-width: 650px">
+            <div
+              class="bg-white border border-slate-100 rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.18)] p-5 flex gap-4 relative z-10"
+              :style="{ minWidth: link.id === 'solutions' ? '920px' : '340px' }"
+            >
               <div
                 v-for="group in link.children"
                 :key="group.category"

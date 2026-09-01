@@ -24,6 +24,7 @@
           <div class="flex flex-col gap-1">
             <router-link to="/about" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">About Us</router-link>
             <router-link to="/services" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">Services</router-link>
+            <router-link to="/bonds-guarantees" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">Bonds &amp; Guarantees</router-link>
             <router-link to="/faq" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">FAQ's</router-link>
             <router-link to="/contact" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">Contact</router-link>
             <router-link to="/admin-dashboard" class="py-1 hover:text-secondary hover:pl-1 transition-all duration-300">Admin Portal</router-link>

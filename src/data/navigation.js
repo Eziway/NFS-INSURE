@@ -101,6 +101,35 @@ export const navLinks = [
             to: '/solar-financing',
           },
         ],
+      },
+      {
+        category: 'Bonds & Guarantees',
+        items: [
+          {
+            label: 'Construction Guarantees',
+            description: 'Bid bonds, performance & retention',
+            icon: 'fas fa-hard-hat',
+            to: '/bonds-guarantees',
+          },
+          {
+            label: 'Customs Bonds',
+            description: 'Import, export & warehouse bonds',
+            icon: 'fas fa-ship',
+            to: '/bonds-guarantees',
+          },
+          {
+            label: 'Court & Fiduciary Bonds',
+            description: 'Executor, trustee & curator bonds',
+            icon: 'fas fa-gavel',
+            to: '/bonds-guarantees',
+          },
+          {
+            label: 'Contract & Fuel Guarantees',
+            description: 'Goods, services & fuel supply',
+            icon: 'fas fa-gas-pump',
+            to: '/bonds-guarantees',
+          },
+        ],
         viewAll: {
           label: 'View All Solutions',
           to: '/services',

@@ -392,6 +392,7 @@ onUnmounted(() => {
 const heroHighlights = [
   { title: 'Life & Risk Cover Solutions', icon: 'fas fa-umbrella', to: '/risk-cover' },
   { title: 'Medical Aid & Health Plans', icon: 'fas fa-heartbeat', to: '/medical-aid' },
+  { title: 'Bonds & Guarantees (PCBS)', icon: 'fas fa-file-contract', to: '/bonds-guarantees' },
   { title: 'SMME Funding & Growth', icon: 'fas fa-store', to: '/smme-funding' },
   { title: 'Home Loans & Pre-Qualify', icon: 'fas fa-key', to: '/home-loans' },
 ];
@@ -437,6 +438,13 @@ const homeServices = [
     to: '/short-term-insurance',
   },
   {
+    title: 'Bonds & Guarantees',
+    icon: 'fas fa-file-contract',
+    description: 'Specialist guarantees in partnership with PCBS: construction bid & performance bonds, customs, and court bonds.',
+    features: ['Construction Contract Guarantees', 'Customs & Rebate Bonds', 'Court & Fiduciary Bonds'],
+    to: '/bonds-guarantees',
+  },
+  {
     title: 'SMME Funding',
     icon: 'fas fa-store',
     description: 'Business funding solutions including Purchase Order funding, Tender funding, and Asset Finance.',
@@ -462,7 +470,7 @@ const homeServices = [
 const faqs = [
   {
     question: "What does NFS Insure Consultant do?",
-    answer: "NFS Insure Consultant is a licensed financial services provider (FSP No. 53910) specializing in comprehensive insurance solutions, including life insurance, medical aid, short-term insurance, investment planning, SMME funding, home loan pre-qualification, and diplomatic services."
+    answer: "NFS Insure Consultant is a licensed financial services provider (FSP No. 53910) specializing in comprehensive insurance solutions, including life insurance, medical aid, short-term insurance, investment planning, bonds and guarantees (in partnership with PCBS), SMME funding, home loan pre-qualification, and diplomatic services."
   },
   {
     question: "Is NFS Insure Consultant a licensed provider?",
