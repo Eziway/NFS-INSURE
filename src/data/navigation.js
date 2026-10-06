@@ -47,6 +47,7 @@ export const navLinks = [
             icon: 'fas fa-notes-medical',
             to: 'https://health.nfs.insure',
             external: true,
+            badge: 'Coming Soon',
           },
           {
             label: 'Learner Insurance',

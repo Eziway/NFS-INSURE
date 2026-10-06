@@ -97,7 +97,10 @@
                       <i :class="item.icon"></i>
                     </div>
                     <div>
-                      <div class="text-[0.88rem] font-bold text-slate-800 group-hover/item:text-primary transition-colors leading-tight">{{ item.label }}</div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-[0.88rem] font-bold text-slate-800 group-hover/item:text-primary transition-colors leading-tight">{{ item.label }}</span>
+                        <span v-if="item.badge" class="px-1.5 py-0.5 rounded-md bg-amber-100/80 text-amber-700 text-[0.6rem] font-extrabold uppercase tracking-widest whitespace-nowrap shadow-sm border border-amber-200/50">{{ item.badge }}</span>
+                      </div>
                       <div class="text-[0.75rem] text-slate-400 leading-tight mt-0.5">{{ item.description }}</div>
                     </div>
                   </component>
@@ -195,7 +198,8 @@
                     @click="closeMenu"
                   >
                     <i :class="item.icon" class="w-4 text-center text-secondary"></i>
-                    {{ item.label }}
+                    <span class="flex-1">{{ item.label }}</span>
+                    <span v-if="item.badge" class="px-1.5 py-0.5 rounded-md bg-amber-100/80 text-amber-700 text-[0.6rem] font-extrabold uppercase tracking-widest whitespace-nowrap shadow-sm border border-amber-200/50">{{ item.badge }}</span>
                   </component>
                 </div>
               </div>
